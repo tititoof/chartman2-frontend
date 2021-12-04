@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'agent_vuejs_elminster'
+            label 'agent_vuejs_1'
         }
     }
 
@@ -23,17 +23,15 @@ pipeline {
             steps {
                 echo 'Testing..'
                 script {
-                    withCredentials([string(credentialsId: 'sas-judo-backend-test', variable: 'TEST_CREDENTIALS')]) {
-                        sh('''
-                            echo "API_URL=http://localhost:8000" > ./.env
-                        ''')
-                        sh("yarn start &")
-                        sh('''
-                            yarn lint:js
-                            yarn jest
-                        ''')
-                        echo 'Finished tests!'
-                    }
+                    sh('''
+                        echo "API_URL=http://localhost:8000" > ./.env
+                    ''')
+                    sh("yarn start &")
+                    sh('''
+                        yarn lint:js
+                        yarn jest
+                    ''')
+                    echo 'Finished tests!'
                 }
             }
         }
@@ -41,20 +39,24 @@ pipeline {
             steps {
                 echo 'Check quality..'
                 script {
-                    def scannerHome = tool 'sonarscanner';
+                    def scannerHome = tool 'sonarqube-scanner';
                     def sonarqubeBranch = 'chartman2-frontend-dev';
-                    withSonarQubeEnv("sonarqube") {
-                        if (env.BRANCH_NAME == 'main') {
-                            sonarqubeBranch = 'chartman2-frontend'
+                    withCredentials([string(credentialsId: 'sonarqube-server', variable: 'SONAR_URL')]) {
+                        withCredentials([string(credentialsId: 'sonarqubeId', variable: 'SONAR_CREDENTIALS')]) {
+                            withSonarQubeEnv("sonarqube") {
+                                if (env.BRANCH_NAME == 'main') {
+                                    sonarqubeBranch = 'chartman2-frontend'
+                                }
+                                sh "${scannerHome}/bin/sonar-scanner \
+                                        -Dsonar.projectKey=$sonarqubeBranch \
+                                        -Dsonar.sources='pages, layouts, components, store' \
+                                        -Dsonar.exclusions=app/assets/**/* \
+                                        -Dsonar.host.url=$SONAR_URL \
+                                        -Dsonar.login=$SONAR_CREDENTIALS \
+                                        -Dsonar.testExecutionReportPaths=test-report.xml \
+                                        -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info"
+                            }
                         }
-                        sh "${tool("sonarscanner")}/bin/sonar-scanner \
-                                -Dsonar.projectKey=$sonarqubeBranch \
-                                -Dsonar.sources='pages, layouts, components, store' \
-                                -Dsonar.exclusions=app/assets/**/* \
-                                -Dsonar.host.url=http://192.168.1.204:9080 \
-                                -Dsonar.login=dd720dccbf88391235e748c560c2be46672928c8 \
-                                -Dsonar.testExecutionReportPaths=test-report.xml \
-                                -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info"
                     }
                 }
             }
