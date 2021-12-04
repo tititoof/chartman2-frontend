@@ -1,0 +1,115 @@
+<template>
+  <section>
+    <v-img
+      :min-height="minHeight"
+      :max-height="maxHeight"
+      :src="background"
+      contain
+    >
+      <v-container class="fill-height px-4 py-12 justify-center overflow-y-auto">
+        <v-responsive
+          class="d-flex px-4 py-12 overflow-y-auto"
+          height="100%"
+          max-width="1400"
+          width="100%"
+        >
+          <div class="text-h4">
+            <v-btn
+              class="mx-2 float-left"
+              small
+              fab
+              dark
+              color="indigo"
+              @click.prevent="back"
+            >
+              <v-icon
+                dark
+              >
+                mdi-chevron-left
+              </v-icon>
+            </v-btn>
+            {{ title }}
+          </div>
+          <v-row>
+            <v-col
+              v-for="article in articles"
+              :key="article.id"
+              cols="4"
+            >
+              <v-card
+                max-width="344"
+                max-height="200"
+                class="mx-auto"
+                color="info"
+                dark
+                @click="goToArticle(article.id)"
+              >
+                <v-card-title>
+                  <v-icon
+                    medium
+                    left
+                  >
+                    mdi-book-open
+                  </v-icon>
+                  {{ article.attributes.title }}
+                </v-card-title>
+                <v-subheader>
+                  {{ article.attributes.description | truncate(150, '...') }}
+                </v-subheader>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-responsive>
+      </v-container>
+    </v-img>
+  </section>
+</template>
+<script lang="ts">
+import { Vue, Component, namespace, getModule } from 'nuxt-property-decorator'
+import { PostType } from '~/types/index'
+import VisitorModule from '~/store/VisitorModule'
+
+const visitorStore = namespace('VisitorModule')
+
+@Component
+export default class TutorialsCategory extends Vue {
+  // Store
+  visitorStore = getModule(VisitorModule, this.$store)
+  // Store actions
+  @visitorStore.Action('findArticlesFromCategory') findArticlesFromCategory: any
+  @visitorStore.Action('findCategory') findCategory: any
+  // Data
+  articles: Array<PostType> = []
+  background: string = '/backgrounds/library.svg'
+  minHeight: string = '200'
+  maxHeight: string = '700'
+  title: string = ''
+
+  mounted () {
+    this.getCategory()
+    this.getArticlesFromCategory()
+  }
+
+  async getArticlesFromCategory () {
+    await this.findArticlesFromCategory(this.$route.params.id)
+      .then((response: any) => {
+        this.articles = response.data
+      })
+  }
+
+  async getCategory () {
+    await this.findCategory(this.$route.params.id)
+      .then((response: any) => {
+        this.title = response.data.attributes.name
+      })
+  }
+
+  goToArticle (id: number) {
+    this.$router.push('/tutorials/article/' + id)
+  }
+
+  back () {
+    this.$router.push('/tutorials')
+  }
+}
+</script>

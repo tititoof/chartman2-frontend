@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/NuxtLogo.spec.js">
+    <testCase name="NuxtLogo is a Vue instance" duration="12"/>
+  </file>
+</testExecutions>

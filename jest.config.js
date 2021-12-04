@@ -18,7 +18,16 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/components/**/*.vue',
-    '<rootDir>/pages/**/*.vue'
+    '<rootDir>/pages/**/*.vue',
+    '<rootDir>/layouts/**/*.vue',
+    '<rootDir>/store/**/*.ts'
   ],
-  testEnvironment: 'jsdom'
+  globals: {
+    'ts-jest': {
+      diagnostics: false
+    }
+  },
+  testEnvironment: 'jsdom',
+  testRegex: './test/.*.js$',
+  testResultsProcessor: 'jest-sonar-reporter'
 }
