@@ -28,7 +28,7 @@
                 mdi-chevron-left
               </v-icon>
             </v-btn>
-            {{ title }}
+            {{ category }}
           </div>
           <v-row>
             <v-col
@@ -65,44 +65,27 @@
   </section>
 </template>
 <script lang="ts">
-import { Vue, Component, namespace, getModule } from 'nuxt-property-decorator'
+import { Vue, Component } from 'nuxt-property-decorator'
 import { PostType } from '~/types/index'
-import VisitorModule from '~/store/VisitorModule'
 
-const visitorStore = namespace('VisitorModule')
-
-@Component
+@Component({
+  async asyncData({ $api, params }) {
+    const responseCategory = await $api.articles.category(params.id)
+    const category  = responseCategory.data.attributes.name
+    
+    const response = await $api.articles.fromCategory(params.id)
+    const articles = response.data
+    
+    return { articles, category }
+  }
+})
 export default class TutorialsCategory extends Vue {
-  // Store
-  visitorStore = getModule(VisitorModule, this.$store)
-  // Store actions
-  @visitorStore.Action('findArticlesFromCategory') findArticlesFromCategory: any
-  @visitorStore.Action('findCategory') findCategory: any
-  // Data
   articles: Array<PostType> = []
   background: string = '/backgrounds/library.svg'
   minHeight: string = '200'
   maxHeight: string = '700'
   title: string = ''
-
-  mounted () {
-    this.getCategory()
-    this.getArticlesFromCategory()
-  }
-
-  async getArticlesFromCategory () {
-    await this.findArticlesFromCategory(this.$route.params.id)
-      .then((response: any) => {
-        this.articles = response.data
-      })
-  }
-
-  async getCategory () {
-    await this.findCategory(this.$route.params.id)
-      .then((response: any) => {
-        this.title = response.data.attributes.name
-      })
-  }
+  category: string = ''
 
   goToArticle (id: number) {
     this.$router.push('/tutorials/article/' + id)

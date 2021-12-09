@@ -44,3 +44,17 @@ export interface PostType {
   attributes: PostAttributesType,
   relationships: PostRelationshipsType
 }
+
+export const PostDefault: PostType = {
+  id: 0,
+  attributes: {
+    title: '',
+    description: '',
+    content: ''
+  },
+  relationships: {
+    categories: {},
+    users: {}
+  },
+  type: 'post'
+}

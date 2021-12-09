@@ -54,35 +54,25 @@
   </section>
 </template>
 <script lang="ts">
-import { Vue, Component, namespace, getModule } from 'nuxt-property-decorator'
-import VisitorModule from '~/store/VisitorModule'
+import { Vue, Component } from 'nuxt-property-decorator'
+import { CategoryType } from '~/types'
 
-const visitorStore = namespace('VisitorModule')
-
-@Component
+@Component({
+  async asyncData({ $api }) {
+    const response = await $api.articles.categories()
+    const categories = response.data
+    
+    return { categories }
+  }
+})
 export default class Tutorials extends Vue {
-  // Store
-  visitorStore = getModule(VisitorModule, this.$store)
-  @visitorStore.Action('findAllCategories') findAllCategories: any
-  // Data
   minHeight: string = '200'
   maxHeight: string = '700'
   background: string = '/backgrounds/tutorial.svg'
-  categories: Array<object> = []
+  categories: Array<CategoryType> = []
 
-  mounted () {
-    this.getCategories()
-  }
-
-  goToCategory (id: number) {
+  goToCategory(id: number) {
     this.$router.push('/tutorials/category/' + id)
-  }
-
-  async getCategories () {
-    await this.$axios.$get('/categories')
-      .then((response: any) => {
-        this.categories = response.data
-      })
   }
 }
 </script>

@@ -28,13 +28,13 @@ import { Vue, Component } from 'nuxt-property-decorator'
 import HomeCard from '~/components/Home/HomeCard.vue'
 
 @Component({
+  middleware: ['auth'],
   components: { HomeCard }
 })
 export default class AdminCards extends Vue {
   minHeight: string = '200'
   maxHeight: string = '700'
   background: string = '/backgrounds/admin.svg'
-  middleware: string = 'auth'
   cards: Array<Object> = [
     {
       cardIcon: 'mdi-file-cabinet',

@@ -110,12 +110,19 @@ import { Editor } from 'vuetify-markdown-editor'
 import MainStore from '~/store/MainStore'
 import PostModule from '~/store/PostModule'
 import CategoryModule from '~/store/CategoryModule'
+import { PostDefault, PostType } from '~/types'
 
 const categoryStore = namespace('CategoryModule')
 const mainModule = namespace('MainStore')
 const postStore = namespace('PostModule')
 
 @Component({
+  async asyncData({ $api, params }) {
+    const response = await $api.posts.find(params.id)
+    const article = response.data
+    
+    return { article }
+  },
   components: { Editor }
 })
 export default class AdminArticleId extends Vue {
@@ -130,6 +137,7 @@ export default class AdminArticleId extends Vue {
   @postStore.Action('update') putPost: any
   // Data
   background: string = '/backgrounds/business.svg'
+  article: PostType = PostDefault
   categoriesRules: Array<object> = [
     (v: any) => (v.length > 0) || 'Au moins 1 catégorie est requise'
   ]
@@ -165,25 +173,32 @@ export default class AdminArticleId extends Vue {
     }
   }
 
-  mounted () {
+  mounted() {
     this.getListCategories()
-    this.getPost()
+    this.title += ' "' + this.article.attributes.title + '"'
+    this.form.title = this.article.attributes.title
+    this.form.description = this.article.attributes.description
+    this.form.content = this.article.attributes.content
+    for (const category in this.article.relationships.categories.data) {
+        this.form.categories.push(this.article.relationships.categories.data[category].id)
+      }
   }
 
-  submitForm () {
-    const _self = this
-    _self.putPost(_self.$route.params.id, _self.form)
-      .then(() => {
-        _self.showSnackbar('Article crée.')
-        _self.$router.push('/admin/article')
-      }).catch((reason: any) => {
-        for (const error in reason.response.data) {
-          this.formError[error] = reason.response.data[error]
-        }
-      })
+  submitForm() {
+    this.$api.posts.update(this.$route.params.id, this.form)
+    // const _self = this
+    // _self.putPost(_self.$route.params.id, _self.form)
+    //   .then(() => {
+    //     _self.showSnackbar('Article crée.')
+    //     _self.$router.push('/admin/article')
+    //   }).catch((reason: any) => {
+    //     for (const error in reason.response.data) {
+    //       this.formError[error] = reason.response.data[error]
+    //     }
+    //   })
   }
 
-  back () {
+  back() {
     this.$router.back()
   }
 
@@ -194,18 +209,18 @@ export default class AdminArticleId extends Vue {
     })
   }
 
-  async getPost () {
-    const _self = this
-    await this.findPost(this.$route.params.id).then((response: any) => {
-      _self.title += ' "' + response.data.attributes.title + '"'
-      _self.form.title = response.data.attributes.title
-      _self.form.description = response.data.attributes.description
-      _self.form.content = response.data.attributes.content
-      for (const category in response.data.relationships.categories.data) {
-        _self.form.categories.push(response.data.relationships.categories.data[category].id)
-      }
-    })
-  }
+  // async getPost () {
+  //   const _self = this
+  //   await this.findPost(this.$route.params.id).then((response: any) => {
+  //     _self.title += ' "' + response.data.attributes.title + '"'
+  //     _self.form.title = response.data.attributes.title
+  //     _self.form.description = response.data.attributes.description
+  //     _self.form.content = response.data.attributes.content
+  //     for (const category in response.data.relationships.categories.data) {
+  //       _self.form.categories.push(response.data.relationships.categories.data[category].id)
+  //     }
+  //   })
+  // }
 
   // Watch form title changes
   @Watch('form.title')

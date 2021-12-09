@@ -58,6 +58,12 @@ const mainModule = namespace('MainStore')
 const visitorStore = namespace('VisitorModule')
 
 @Component({
+  async asyncData({ $api, params }) {
+    const response = await $api.articles.find(params.id)
+    const article = response.data
+    
+    return { article }
+  },
   components: { Editor }
 })
 export default class TutorialsArticle extends Vue {

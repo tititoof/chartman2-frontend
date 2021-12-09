@@ -6,6 +6,7 @@
     max-width="344"
     min-width="344"
     max-height="200"
+    :to="cardRoute"
   >
     <v-card-title>
       <v-icon
@@ -32,20 +33,6 @@
         align="end"
         justify="end"
       >
-        <v-btn
-          small
-          fab
-          color="grey lighten-5"
-          router
-          :to="cardRoute"
-          outlined
-          :ripple="true"
-          align-start
-        >
-          <v-icon>
-            mdi-page-next
-          </v-icon>
-        </v-btn>
       </v-row>
     </v-card-actions>
   </v-card>

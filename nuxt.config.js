@@ -28,7 +28,7 @@ export default {
     '~/plugins/axios.js',
     '~/plugins/axios-accessor.ts',
     '~/plugins/filters.js',
-    "~/plugins/api.js" 
+    "~/plugins/api.ts"
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -46,7 +46,11 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/auth-next'
+    '@nuxtjs/auth-next',
+    // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt#readme
+    'cookie-universal-nuxt',
+    // https://www.npmjs.com/package/nuxt-vuex-localstorage
+    'nuxt-vuex-localstorage'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -100,7 +104,7 @@ export default {
     cookie: false,
     strategies: {
       local: {
-        scheme: 'refresh',
+        // scheme: 'refresh',
         token: {
           property: 'client',
           maxAge: 1800
@@ -112,7 +116,7 @@ export default {
           maxAge: 60 * 60 * 24 * 30
         },
         user: {
-          property: 'user'
+          property: 'data'
           // autoFetch: true
         },
         endpoints: {
@@ -124,14 +128,14 @@ export default {
         },
         tokenRequired: true,
         tokenType: 'bearer',
-        autoFetchUser: true
+        autoFetchUser: false
       }
     },
     redirect: {
-      login: '/login',
+      login: '/admin',
       logout: '/',
-      callback: '/login',
-      home: '/applications'
+      callback: '/admin',
+      home: '/'
     },
     localStorage: {
       prefix: 'chartman2_auth.'

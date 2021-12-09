@@ -16,7 +16,7 @@
     </v-row>
     <v-row>
       <v-col cols="12">
-        <v-text-field v-model="loginEmail" :rules="loginEmailRules" label="E-mail" required />
+        <v-text-field v-model="loginEmail" :rules="[rules.required, rules.email]" label="E-mail" required />
       </v-col>
       <v-col cols="12">
         <v-text-field
@@ -74,53 +74,35 @@ export default class Login extends Vue {
   mainModule = getModule(MainStore, this.$store)
   @mainModule.Action('showSnackbar') showSnackbar: any
 
+  error: String = ''
   valid: Boolean = false
   loginEmail: String = ''
-  loginEmailRules: Array<any> = [
-    (v: any) => !!v || 'Requis',
-    (v: any) => /.+@.+\..+/.test(v) || 'E-mail doit être valide'
-  ]
-
   loginPassword: String = ''
   show1: Boolean = false
 
   rules: Object = {
     required: (value: any) => !!value || 'Requis.',
-    min: (v: any) => (v && v.length >= 8) || '8 charactères minimum'
+    min: (v: any) => (v && v.length >= 8) || '8 charactères minimum',
+    email: (v: any) => /.+@.+\..+/.test(v) || 'E-mail doit être valide'
   }
-
-  emailRules: Array<any> = [
-    (v: any) => !!v || 'Required',
-    (v: any) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
-  ]
-
-  error: String = ''
 
   snackbarText: String = 'Vous êtes connecté.'
 
   async userLogin () {
     try {
-      const _self = this
-      _self.error = ''
-      const response: any = await _self.login()
-      _self.$auth.setUser(response.data.data)
-      await _self.setUserToken(response.headers.client)
+      this.error = ''
+      const response: any = await this.$auth.loginWith('local', { data: { email: this.loginEmail, password: this.loginPassword } })
+      
+      await this.setUserToken(response.headers.client)
     } catch (err) {
       this.error = 'Adresse Email ou mot de passe invalide'
     }
   }
 
   async setUserToken (token: any) {
-    const _self = this
-    await _self.$auth.setUserToken(token)
-      .then(() => {
-        _self.showSnackbar(this.snackbarText)
-        _self.onLoginDone()
-      })
-  }
-
-  async login () {
-    return await this.$auth.loginWith('local', { data: { email: this.loginEmail, password: this.loginPassword } })
+    await this.$auth.setUserToken(token)
+    this.showSnackbar(this.snackbarText)
+    this.onLoginDone()
   }
 
   async logout () {

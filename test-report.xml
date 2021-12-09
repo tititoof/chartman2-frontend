@@ -1,6 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/NuxtLogo.spec.js">
-    <testCase name="NuxtLogo is a Vue instance" duration="12"/>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/_id.spec.js">
+    <testCase name="AdminCategoryId is a Vue component" duration="31"/>
+    <testCase name="AdminCategoryId trigger submitForm" duration="29">
+      <failure message="Error: expect(jest.fn()).toHaveBeenCalledTimes(expected)"><![CDATA[Error: expect(jest.fn()).toHaveBeenCalledTimes(expected)
+
+Expected number of calls: 1
+Received number of calls: 0
+    at Object.<anonymous> (/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/_id.spec.js:77:35)
+    at Promise.then.completed (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:390:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:315:10)
+    at _callCircusTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:66:9)
+    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:60:9)
+    at run (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
+    at jestAdapter (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/testWorker.js:133:12)]]></failure>
+    </testCase>
+    <testCase name="AdminCategoryId send form" duration="21"/>
+    <testCase name="AdminCategoryId get categories" duration="11"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/tutorials/category/_id.spec.js">
+    <testCase name="TutorialsCategory is a Vue component" duration="29"/>
+    <testCase name="TutorialsCategory get all posts from category" duration="29"/>
+    <testCase name="TutorialsCategory get category" duration="20"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/index.spec.js">
+    <testCase name="AdminCategory is a Vue component" duration="24"/>
+    <testCase name="AdminCategory get categories" duration="9">
+      <failure message="TypeError: Cannot read property &apos;Categories&apos; of undefined"><![CDATA[TypeError: Cannot read property 'Categories' of undefined
+    at VueComponent.getCategories (/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/category/index.vue:47:1)
+    at VueComponent.mounted (/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/category/index.vue:42:1)
+    at invokeWithErrorHandling (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:1868:57)
+    at callHook (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4232:7)
+    at Object.insert (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:3161:7)
+    at invokeInsertHook (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:6381:28)
+    at VueComponent.patch [as __patch__] (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:6598:5)
+    at VueComponent.Vue._update (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:3957:19)
+    at VueComponent.updateComponent (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4078:10)
+    at Watcher.get (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4490:25)
+    at new Watcher (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4479:12)
+    at mountComponent (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4085:3)
+    at VueComponent.Object.<anonymous>.Vue.$mount (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:9084:10)
+    at VueComponent.Object.<anonymous>.Vue.$mount (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:11989:16)
+    at mount (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/@vue/test-utils/dist/vue-test-utils.js:14057:21)
+    at Object.<anonymous> (/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/index.spec.js:42:15)
+    at Promise.then.completed (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:390:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:315:10)
+    at _callCircusHook (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:181:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:148:5)
+    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:66:9)
+    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:60:9)
+    at run (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
+    at jestAdapter (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/testWorker.js:133:12)]]></failure>
+      <failure message="TypeError: Cannot read property &apos;Categories&apos; of undefined"><![CDATA[TypeError: Cannot read property 'Categories' of undefined
+    at VueComponent.getCategories (/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/category/index.vue:47:1)
+    at VueComponent.mounted (/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/category/index.vue:42:1)
+    at invokeWithErrorHandling (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:1868:57)
+    at callHook (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4232:7)
+    at Object.insert (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:3161:7)
+    at invokeInsertHook (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:6381:28)
+    at VueComponent.patch [as __patch__] (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:6598:5)
+    at VueComponent.Vue._update (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:3957:19)
+    at VueComponent.updateComponent (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4078:10)
+    at Watcher.get (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4490:25)
+    at new Watcher (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4479:12)
+    at mountComponent (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4085:3)
+    at VueComponent.Object.<anonymous>.Vue.$mount (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:9084:10)
+    at VueComponent.Object.<anonymous>.Vue.$mount (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:11989:16)
+    at mount (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/@vue/test-utils/dist/vue-test-utils.js:14057:21)
+    at Object.<anonymous> (/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/index.spec.js:42:15)
+    at Promise.then.completed (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:390:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:315:10)
+    at _callCircusHook (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:181:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:148:5)
+    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:66:9)
+    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:60:9)
+    at run (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
+    at jestAdapter (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/testWorker.js:133:12)]]></failure>
+      <failure message="TypeError: Cannot read property &apos;Categories&apos; of undefined"><![CDATA[TypeError: Cannot read property 'Categories' of undefined
+    at VueComponent.getCategories (/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/category/index.vue:47:1)
+    at Object.<anonymous> (/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/index.spec.js:66:16)
+    at Promise.then.completed (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:390:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:315:10)
+    at _callCircusTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:66:9)
+    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:60:9)
+    at run (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
+    at jestAdapter (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/testWorker.js:133:12)]]></failure>
+      <failure message="ReferenceError: $api is not defined"><![CDATA[ReferenceError: $api is not defined
+    at Object.<anonymous> (/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/index.spec.js:70:12)]]></failure>
+    </testCase>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/new.spec.js">
+    <testCase name="AdminCategoryNew trigger submitForm" duration="42">
+      <failure message="Error: expect(jest.fn()).toHaveBeenCalledTimes(expected)"><![CDATA[Error: expect(jest.fn()).toHaveBeenCalledTimes(expected)
+
+Expected number of calls: 1
+Received number of calls: 0
+    at Object.<anonymous> (/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/new.spec.js:54:35)
+    at Promise.then.completed (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:390:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:315:10)
+    at _callCircusTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:66:9)
+    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:60:9)
+    at run (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
+    at jestAdapter (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/testWorker.js:133:12)]]></failure>
+    </testCase>
+    <testCase name="AdminCategoryNew send form" duration="15"/>
+    <testCase name="AdminCategoryNew is a Vue component" duration="16"/>
   </file>
 </testExecutions>
