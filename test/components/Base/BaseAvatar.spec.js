@@ -1,68 +1,47 @@
 import BaseAvatar from '@/components/Base/BaseAvatar.vue'
-import Vuex from 'vuex'
 import { createLocalVue, mount } from '@vue/test-utils'
+import Vuex from 'vuex'
+// Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
-// Utilities
 
 const localVue = createLocalVue()
-// const vuetify = new Vuetify()
 localVue.use(Vuex)
 
 describe('BaseAvatar', () => {
   let wrapper
-  let store
+
   beforeEach(() => {
-    const mockRoute = {
-      params: {
-        id: 1
-      }
-    }
-
-    const mockRouter = {
-      push: jest.fn()
-    }
-
-    const actions = {
-      showSnackbar: jest.fn()
-    }
-    store = new Vuex.Store({
-      modules: {
-        Main: {
-          namespaced: true,
-          actions
-        }
-      }
-    })
-
     wrapper = mount(BaseAvatar, {
       localVue,
-      store,
-      mocks: {
-        $vuetify: {
-          breakpoint: {
-            smAndDown: () => true
-          }
-        },
-        $route: mockRoute,
-        $router: mockRouter
-      },
       stubs: vuetifyStub,
       propsData: {
         icon: 'test',
         outlined: true,
-        size: {
-          type: 56
-        }
+        size: 56
       }
     })
   })
 
-  it('is a Vue component', () => {
+  it('>> Vue component', () => {
     expect(wrapper.findComponent(BaseAvatar).vm).toBeTruthy()
   })
 
-  it('classes', () => {
+  it('>> classes getter', () => {
     const test = wrapper.vm.classes
+
     expect(test).toEqual(['base-avatar--outlined'])
+  })
+
+  it('>> outlineSize getter', () => {
+    const test = wrapper.vm.outlineSize
+
+    expect(test).toEqual(56 + 56 / 6)
+  })
+
+  it('>> styles getter', () => {
+    const test = wrapper.vm.styles
+    const margin = 56 / 12
+
+    expect(test).toEqual({margin: `-${margin}px 0 0 -${margin}px`})
   })
 })

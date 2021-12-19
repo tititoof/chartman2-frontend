@@ -1,69 +1,78 @@
 import AdminArticleNew from '@/pages/admin/article/new.vue'
-import Vuex from 'vuex'
 import { createLocalVue, shallowMount } from '@vue/test-utils'
+import flushPromises from 'flush-promises'
+import Vuex from 'vuex'
+//Mocks
+import apiMock from '~/test/mock/apiMock'
+import routerMock from '~/test/mock/routerMock'
+import storeMock from '~/test/mock/storeMock'
+// Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
-const store = new Vuex.Store({
-  modules: {
-    PostModule: {
-      namespaced: true,
-      actions: {
-        find: jest.fn(() => Promise.resolve(mockAxiosGetResult)),
-        create: jest.fn(() => Promise.resolve(mockAxiosGetResult))
-      }
-    },
-    MainStore: {
-      namespaced: true,
-      actions: {
-        showSnackbar: jest.fn()
-      }
-    }
+const store = new Vuex.Store(storeMock)
+
+const mockRoute = {
+  params: {
+    id: 1
   }
-})
-const mockAxiosGetResult = { data: { id: '5', type: 'post', attributes: { title: 'yy', description: 'description', content: 'tt' }, relationships: { user: { data: { id: '1', type: 'user' } }, categories: { data: [] } } } }
-jest.mock('axios', () => ({
-  $get: () => Promise.resolve(mockAxiosGetResult.data)
-}))
+}
+
 describe('AdminArticleNew', () => {
   let wrapper
 
   beforeEach(() => {
+    jest.resetModules()
+    jest.clearAllMocks()
+
     wrapper = shallowMount(AdminArticleNew, {
       localVue,
       store,
       mocks: {
-        $vuetify: {
-          breakpoint: {
-            smAndDown: () => true
-          }
-        },
-        $axios: {
-          $get: () => Promise.resolve(mockAxiosGetResult),
-          $post: jest.fn(() => Promise.resolve(mockAxiosGetResult))
-        }
+        $router: routerMock,
+        $route: mockRoute,
+        $api: apiMock
+      },
+      propsData: {
+        id: 1
       },
       stubs: vuetifyStub
     })
   })
 
-  it('is a Vue component', () => {
+  it('>> Vue component', () => {
     expect(wrapper.findComponent(AdminArticleNew).vm).toBeTruthy()
   })
 
-  it('get categories', () => {
-    wrapper.vm.getListCategories()
-    wrapper.vm.$nextTick(() => {
-      expect(wrapper.vm.$axios.$get).toHaveBeenCalledTimes(1)
-    })
+  it('>> asyncData - categories.findAll - posts.find', async () => {
+    const apiCategoriesSpy = jest.spyOn(apiMock.categories, 'findAll')
+
+    const response = await wrapper.vm.$options.asyncData({ $api: apiMock, params: mockRoute.params })
+
+    await flushPromises()
+
+    expect(apiCategoriesSpy).toHaveBeenCalledTimes(1)
+    expect(response.categories).toStrictEqual([{"id":"1","type":"category","attributes":{"name":"NuxtJS"},"relationships":{"posts":{"data":[{"id":"1","type":"post"},{"id":"2","type":"post"},{"id":"3","type":"post"},{"id":"4","type":"post"}]}}}])
   })
 
-  it('send form', () => {
+  it('>> submitForm', async () => {
+    const apiArticleSpy = jest.spyOn(apiMock.posts, 'create')
+    wrapper.vm.form.categories = [1]
+    wrapper.vm.form.title = "title"
+    wrapper.vm.form.description = "description"
+    wrapper.vm.form.content = "content"
     wrapper.vm.submitForm()
-    wrapper.vm.$nextTick(() => {
-      expect(wrapper.vm.$axios.$post).toHaveBeenCalledTimes(1)
-    })
+
+    await flushPromises()
+
+    expect(apiArticleSpy).toHaveBeenCalledTimes(1)
+  })
+
+  it('>> router.back', () => {
+    wrapper.vm.goBack()
+
+    expect(routerMock.back).toHaveBeenCalledTimes(1)
   })
 })

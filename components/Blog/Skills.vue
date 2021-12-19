@@ -95,7 +95,7 @@ export default class Skills extends Vue {
       }
     ]
 
-    itemTypeOf (item: any, defaultValue: String) {
+    itemTypeOf(item: any, defaultValue: String) {
       return typeof item !== 'undefined' ? item : defaultValue
     }
 }

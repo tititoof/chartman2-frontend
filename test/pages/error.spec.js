@@ -1,27 +1,29 @@
-import Vuex from 'vuex'
-import { createLocalVue, mount } from '@vue/test-utils'
 import Error from '~/layouts/error.vue'
+import { createLocalVue, mount } from '@vue/test-utils'
+import Vuex from 'vuex'
+// Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
 describe('ErrorPage', () => {
-  test('is a Vue component', () => {
-    // const wrapper = mount(Index)
-    const wrapper = mount(Error, {
+  let wrapper
+
+  beforeEach(() => {
+    wrapper = mount(Error, {
       localVue,
       propsData: { error: { statusCode: 404 } },
-      mocks: {
-        $vuetify: {
-          breakpoint: {
-            smAndDown: () => true
-          }
-        }
-      },
       stubs: vuetifyStub
     })
+  })
 
+  it('>> Vue component', () => {
     expect(wrapper.findComponent(Error).vm).toBeTruthy()
+  })
+
+  it('>> data', () => {
+    expect(wrapper.vm.pageNotFound).toStrictEqual('404 Not Found')
+    expect(wrapper.vm.otherError).toStrictEqual('An error occurred')
   })
 })

@@ -1,57 +1,69 @@
 import BaseInformation from '@/components/Base/BaseInformation.vue'
-import Vuex from 'vuex'
-
-// Utilities
 import { createLocalVue, mount } from '@vue/test-utils'
+import Vuex from 'vuex'
+// Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 
 const localVue = createLocalVue()
-// const vuetify = new Vuetify()
 localVue.use(Vuex)
 
 describe('BaseInformation', () => {
   let wrapper
-  let store
+
   beforeEach(() => {
-    const mockRoute = {
-      params: {
-        id: 1
-      }
-    }
-
-    const mockRouter = {
-      push: jest.fn()
-    }
-
-    const actions = {
-      showSnackbar: jest.fn()
-    }
-    store = new Vuex.Store({
-      modules: {
-        Main: {
-          namespaced: true,
-          actions
-        }
-      }
-    })
-
     wrapper = mount(BaseInformation, {
       localVue,
-      store,
-      mocks: {
-        $vuetify: {
-          breakpoint: {
-            smAndDown: () => true
-          }
-        },
-        $route: mockRoute,
-        $router: mockRouter
+      stubs: vuetifyStub,
+      propsData: {
+        avatarColorProp: 'purple',
+        iconColorProp: 'green',
+        textContentClassProp: 'text-class',
+        contentProp: 'content-prop'
       },
-      stubs: vuetifyStub
     })
   })
 
-  it('is a Vue component', () => {
+  it('>> Vue component', () => {
     expect(wrapper.findComponent(BaseInformation).vm).toBeTruthy()
+  })
+
+  it('>> avatarColor getter', () => {
+    expect(wrapper.vm.avatarColor).toEqual('purple')
+  })
+
+  it('>> typeIconImage getter', () => {
+    expect(wrapper.vm.typeIconImage).toEqual('icon')
+  })
+
+  it('>> icon getter', () => {
+    expect(wrapper.vm.icon).toEqual('mdi-cursor-default-outline')
+  })
+
+  it('>> iconColor getter', () => {
+    expect(wrapper.vm.iconColor).toEqual('green')
+  })
+
+  it('>> iconHeight getter', () => {
+    expect(wrapper.vm.iconHeight).toEqual('72px')
+  })
+
+  it('>> image getter', () => {
+    expect(wrapper.vm.image).toEqual('images/gitea.png')
+  })
+
+  it('>> text getter', () => {
+    expect(wrapper.vm.text).toEqual('Default text')
+  })
+
+  it('>> textContentClass getter', () => {
+    expect(wrapper.vm.textContentClass).toEqual('text-class')
+  })
+
+  it('>> content getter', () => {
+    expect(wrapper.vm.content).toEqual('content-prop')
+  })
+
+  it('>> textClass getter', () => {
+    expect(wrapper.vm.textClass).toEqual('base-body text-body-1 mx-auto text--lighten-1 text-left')
   })
 })

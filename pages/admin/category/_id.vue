@@ -20,7 +20,7 @@
               fab
               dark
               color="indigo"
-              @click.prevent="back"
+              @click.prevent="goBack"
             >
               <v-icon
                 dark
@@ -50,7 +50,7 @@
               <v-text-field
                 v-model="form.name"
                 label="Nom"
-                :rules="nameRules"
+                :rules="[rules.required]"
                 :error-count="formError.name.length"
                 :error-messages="formError.name"
                 required
@@ -66,71 +66,58 @@
 import { Vue, Component, namespace, getModule } from 'nuxt-property-decorator'
 import HomeList from '~/components/Home/HomeList.vue'
 import MainStore from '~/store/MainStore'
-import CategoryModule from '~/store/CategoryModule'
-import { CategoryFormType } from '~/types/index'
+import { CategoryDefault, CategoryFormDefault, CategoryFormErrorDefault, CategoryFormErrorType, CategoryFormType, CategoryType } from '~/types/index'
 
 const mainModule = namespace('MainStore')
-const categoryStore = namespace('CategoryModule')
 
 @Component({
+  async asyncData({ $api, params }) {
+    const responseCategory = await $api.categories.find(params.id)
+    const category = responseCategory.data
+
+    return { category }
+  },
+  middleware: ['auth'],
   components: { HomeList }
 })
 export default class AdminCategoryId extends Vue {
   // Store
   mainModule = getModule(MainStore, this.$store)
-  categoryStore = getModule(CategoryModule, this.$store)
-  @categoryStore.Action('update') putCategory: any
-  @categoryStore.Action('find') findCategory: any
   @mainModule.Action('showSnackbar') showSnackbar: any
 
   // Data
-  title: string = 'Edition de la catégorie'
+  category: CategoryType = CategoryDefault
+  title: string = ''
   background: string = '/backgrounds/business.svg'
   minHeight: string = '200'
   maxHeight: string = '500'
-  pathAdd!: string
+  form: CategoryFormType = CategoryFormDefault
+  formError: CategoryFormErrorType = CategoryFormErrorDefault
   formValid: boolean = false
-  form: CategoryFormType = {
-    name: ''
+  rules: Object = {
+    required: (value: any) => !!value || 'Requis.',
   }
 
-  formError: object = {
-    name: []
+  initialize() {
+    this.title = 'Edition de la catégorie ' + this.category.attributes.name
+    this.form.name = this.category.attributes.name
   }
-
-  nameRules: Array<object> = [
-    (v: any) => !!v || 'Le nom est requis'
-  ]
 
   mounted() {
-    this.getCategory()
+    this.initialize()
   }
 
-  submitForm () {
-    const _self = this
-    _self.putCategory(_self.$route.params.id, _self.form)
-      .then(() => {
-        _self.showSnackbar('Catégorie modifiée.')
-        _self.$router.push('/admin/category')
-      }).catch((reason: any) => {
-        _self.formError = reason.response.data
-      })
+  submitForm() {
+    try {
+      this.$api.categories.update(this.$route.params.id, this.form)
+      this.showSnackbar('Catégorie modifiée.')
+      this.$router.push('/admin/category')
+    } catch(reason: any) {
+      this.formError = reason
+    }
   }
 
-  getCategory () {
-    const _self = this
-    _self.findCategory(_self.$route.params.id)
-      .then((response: any) => {
-        _self.title += ' "' + response.data.attributes.name + '"'
-        _self.form.name = response.data.attributes.name
-      })
-      .catch(() => {
-        _self.showSnackbar('Impossible de récupérer la catégorie.')
-        _self.$router.push('/admin/category')
-      })
-  }
-
-  back () {
+  goBack() {
     this.$router.back()
   }
 }

@@ -4,10 +4,11 @@
       :min-height="minHeight"
       :max-height="maxHeight"
       :src="background"
+      contain
     >
-      <v-container class="fill-height px-4 py-12 justify-center">
+      <v-container class="fill-height px-4 py-3 justify-center overflow-y-auto">
         <v-responsive
-          class="d-flex px-4 py-12"
+          class="d-flex px-4 py-12 overflow-y-auto"
           height="100%"
           max-width="1400"
           width="100%"
@@ -19,7 +20,7 @@
               fab
               dark
               color="indigo"
-              @click.prevent="back"
+              @click.prevent="goBack"
             >
               <v-icon
                 dark
@@ -27,7 +28,7 @@
                 mdi-chevron-left
               </v-icon>
             </v-btn>
-            {{ title }}
+            {{ article.attributes.title }}
           </div>
           <v-divider />
           <v-responsive
@@ -36,7 +37,7 @@
           >
             <Editor
               ref="editor"
-              v-model="content"
+              v-model="article.attributes.content"
               mode="viewer"
               hint="Hint"
               :outline="false"
@@ -52,10 +53,9 @@
 import { Vue, Component, namespace, getModule } from 'nuxt-property-decorator'
 import { Editor } from 'vuetify-markdown-editor'
 import MainStore from '~/store/MainStore'
-import VisitorModule from '~/store/VisitorModule'
+import { PostDefault, PostType } from '~/types'
 
 const mainModule = namespace('MainStore')
-const visitorStore = namespace('VisitorModule')
 
 @Component({
   async asyncData({ $api, params }) {
@@ -67,20 +67,13 @@ const visitorStore = namespace('VisitorModule')
   components: { Editor }
 })
 export default class TutorialsArticle extends Vue {
-  // Stores
   mainModule = getModule(MainStore, this.$store)
-  visitorStore = getModule(VisitorModule, this.$store)
-  // Stores actions
   @mainModule.Action('showSnackbar') showSnackbar: any
-  @visitorStore.Action('findArticle') findArticle: any
-  // Data
+
   background: string = '/backgrounds/background.svg'
-  categories: Array<object> = []
-  content: string = ''
-  description: string = ''
+  article: PostType = PostDefault
   minHeight: string = '200'
   maxHeight: string = '700'
-  title: string = ''
   renderConfig: object = {
     // Mermaid config
     mermaid: {
@@ -88,29 +81,8 @@ export default class TutorialsArticle extends Vue {
     }
   }
 
-  back () {
-    this.$router.push('/tutorials')
-  }
-
-  mounted () {
-    this.getArticle()
-  }
-
-  async getArticle () {
-    const _self = this
-    await _self.findArticle(_self.$route.params.id)
-      .then((response: any) => {
-        _self.title = response.data.attributes.title
-        _self.description = response.data.attributes.description
-        _self.content = response.data.attributes.content
-        for (const category in response.data.relationships.categories.data) {
-          _self.categories.push(response.data.relationships.categories.data[category].id)
-        }
-      })
-      .catch(() => {
-        _self.showSnackbar('Impossible de récupérer l\'article.')
-        _self.back()
-      })
+  goBack() {
+    this.$router.back()
   }
 }
 </script>

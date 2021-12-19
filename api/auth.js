@@ -21,5 +21,9 @@ export default axios => ({
       password_confirmation: passwordConfirmation,
       token: resetToken
     });
+  },
+
+  get(id) {
+    return axios.$get('/users/' + user.id)
   }
  });

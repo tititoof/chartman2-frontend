@@ -1,84 +1,58 @@
 import TutorialsArticle from '@/pages/tutorials/article/_id.vue'
-import Vuex from 'vuex'
 import { createLocalVue, mount } from '@vue/test-utils'
-import vuetifyStub from '~/test/stub/vuetifyStub'
 import flushPromises from 'flush-promises'
+import Vuex from 'vuex'
+//Mocks
+import apiMock from '~/test/mock/apiMock'
+import routerMock from '~/test/mock/routerMock'
+import storeMock from '~/test/mock/storeMock'
+// Stubs
+import vuetifyStub from '~/test/stub/vuetifyStub'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
-const mockAxiosGetResult = { data: { id: '5', type: 'post', attributes: { title: 'yy', description: 'description', content: 'tt' }, relationships: { user: { data: { id: '1', type: 'user' } }, categories: { data: [] } } } }
 
 describe('TutorialsArticle', () => {
   let wrapper
   let store
-  let mockRouter
   const mockRoute = {
     params: {
       id: 1
     }
   }
   beforeEach(() => {
-    mockRouter = {
-      push: jest.fn()
-    }
-
-    store = new Vuex.Store({
-      modules: {
-        VisitorModule: {
-          namespaced: true,
-          actions: {
-            findArticle: jest.fn(() => Promise.resolve(mockAxiosGetResult)),
-            update: jest.fn(() => Promise.resolve(mockAxiosGetResult))
-          }
-        },
-        MainStore: {
-          namespaced: true,
-          actions: {
-            showSnackbar: jest.fn()
-          }
-        }
-      }
-    })
+    store = new Vuex.Store(storeMock)
 
     wrapper = mount(TutorialsArticle, {
       localVue,
       store,
       mocks: {
-        $vuetify: {
-          breakpoint: {
-            smAndDown: () => true
-          }
-        },
-        $axios: {
-          $get: () => Promise.resolve(mockAxiosGetResult),
-          $put: jest.fn(() => Promise.resolve(mockAxiosGetResult))
-        },
-        $route: mockRoute,
-        $router: mockRouter
+        $router: routerMock
       },
-      stubs: vuetifyStub
+      stubs: vuetifyStub,
     })
   })
 
-  it('is a Vue component', () => {
+  it('>> Vue component', () => {
     expect(wrapper.findComponent(TutorialsArticle).vm).toBeTruthy()
   })
 
-  test('get post', async () => {
-    wrapper.vm.getArticle()
-
+  it('>> asyncData - articles.find', async () => {
+    const apiSpy = jest.spyOn(apiMock.articles, 'find')
+    const response = await wrapper.vm.$options.asyncData({ $api: apiMock, params: mockRoute.params })
+    
     await flushPromises()
 
-    expect(wrapper.vm.$axios.$get).toHaveBeenCalledTimes(1)
-    expect(wrapper.vm.title).toStrictEqual('yy')
-    expect(wrapper.vm.description).toStrictEqual('description')
-    expect(wrapper.vm.content).toStrictEqual('tt')
-    expect(wrapper.vm.categories).toStrictEqual([])
+    expect(apiSpy).toHaveBeenCalledTimes(1)
+    expect(response.article.attributes.title).toStrictEqual('mon test')
+    expect(response.article.attributes.description).toStrictEqual('C\'est ma little description')
+    expect(response.article.attributes.content).toStrictEqual('# Yey !!!!\n\nHello comment ça va ? ')
+    expect(response.article.relationships.categories).toStrictEqual({"data":[{"id":"1","type":"category"}]})
   })
 
-  it('back', () => {
-    wrapper.vm.back()
+  it('>> router.back', () => {
+    wrapper.vm.goBack()
 
-    expect(mockRouter.push).toHaveBeenCalledWith('/tutorials')
+    expect(routerMock.back).toHaveBeenCalledTimes(1)
   })
 })

@@ -20,7 +20,7 @@
               fab
               dark
               color="indigo"
-              @click.prevent="back"
+              @click.prevent="goBack"
             >
               <v-icon
                 dark
@@ -50,7 +50,7 @@
               <v-text-field
                 v-model="form.name"
                 label="Nom"
-                :rules="nameRules"
+                :rules="[rules.required]"
                 :error-count="formError.name.length"
                 :error-messages="formError.name"
                 required
@@ -67,51 +67,43 @@
 import { Vue, Component, namespace, getModule } from 'nuxt-property-decorator'
 import HomeList from '~/components/Home/HomeList.vue'
 import MainStore from '~/store/MainStore'
-import CategoryModule from '~/store/CategoryModule'
+import { CategoryFormDefault, CategoryFormErrorDefault, CategoryFormErrorType, CategoryFormType } from '~/types'
 
-const categoryStore = namespace('CategoryModule')
 const mainModule = namespace('MainStore')
 
 @Component({
+  middleware: ['auth'],
   components: { HomeList }
 })
 export default class AdminCategoryNew extends Vue {
   // Store
   mainModule = getModule(MainStore, this.$store)
-  categoryStore = getModule(CategoryModule, this.$store)
   @mainModule.Action('showSnackbar') showSnackbar: any
-  @categoryStore.Action('create') postCategory: any
 
   // Data
   title: String = 'Nouvelle catégorie'
   background: String = '/backgrounds/business.svg'
   minHeight: String = '200'
   maxHeight: String = '500'
-  pathAdd!: String
+  form: CategoryFormType = CategoryFormDefault
+  formError: CategoryFormErrorType = CategoryFormErrorDefault
   formValid: Boolean = false
-  form: Object = {
-    name: ''
+  rules: Object = {
+    required: (value: any) => !!value || 'Requis.',
   }
 
-  formError: Object = {
-    name: []
+  submitForm() {
+    try {
+      this.$api.categories.create(this.form)
+      this.showSnackbar('Catégorie créée.')
+      this.$router.push('/admin/category')
+    } catch(reason: any) {
+      console.log(reason)
+      this.formError = reason
+    }
   }
 
-  nameRules: Array<Object> = [
-    (v: any) => !!v || 'Le nom est requis'
-  ]
-
-  submitForm () {
-    const _self = this
-    _self.postCategory(_self.form).then(() => {
-      _self.showSnackbar('Catégorie crée.')
-      _self.$router.push('/admin/category')
-    }).catch((reason: any) => {
-      _self.formError = reason.response.data
-    })
-  }
-
-  back () {
+  goBack() {
     this.$router.back()
   }
 }

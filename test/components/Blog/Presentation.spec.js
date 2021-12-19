@@ -1,53 +1,23 @@
 import Presentation from '@/components/Blog/Presentation.vue'
-import Vuex from 'vuex'
-import flushPromises from 'flush-promises'
-// Utilities
 import { createLocalVue, mount } from '@vue/test-utils'
+import flushPromises from 'flush-promises'
+import Vuex from 'vuex'
+//Mocks
+import apiMock from '~/test/mock/apiMock'
+import routerMock from '~/test/mock/routerMock'
+import storeMock from '~/test/mock/storeMock'
+// Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 
 const localVue = createLocalVue()
-// const vuetify = new Vuetify()
 localVue.use(Vuex)
-const categoriesData = { data: [{ id: 1, attributes: { name: 'test' } }] }
 
-jest.mock('axios', () => ({
-  $get: jest.fn(() =>
-    Promise.resolve({ data: {} })
-  ),
-  $post: jest.fn(() =>
-    Promise.resolve({ data: {} })
-  ),
-  $delete: jest.fn(() =>
-    Promise.resolve({ data: {} })
-  )
-}))
+const store = new Vuex.Store(storeMock)
 
 describe('Presentation', () => {
   let wrapper
-  let store
+
   beforeEach(() => {
-    const mockRoute = {
-      params: {
-        id: 1
-      }
-    }
-
-    const mockRouter = {
-      push: jest.fn()
-    }
-
-    const actions = {
-      showSnackbar: jest.fn()
-    }
-    store = new Vuex.Store({
-      modules: {
-        MainStore: {
-          namespaced: true,
-          actions
-        }
-      }
-    })
-
     wrapper = mount(Presentation, {
       localVue,
       store,
@@ -57,43 +27,39 @@ describe('Presentation', () => {
             smAndDown: () => true
           }
         },
-        $route: mockRoute,
-        $router: mockRouter,
-        $axios: {
-          $get: jest.fn(() =>
-            Promise.resolve({ data: [{ id: 1, attributes: { name: 'test' } }] })
-          )
-        }
+        $router: routerMock,
+        $api: apiMock
       },
       stubs: vuetifyStub
     })
   })
 
-  it('is a Vue component', () => {
+  it('>> Vue component', () => {
     expect(wrapper.findComponent(Presentation).vm).toBeTruthy()
   })
 
-  it('get categories', async () => {
-    wrapper.vm.getCategories()
+  it('>> getCategories', async () => {
+    const apiCategoriesSpy = jest.spyOn(apiMock.categories, 'findAll')
+    const response = await wrapper.vm.getCategories()
 
     await flushPromises()
 
-    expect(wrapper.vm.$axios.$get).toHaveBeenCalledTimes(1)
-    expect(wrapper.vm.$axios.$get).toHaveBeenCalledWith('/categories')
+    expect(apiCategoriesSpy).toHaveBeenCalledTimes(1)
+    expect(response.data).toStrictEqual([{"id":"1","type":"category","attributes":{"name":"NuxtJS"},"relationships":{"posts":{"data":[{"id":"1","type":"post"},{"id":"2","type":"post"},{"id":"3","type":"post"},{"id":"4","type":"post"}]}}}])
   })
 
-  it('get categoryId', () => {
-    const routeId = wrapper.vm.getCategoryId('test', categoriesData.data)
+  it('>> getCategoryId', () => {
+    const routeId = wrapper.vm.getCategoryId('NuxtJS', apiMock.categories.findAll().data)
 
-    expect(routeId).toEqual(1)
+    expect(routeId).toEqual("1")
   })
 
-  it('go to tutorials', async () => {
-    wrapper.vm.goTo('test')
+  it('>> goTo', async () => {
+    wrapper.vm.goTo('NuxtJS')
 
     await flushPromises()
 
-    expect(wrapper.vm.$router.push).toHaveBeenCalledTimes(1)
-    expect(wrapper.vm.$router.push).toHaveBeenCalledWith('/tutorials/category/1')
+    expect(routerMock.push).toHaveBeenCalledTimes(1)
+    expect(routerMock.push).toHaveBeenCalledWith('/tutorials/category/1')
   })
 })

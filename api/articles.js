@@ -12,6 +12,6 @@ export default axios => ({
   },
 
   find(id) {
-    return axios.$get('/articles/' + id);
+    return axios.$get('/article/' + id);
   },
  })

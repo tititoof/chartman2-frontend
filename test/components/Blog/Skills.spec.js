@@ -1,40 +1,22 @@
 import Skills from '@/components/Blog/Skills.vue'
-import Vuex from 'vuex'
-
-// Utilities
 import { createLocalVue, mount } from '@vue/test-utils'
+import Vuex from 'vuex'
+//Mocks
+import apiMock from '~/test/mock/apiMock'
+import routerMock from '~/test/mock/routerMock'
+import storeMock from '~/test/mock/storeMock'
+// Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 
 const localVue = createLocalVue()
-// const vuetify = new Vuetify()
 localVue.use(Vuex)
+
+const store = new Vuex.Store(storeMock)
 
 describe('Skills', () => {
   let wrapper
-  let store
+
   beforeEach(() => {
-    const mockRoute = {
-      params: {
-        id: 1
-      }
-    }
-
-    const mockRouter = {
-      push: jest.fn()
-    }
-
-    const actions = {
-      showSnackbar: jest.fn()
-    }
-    store = new Vuex.Store({
-      modules: {
-        Main: {
-          namespaced: true,
-          actions
-        }
-      }
-    })
-
     wrapper = mount(Skills, {
       localVue,
       store,
@@ -44,14 +26,20 @@ describe('Skills', () => {
             smAndDown: () => true
           }
         },
-        $route: mockRoute,
-        $router: mockRouter
+        $router: routerMock,
+        $api: apiMock
       },
       stubs: vuetifyStub
     })
   })
 
-  it('is a Vue component', () => {
+  it('>> Vue component', () => {
     expect(wrapper.findComponent(Skills).vm).toBeTruthy()
+  })
+
+  it('>> itemTypeOf', () => {
+    const itemTypeOf = wrapper.vm.itemTypeOf('test', '')
+
+    expect(itemTypeOf).toEqual('test')
   })
 })

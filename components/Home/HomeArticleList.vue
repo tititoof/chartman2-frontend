@@ -142,33 +142,23 @@
 import { Vue, Component, Prop, PropSync, namespace, getModule } from 'nuxt-property-decorator'
 import { Editor } from 'vuetify-markdown-editor'
 import MainStore from '~/store/MainStore'
-import CategoryModule from '~/store/CategoryModule'
-import PostModule from '~/store/PostModule'
 import { CategoryType } from '~/types/index'
 
-const categoryStore = namespace('CategoryModule')
 const mainModule = namespace('MainStore')
-const postStore = namespace('PostModule')
 
 @Component({
   components: { Editor }
 })
 export default class HomeArticleList extends Vue {
-  // Stores
   mainModule = getModule(MainStore, this.$store)
-  categoryStore = getModule(CategoryModule, this.$store)
-  postStore = getModule(PostModule, this.$store)
-  // Stores actions
-  @categoryStore.Action('findAll') findAllCategories: any
   @mainModule.Action('showSnackbar') showSnackbar: any
-  @postStore.Action('destroy') destroyPost: any
-  // Props
+
   @Prop({ default: '/backgrounds/office.svg' }) readonly background!: string
   @Prop({ default: '200' }) readonly minHeight!: string
   @Prop({ default: '300' }) readonly maxHeight!: string
   @PropSync('items', { default: () => [] }) readonly syncedItems!: Array<object>
   @Prop({ default: '' }) readonly basePathItem!: string
-  // Data
+
   selectedItem: object = {}
   dialogShow: boolean = false
   dialogName: string = ''
@@ -184,67 +174,59 @@ export default class HomeArticleList extends Vue {
     }
   }
 
-  get pathNew () {
+  get pathNew() {
     return this.basePathItem + '/new'
   }
 
-  get pathEdit () {
+  get pathEdit() {
     return this.basePathItem + '/_id'
   }
 
-  mounted () {
+  mounted() {
     this.getCategories()
   }
 
-  confirmDestroy (id: number, index: number, name: string) {
+  confirmDestroy(id: number, index: number, name: string) {
     this.dialogItemId = id
     this.dialogItemIndex = index
     this.dialogName = 'Êtes vous sûr de vouloir supprimer l\'article "' + name + '" ?'
     this.dialogShow = true
   }
 
-  formatedCategories (categories: Array<any>) {
-    const listCategories: Array<string> = []
-    for (const category in categories) {
-      for (const categoryId in this.categories) {
-        const baseCategory: CategoryType = this.categories[categoryId]
-        if (categories[category].id === baseCategory.id) {
-          listCategories.push(baseCategory.attributes.name)
-        }
-      }
-    }
+  formatedCategories(categories: Array<any>) {
+    const listCategories: Array<CategoryType> = this.categories.filter((item) => {
+      return categories.some((category) => {
+        return category.id === item.id
+      })
+    })
 
-    return listCategories.join(', ')
+    return listCategories.map(category => category.attributes.name).join(', ')
   }
 
-  show (title: string, content: string) {
+  show(title: string, content: string) {
     this.showDialogTitle = title
     this.showDialogContent = content
     this.showDialogVisible = true
   }
 
-  edit (id: number) {
+  edit(id: number) {
     this.$router.push(this.basePathItem + '/' + id)
   }
 
-  destroy () {
-    const _self = this
-    _self.dialogShow = false
-    _self.destroyPost(this.dialogItemId)
-      .then(() => {
-        _self.showSnackbar('Article supprimé.')
-        _self.$delete(_self.syncedItems, this.dialogItemIndex)
-      })
-      .catch(() => {
-        _self.showSnackbar('Impossible de supprimer l\'article.')
-      })
+  destroy() {
+    try {
+      this.dialogShow = false
+      this.$api.posts.destroy(this.dialogItemId)
+      this.showSnackbar('Article supprimé.')
+    } catch(reason) {
+      this.showSnackbar('Impossible de supprimer l\'article.')
+    }
   }
 
-  async getCategories () {
-    await this.findAllCategories()
-      .then((response: any) => {
-        this.categories = response.data
-      })
+  async getCategories() {
+    const response = await this.$api.categories.findAll()
+
+    this.categories = response.data
   }
 }
 </script>

@@ -1,145 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/authenticate.spec.js">
+    <testCase name="Authenticate &gt;&gt; Vue component" duration="4"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeCategoryList.spec.js">
+    <testCase name="HomeCategoryList &gt;&gt; Vue component" duration="81"/>
+    <testCase name="HomeCategoryList &gt;&gt; pathNew getter" duration="20"/>
+    <testCase name="HomeCategoryList &gt;&gt; pathEdit getter" duration="13"/>
+    <testCase name="HomeCategoryList &gt;&gt; confirmDestroy" duration="30"/>
+    <testCase name="HomeCategoryList &gt;&gt; edit" duration="28"/>
+    <testCase name="HomeCategoryList &gt;&gt; destroy" duration="45"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/error.spec.js">
+    <testCase name="ErrorPage &gt;&gt; Vue component" duration="20"/>
+    <testCase name="ErrorPage &gt;&gt; data" duration="20"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/article/index.spec.js">
+    <testCase name="AdminArticle &gt;&gt; Vue component" duration="22"/>
+    <testCase name="AdminArticle &gt;&gt; asyncData - posts.findAll" duration="12"/>
+  </file>
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/_id.spec.js">
-    <testCase name="AdminCategoryId is a Vue component" duration="31"/>
-    <testCase name="AdminCategoryId trigger submitForm" duration="29">
-      <failure message="Error: expect(jest.fn()).toHaveBeenCalledTimes(expected)"><![CDATA[Error: expect(jest.fn()).toHaveBeenCalledTimes(expected)
-
-Expected number of calls: 1
-Received number of calls: 0
-    at Object.<anonymous> (/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/_id.spec.js:77:35)
-    at Promise.then.completed (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:390:28)
-    at new Promise (<anonymous>)
-    at callAsyncCircusFn (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:315:10)
-    at _callCircusTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:218:40)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at _runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:155:3)
-    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:66:9)
-    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:60:9)
-    at run (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:25:3)
-    at runAndTransformResultsToJestFormat (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
-    at jestAdapter (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
-    at runTestInternal (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:389:16)
-    at runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:475:34)
-    at Object.worker (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/testWorker.js:133:12)]]></failure>
-    </testCase>
-    <testCase name="AdminCategoryId send form" duration="21"/>
-    <testCase name="AdminCategoryId get categories" duration="11"/>
+    <testCase name="AdminCategoryId &gt;&gt; Vue component" duration="36"/>
+    <testCase name="AdminCategoryId &gt;&gt; asyncData - categories.find" duration="20"/>
+    <testCase name="AdminCategoryId &gt;&gt; initialize" duration="20"/>
+    <testCase name="AdminCategoryId &gt;&gt; submitForm" duration="26"/>
+    <testCase name="AdminCategoryId &gt;&gt; router.back" duration="17"/>
   </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/tutorials/category/_id.spec.js">
-    <testCase name="TutorialsCategory is a Vue component" duration="29"/>
-    <testCase name="TutorialsCategory get all posts from category" duration="29"/>
-    <testCase name="TutorialsCategory get category" duration="20"/>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/Login.spec.js">
+    <testCase name="Login &gt;&gt; Vue component" duration="65"/>
+    <testCase name="Login &gt;&gt; userLogin" duration="21"/>
+    <testCase name="Login &gt;&gt; logout" duration="69"/>
+    <testCase name="Login &gt;&gt; setUserToken" duration="40"/>
+    <testCase name="Login &gt;&gt; Emit - onLoginDone" duration="28"/>
   </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/index.spec.js">
-    <testCase name="AdminCategory is a Vue component" duration="24"/>
-    <testCase name="AdminCategory get categories" duration="9">
-      <failure message="TypeError: Cannot read property &apos;Categories&apos; of undefined"><![CDATA[TypeError: Cannot read property 'Categories' of undefined
-    at VueComponent.getCategories (/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/category/index.vue:47:1)
-    at VueComponent.mounted (/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/category/index.vue:42:1)
-    at invokeWithErrorHandling (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:1868:57)
-    at callHook (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4232:7)
-    at Object.insert (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:3161:7)
-    at invokeInsertHook (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:6381:28)
-    at VueComponent.patch [as __patch__] (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:6598:5)
-    at VueComponent.Vue._update (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:3957:19)
-    at VueComponent.updateComponent (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4078:10)
-    at Watcher.get (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4490:25)
-    at new Watcher (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4479:12)
-    at mountComponent (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4085:3)
-    at VueComponent.Object.<anonymous>.Vue.$mount (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:9084:10)
-    at VueComponent.Object.<anonymous>.Vue.$mount (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:11989:16)
-    at mount (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/@vue/test-utils/dist/vue-test-utils.js:14057:21)
-    at Object.<anonymous> (/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/index.spec.js:42:15)
-    at Promise.then.completed (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:390:28)
-    at new Promise (<anonymous>)
-    at callAsyncCircusFn (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:315:10)
-    at _callCircusHook (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:181:40)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at _runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:148:5)
-    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:66:9)
-    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:60:9)
-    at run (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:25:3)
-    at runAndTransformResultsToJestFormat (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
-    at jestAdapter (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
-    at runTestInternal (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:389:16)
-    at runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:475:34)
-    at Object.worker (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/testWorker.js:133:12)]]></failure>
-      <failure message="TypeError: Cannot read property &apos;Categories&apos; of undefined"><![CDATA[TypeError: Cannot read property 'Categories' of undefined
-    at VueComponent.getCategories (/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/category/index.vue:47:1)
-    at VueComponent.mounted (/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/category/index.vue:42:1)
-    at invokeWithErrorHandling (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:1868:57)
-    at callHook (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4232:7)
-    at Object.insert (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:3161:7)
-    at invokeInsertHook (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:6381:28)
-    at VueComponent.patch [as __patch__] (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:6598:5)
-    at VueComponent.Vue._update (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:3957:19)
-    at VueComponent.updateComponent (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4078:10)
-    at Watcher.get (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4490:25)
-    at new Watcher (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4479:12)
-    at mountComponent (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:4085:3)
-    at VueComponent.Object.<anonymous>.Vue.$mount (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:9084:10)
-    at VueComponent.Object.<anonymous>.Vue.$mount (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:11989:16)
-    at mount (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/@vue/test-utils/dist/vue-test-utils.js:14057:21)
-    at Object.<anonymous> (/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/index.spec.js:42:15)
-    at Promise.then.completed (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:390:28)
-    at new Promise (<anonymous>)
-    at callAsyncCircusFn (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:315:10)
-    at _callCircusHook (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:181:40)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at _runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:148:5)
-    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:66:9)
-    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:60:9)
-    at run (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:25:3)
-    at runAndTransformResultsToJestFormat (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
-    at jestAdapter (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
-    at runTestInternal (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:389:16)
-    at runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:475:34)
-    at Object.worker (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/testWorker.js:133:12)]]></failure>
-      <failure message="TypeError: Cannot read property &apos;Categories&apos; of undefined"><![CDATA[TypeError: Cannot read property 'Categories' of undefined
-    at VueComponent.getCategories (/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/category/index.vue:47:1)
-    at Object.<anonymous> (/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/index.spec.js:66:16)
-    at Promise.then.completed (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:390:28)
-    at new Promise (<anonymous>)
-    at callAsyncCircusFn (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:315:10)
-    at _callCircusTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:218:40)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at _runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:155:3)
-    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:66:9)
-    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:60:9)
-    at run (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:25:3)
-    at runAndTransformResultsToJestFormat (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
-    at jestAdapter (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
-    at runTestInternal (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:389:16)
-    at runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:475:34)
-    at Object.worker (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/testWorker.js:133:12)]]></failure>
-      <failure message="ReferenceError: $api is not defined"><![CDATA[ReferenceError: $api is not defined
-    at Object.<anonymous> (/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/index.spec.js:70:12)]]></failure>
-    </testCase>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/index.spec.js">
+    <testCase name="IndexAdmin &gt;&gt; Vue component" duration="109"/>
+    <testCase name="IndexAdmin &gt;&gt; onLoginDone" duration="47"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/index.spec.js">
+    <testCase name="HomePage &gt;&gt; Vue component" duration="3"/>
   </file>
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/new.spec.js">
-    <testCase name="AdminCategoryNew trigger submitForm" duration="42">
-      <failure message="Error: expect(jest.fn()).toHaveBeenCalledTimes(expected)"><![CDATA[Error: expect(jest.fn()).toHaveBeenCalledTimes(expected)
-
-Expected number of calls: 1
-Received number of calls: 0
-    at Object.<anonymous> (/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/new.spec.js:54:35)
-    at Promise.then.completed (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:390:28)
-    at new Promise (<anonymous>)
-    at callAsyncCircusFn (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/utils.js:315:10)
-    at _callCircusTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:218:40)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at _runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:155:3)
-    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:66:9)
-    at _runTestsForDescribeBlock (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:60:9)
-    at run (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/run.js:25:3)
-    at runAndTransformResultsToJestFormat (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
-    at jestAdapter (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
-    at runTestInternal (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:389:16)
-    at runTest (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/runTest.js:475:34)
-    at Object.worker (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-runner/build/testWorker.js:133:12)]]></failure>
-    </testCase>
-    <testCase name="AdminCategoryNew send form" duration="15"/>
-    <testCase name="AdminCategoryNew is a Vue component" duration="16"/>
+    <testCase name="AdminCategoryNew &gt;&gt; Vue component" duration="39"/>
+    <testCase name="AdminCategoryNew &gt;&gt; submitForm" duration="43"/>
+    <testCase name="AdminCategoryNew &gt;&gt; router.back" duration="26"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Blog/BlogInformation.spec.js">
+    <testCase name="BlogInformation &gt;&gt; Vue component" duration="165"/>
+    <testCase name="BlogInformation &gt;&gt; itemTypeOf" duration="122"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Base/BaseInformation.spec.js">
+    <testCase name="BaseInformation &gt;&gt; Vue component" duration="24"/>
+    <testCase name="BaseInformation &gt;&gt; avatarColor getter" duration="12"/>
+    <testCase name="BaseInformation &gt;&gt; typeIconImage getter" duration="9"/>
+    <testCase name="BaseInformation &gt;&gt; icon getter" duration="28"/>
+    <testCase name="BaseInformation &gt;&gt; iconColor getter" duration="11"/>
+    <testCase name="BaseInformation &gt;&gt; iconHeight getter" duration="10"/>
+    <testCase name="BaseInformation &gt;&gt; image getter" duration="14"/>
+    <testCase name="BaseInformation &gt;&gt; text getter" duration="13"/>
+    <testCase name="BaseInformation &gt;&gt; textContentClass getter" duration="47"/>
+    <testCase name="BaseInformation &gt;&gt; content getter" duration="33"/>
+    <testCase name="BaseInformation &gt;&gt; textClass getter" duration="11"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Blog/Presentation.spec.js">
+    <testCase name="Presentation &gt;&gt; Vue component" duration="40"/>
+    <testCase name="Presentation &gt;&gt; getCategories" duration="35"/>
+    <testCase name="Presentation &gt;&gt; getCategoryId" duration="29"/>
+    <testCase name="Presentation &gt;&gt; goTo" duration="26"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/tutorials/index.spec.js">
+    <testCase name="IndexTutorials &gt;&gt; Vue component" duration="10"/>
+    <testCase name="IndexTutorials &gt;&gt; asyncData - articles.categories" duration="19"/>
+    <testCase name="IndexTutorials &gt;&gt; goToCategory" duration="16"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeAppBar.spec.js">
+    <testCase name="HomeAppBar &gt;&gt; Vue component" duration="30"/>
+    <testCase name="HomeAppBar &gt;&gt; items getter" duration="61"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Blog/Skills.spec.js">
+    <testCase name="Skills &gt;&gt; Vue component" duration="88"/>
+    <testCase name="Skills &gt;&gt; itemTypeOf" duration="43"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/tutorials/category/_id.spec.js">
+    <testCase name="TutorialsCategory &gt;&gt; Vue component" duration="13"/>
+    <testCase name="TutorialsCategory &gt;&gt; asyncData - articles.category" duration="24"/>
+    <testCase name="TutorialsCategory &gt;&gt; goToArticle" duration="28"/>
+    <testCase name="TutorialsCategory &gt;&gt; router.back" duration="19"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/default.spec.js">
+    <testCase name="DefaultPage &gt;&gt; Vue component" duration="2"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeCard.spec.js">
+    <testCase name="HomeCard &gt;&gt; Vue component" duration="14"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeList.spec.js">
+    <testCase name="HomeList &gt;&gt; Vue component" duration="16"/>
+    <testCase name="HomeList &gt;&gt; itemComponentInstance getter" duration="12"/>
+    <testCase name="HomeList &gt;&gt; pathNew getter" duration="11"/>
+    <testCase name="HomeList &gt;&gt; router.back" duration="12"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/index.spec.js">
+    <testCase name="AdminCategory &gt;&gt; Vue component" duration="36"/>
+    <testCase name="AdminCategory &gt;&gt; asyncData - categories.findAll" duration="26"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Base/BaseIcon.spec.js">
+    <testCase name="BaseIcon &gt;&gt; Vue component" duration="8"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Base/BaseImage.spec.js">
+    <testCase name="BaseImage &gt;&gt; Vue component" duration="7"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/NuxtLogo.spec.js">
+    <testCase name="NuxtLogo is a Vue instance" duration="6"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/Register.spec.js">
+    <testCase name="Register &gt;&gt; Vue component" duration="63"/>
+    <testCase name="Register &gt;&gt; passwordMatch" duration="16"/>
+    <testCase name="Register &gt;&gt; register" duration="14"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Base/BaseAvatar.spec.js">
+    <testCase name="BaseAvatar &gt;&gt; Vue component" duration="14"/>
+    <testCase name="BaseAvatar &gt;&gt; classes getter" duration="11"/>
+    <testCase name="BaseAvatar &gt;&gt; outlineSize getter" duration="31"/>
+    <testCase name="BaseAvatar &gt;&gt; styles getter" duration="15"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeNew.spec.js">
+    <testCase name="HomeNew &gt;&gt; Vue component" duration="19"/>
+    <testCase name="HomeNew &gt;&gt; pathNew getter" duration="21"/>
+    <testCase name="HomeNew &gt;&gt; pathEdit getter" duration="10"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/cards.spec.js">
+    <testCase name="CardsAdmin &gt;&gt; Vue component" duration="51"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeDrawer.spec.js">
+    <testCase name="HomeDrawer &gt;&gt; Vue component" duration="8"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/View.spec.js">
+    <testCase name="View &gt;&gt; Vue component" duration="9"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Base/BaseBtn.spec.js">
+    <testCase name="BaseBtn &gt;&gt; Vue component" duration="7"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/store/mainModule.spec.js">
+    <testCase name="PostStore &gt;&gt; isSnackbarVisible" duration="3"/>
+    <testCase name="PostStore &gt;&gt; getSnackbarText" duration="1"/>
+    <testCase name="PostStore &gt;&gt; showSnackbar" duration="2"/>
+    <testCase name="PostStore &gt;&gt; closeSnackbar" duration="1"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeFooter.spec.js">
+    <testCase name="HomeFooter &gt;&gt; Vue component" duration="11"/>
+    <testCase name="HomeFooter &gt;&gt; social getter" duration="11"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/article/new.spec.js">
+    <testCase name="AdminArticleNew &gt;&gt; Vue component" duration="49"/>
+    <testCase name="AdminArticleNew &gt;&gt; asyncData - categories.findAll - posts.find" duration="24"/>
+    <testCase name="AdminArticleNew &gt;&gt; submitForm" duration="24"/>
+    <testCase name="AdminArticleNew &gt;&gt; router.back" duration="9"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/article/_id.spec.js">
+    <testCase name="AdminArticleId &gt;&gt; Vue component" duration="44"/>
+    <testCase name="AdminArticleId &gt;&gt; asyncData - categories.findAll - posts.find" duration="26"/>
+    <testCase name="AdminArticleId &gt;&gt; initialize" duration="16"/>
+    <testCase name="AdminArticleId &gt;&gt; submitForm" duration="29"/>
+    <testCase name="AdminArticleId &gt;&gt; router.back" duration="20"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/tutorials/article/_id.spec.js">
+    <testCase name="TutorialsArticle &gt;&gt; Vue component" duration="230"/>
+    <testCase name="TutorialsArticle &gt;&gt; asyncData - articles.find" duration="77"/>
+    <testCase name="TutorialsArticle &gt;&gt; router.back" duration="57"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeArticleList.spec.js">
+    <testCase name="HomeArticleList &gt;&gt; Vue component" duration="224"/>
+    <testCase name="HomeArticleList &gt;&gt; pathNew getter" duration="61"/>
+    <testCase name="HomeArticleList &gt;&gt; pathEdit getter" duration="60"/>
+    <testCase name="HomeArticleList &gt;&gt; formatedCategories" duration="61"/>
+    <testCase name="HomeArticleList &gt;&gt; confirmDestroy" duration="61"/>
+    <testCase name="HomeArticleList &gt;&gt; edit" duration="58"/>
+    <testCase name="HomeArticleList &gt;&gt; destroy" duration="105"/>
+    <testCase name="HomeArticleList &gt;&gt; getCategories" duration="54"/>
+    <testCase name="HomeArticleList &gt;&gt; show" duration="63"/>
   </file>
 </testExecutions>

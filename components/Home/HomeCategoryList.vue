@@ -88,18 +88,14 @@
 <script lang="ts">
 import { Vue, Component, Prop, PropSync, namespace, getModule } from 'nuxt-property-decorator'
 import MainStore from '~/store/MainStore'
-import CategoryModule from '~/store/CategoryModule'
 
 const mainModule = namespace('MainStore')
-const categoryStore = namespace('CategoryModule')
 
 @Component
 export default class HomeCategoryList extends Vue {
   // Store
   mainModule = getModule(MainStore, this.$store)
-  categoryStore = getModule(CategoryModule, this.$store)
   @mainModule.Action('showSnackbar') showSnackbar: any
-  @categoryStore.Action('destroy') destroyCategory: any
 
   // Props
   @Prop({ default: '/backgrounds/office.svg' }) readonly background!: string
@@ -108,44 +104,40 @@ export default class HomeCategoryList extends Vue {
   @PropSync('items', { default: () => [] }) readonly syncedItems!: Array<object>
   @Prop({ default: '' }) readonly basePathItem!: string
 
-  // Data
   selectedItem: object = {}
   dialogShow: boolean = false
   dialogName: string = ''
   dialogItemId: number = 0
   dialogItemIndex: number = 0
 
-  // Computed
-  get pathNew () {
+  get pathNew() {
     return this.basePathItem + '/new'
   }
 
-  get pathEdit () {
+  get pathEdit() {
     return this.basePathItem + '/_id'
   }
 
-  confirmDestroy (id: number, index: number, name: string) {
+  confirmDestroy(id: number, index: number, name: string) {
     this.dialogItemId = id
     this.dialogItemIndex = index
     this.dialogName = 'Êtes vous sûr de vouloir supprimer la catégorie "' + name + '" ?'
     this.dialogShow = true
   }
 
-  edit (id: number) {
+  edit(id: number) {
     this.$router.push(this.basePathItem + '/' + id)
   }
 
-  destroy () {
-    const _self = this
-    _self.dialogShow = false
-    _self.destroyCategory(this.dialogItemId)
-      .then(() => {
-        _self.showSnackbar('Catégorie supprimée.')
-        _self.$delete(_self.syncedItems, this.dialogItemIndex)
-      })
-      .catch(() => {
-        _self.showSnackbar('Impossible de supprimer la catégorie.')
-      })
+  async destroy() {
+    this.dialogShow = false
+    try {
+      await this.$api.categories.destroy(this.dialogItemId)
+      this.showSnackbar('Catégorie supprimée.')
+      this.$delete(this.syncedItems, this.dialogItemIndex)
+    } catch(reason) {
+      this.showSnackbar('Impossible de supprimer la catégorie.')
+    }
   }
 }
 </script>

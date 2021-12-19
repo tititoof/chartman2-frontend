@@ -8,7 +8,7 @@
         <v-text-field v-model="lastName" :rules="[rules.required]" label="Nom" maxlength="20" required />
       </v-col>
       <v-col cols="12">
-        <v-text-field v-model="email" :rules="emailRules" label="E-mail" required />
+        <v-text-field v-model="email" :rules="[rules.required, rules.validEmail]" label="E-mail" required />
       </v-col>
       <v-col cols="12">
         <v-text-field
@@ -76,19 +76,15 @@ export default class Register extends Vue {
   verify: string = ''
   rules: object = {
     required: (value: any) => !!value || 'Requis.',
+    validEmail: (v: any) => /.+@.+\..+/.test(v) || 'doit être valide',
     min: (v: any) => (v && v.length >= 8) || '8 charactères minimum'
   }
 
-  emailRules: Array<any> = [
-    (v: any) => !!v || 'Required',
-    (v: any) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
-  ]
-
-  get passwordMatch () {
+  get passwordMatch() {
     return () => this.password === this.verify || 'Les mots de passes doivent correspondre'
   }
 
-  register () {
+  register() {
     return true
   }
 }

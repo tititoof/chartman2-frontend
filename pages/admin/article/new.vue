@@ -20,7 +20,7 @@
               fab
               dark
               color="indigo"
-              @click.prevent="back"
+              @click.prevent="goBack"
             >
               <v-icon
                 dark
@@ -49,7 +49,7 @@
               <v-text-field
                 v-model="form.title"
                 label="Nom"
-                :rules="titleRules"
+                :rules="[rules.required]"
                 :error-count="formError.title.length"
                 :error-messages="formError.title"
                 required
@@ -58,7 +58,7 @@
               <v-text-field
                 v-model="form.description"
                 label="Description"
-                :rules="titleRules"
+                :rules="[rules.required]"
                 :error-count="formError.description.length"
                 :error-messages="formError.description"
                 required
@@ -71,7 +71,7 @@
                 label="Catégorie(s)"
                 placeholder="Sélection d'une ou des catégories"
                 item-text="attributes.name"
-                :rules="categoriesRules"
+                :rules="[rules.categories]"
                 :error-count="formError.categories.length"
                 :error-messages="formError.categories"
                 item-value="id"
@@ -88,7 +88,7 @@
                   v-model="form.content"
                   mode="preview"
                   hint="Hint"
-                  :rules="titleRules"
+                  :rules="[rules.required]"
                   :error-count="formError.content.length"
                   :error-messages="formError.content"
                   :outline="false"
@@ -107,51 +107,38 @@
 import { Vue, Component, namespace, getModule, Watch } from 'nuxt-property-decorator'
 import { Editor } from 'vuetify-markdown-editor'
 import MainStore from '~/store/MainStore'
-import PostModule from '~/store/PostModule'
-import CategoryModule from '~/store/CategoryModule'
+import { CategoryType, PostFormDefault, PostFormErrorDefault, PostFormErrorType, PostFormType } from '~/types'
 
 const mainModule = namespace('MainStore')
-const postStore = namespace('PostModule')
-const categoryStore = namespace('CategoryModule')
 
 @Component({
+  async asyncData({ $api }) {
+    const responseCategories = await $api.categories.findAll()
+    const categories = responseCategories.data
+
+    return { categories }
+  },
+  middleware: ['auth'],
   components: { Editor }
 })
 export default class AdminArticleNew extends Vue {
   // Stores
   mainModule = getModule(MainStore, this.$store)
-  categoryStore = getModule(CategoryModule, this.$store)
-  postStore = getModule(PostModule, this.$store)
-  // Stores actions
   @mainModule.Action('showSnackbar') showSnackbar: any
-  @categoryStore.Action('findAll') findAllCategories: any
-  @postStore.Action('create') createPost: any
   // Data
   background: string = '/backgrounds/business.svg'
-  categories: Array<any> = []
-  categoriesRules: Array<object> = [
-    (v: any) => (v.length > 0) || 'Au moins 1 catégorie est requise'
-  ]
-
-  form: any = {
-    title: '',
-    description: '',
-    categories: [],
-    content: ''
-  }
-
-  formError: any = {
-    title: [],
-    description: [],
-    categories: [],
-    content: []
-  }
-
+  categories: Array<CategoryType> = []
+  form: PostFormType = PostFormDefault
+  formError: PostFormErrorType = PostFormErrorDefault
   formValid: boolean = false
   minHeight: string = '200'
   maxHeight: string = '900'
+  title: string = 'Nouvel article'
+  rules: Object = {
+    required: (value: any) => !!value || 'Requis.',
+    categories: (v: any) => (v.length > 0) || 'Au moins 1 catégorie est requise'
+  }
 
-  pathAdd!: string
   renderConfig: object = {
     // Mermaid config
     mermaid: {
@@ -159,39 +146,22 @@ export default class AdminArticleNew extends Vue {
     }
   }
 
-  title: string = 'Nouvel article'
-  titleRules: Array<object> = [
-    (v: any) => !!v || 'Le nom est requis'
-  ]
-
-  mounted () {
-    this.getListCategories()
-  }
-
-  back () {
+  goBack() {
     this.$router.back()
   }
 
-  submitForm () {
-    const _self = this
-    _self.createPost(_self.form).then(() => {
-      _self.showSnackbar('Article crée.')
-      _self.$router.push('/admin/article')
-    }).catch((reason: any) => {
-      for (const error in reason.response.data) {
-        this.formError[error] = reason.response.data[error]
-      }
-    })
-  }
-
-  async getListCategories () {
-    return await this.findAllCategories().then((response: any) => {
-      this.categories = response.data
-    })
+  async submitForm() {
+    try {
+      await this.$api.posts.create(this.form)
+      this.showSnackbar('Article créé.')
+      this.goBack()
+    } catch(e) {
+      this.showSnackbar('Impossible de créer l\'article.')
+    }
   }
 
   @Watch('form.title')
-  onFormNameChange (val: string, oldVal: string) {
+  onFormNameChange(val: string, oldVal: string) {
     if (val !== oldVal) {
       this.formError.title = []
     }

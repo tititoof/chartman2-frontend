@@ -50,7 +50,7 @@ export default {
     // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt#readme
     'cookie-universal-nuxt',
     // https://www.npmjs.com/package/nuxt-vuex-localstorage
-    'nuxt-vuex-localstorage'
+    // 'nuxt-vuex-localstorage'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

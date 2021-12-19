@@ -12,39 +12,22 @@
   </section>
 </template>
 <script lang="ts">
-import { Vue, Component, namespace, getModule } from 'nuxt-property-decorator'
+import { Vue, Component } from 'nuxt-property-decorator'
 import HomeList from '~/components/Home/HomeList.vue'
-import PostModule from '~/store/PostModule'
-
-const postStore = namespace('PostModule')
+import { PostDefault, PostType } from '~/types'
 
 @Component({
+  async asyncData({ $api }) {
+    const responseArticle = await $api.posts.findAll()
+    const articles = responseArticle.data
+    
+    return { articles }
+  },
+  middleware: ['auth'],
   components: { HomeList }
 })
 export default class AdminArticle extends Vue {
-  // Store
-  postStore = getModule(PostModule, this.$store)
-  // Store action
-  @postStore.Action('findAll') findAllPosts: any
   // Data
-  articles: Array<Object> = []
-  fetchOnServer: Boolean = false
-  middleware: String = 'auth'
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  validate ({ params, query, store }: any): Boolean {
-    const user: any = store.$auth.user
-    return ((user !== null) && (user.admin === true))
-  }
-
-  mounted () {
-    this.getArticles()
-  }
-
-  async getArticles () {
-    await this.findAllPosts().then((response: any) => {
-      this.articles = response.data
-    })
-  }
+  articles: Array<PostType> = [PostDefault]
 }
 </script>

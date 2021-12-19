@@ -1,72 +1,48 @@
 import AdminCategory from '@/pages/admin/category/index.vue'
-import Vuex from 'vuex'
 import { createLocalVue, mount } from '@vue/test-utils'
-import vuetifyStub from '~/test/stub/vuetifyStub'
 import flushPromises from 'flush-promises'
+import Vuex from 'vuex'
+//Mocks
+import apiMock from '~/test/mock/apiMock'
+import storeMock from '~/test/mock/storeMock'
+// Stubs
+import vuetifyStub from '~/test/stub/vuetifyStub'
 
 const localVue = createLocalVue()
-const mockAxiosGetResult = { data: [{ id: '5', type: 'post', attributes: { title: 'yy', description: 'description', content: 'tt' }, relationships: { user: { data: { id: '1', type: 'user' } }, categories: { data: [] } } }] }
 localVue.use(Vuex)
-jest.mock('~/plugins/api', () => ({
-  $api: {
-    categories: {
-      get: jest.fn(() =>
-        Promise.resolve(mockAxiosGetResult)
-      )
-    }
-  }
-}))
+
+const store = new Vuex.Store(storeMock)
 
 describe('AdminCategory', () => {
   let wrapper
-  let store
 
   beforeEach(() => {
-    store = new Vuex.Store({
-      modules: {
-        PostModule: {
-          namespaced: true,
-          actions: {
-            findAll: jest.fn(() => Promise.resolve(mockAxiosGetResult)),
-            update: jest.fn(() => Promise.resolve(mockAxiosGetResult))
-          }
-        },
-        MainStore: {
-          namespaced: true,
-          actions: {
-            showSnackbar: jest.fn()
-          }
-        }
-      }
-    })
     wrapper = mount(AdminCategory, {
       localVue,
       store,
       mocks: {
-        $vuetify: {
-          breakpoint: {
-            smAndDown: () => true
-          }
-        },
         $auth: {
           user: {
+            loggedIn: true,
             admin: true
           }
-        }
+        },
       },
       stubs: vuetifyStub
     })
   })
 
-  it('is a Vue component', () => {
+  it('>> Vue component', () => {
     expect(wrapper.findComponent(AdminCategory).vm).toBeTruthy()
   })
 
-  it('get categories', async () => {
-    wrapper.vm.getCategories()
-
+  it('>> asyncData - categories.findAll', async () => {
+    const apiSpy = jest.spyOn(apiMock.categories, 'findAll')
+    const response = await wrapper.vm.$options.asyncData({ $api: apiMock })
+    
     await flushPromises()
 
-    expect($api.categories.delete).toBeCalledWith('/categories')
+    expect(apiSpy).toHaveBeenCalledTimes(1)
+    expect(response.categories).toStrictEqual([{"id":"1","type":"category","attributes":{"name":"NuxtJS"},"relationships":{"posts":{"data":[{"id":"1","type":"post"},{"id":"2","type":"post"},{"id":"3","type":"post"},{"id":"4","type":"post"}]}}}])
   })
 })

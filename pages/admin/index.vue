@@ -47,23 +47,21 @@ export default class AdminIndex extends Vue {
     { name: 'Connexion', icon: 'mdi-account' }
   ]
 
-  mounted () {
-    const _self = this
-    const user: any = _self.$auth.user
+  mounted() {
+    const user: any = this.$auth.user
     if ((user !== null) && (user.admin === true)) {
-      _self.onLoginDone()
+      this.onLoginDone()
     }
   }
 
-  onLoginDone () {
-    const _self = this
-    const user: any = _self.$auth.user
-    _self.$axios
+  async onLoginDone() {
+    const user: any = this.$auth.user
+    // await this.$api.users.get(user.id)
+    // this.$router.push({ path: '/admin/cards' })
+    this.$axios
       .$get('/users/' + user.id)
       .then(() => {
-        _self.$router.push({
-          path: '/admin/cards'
-        })
+        this.$router.push('/admin/cards')
       })
   }
 }

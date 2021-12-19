@@ -79,7 +79,6 @@ export default class Login extends Vue {
   loginEmail: String = ''
   loginPassword: String = ''
   show1: Boolean = false
-
   rules: Object = {
     required: (value: any) => !!value || 'Requis.',
     min: (v: any) => (v && v.length >= 8) || '8 charactères minimum',
@@ -88,14 +87,14 @@ export default class Login extends Vue {
 
   snackbarText: String = 'Vous êtes connecté.'
 
-  async userLogin () {
+  async userLogin() {
     try {
       this.error = ''
       const response: any = await this.$auth.loginWith('local', { data: { email: this.loginEmail, password: this.loginPassword } })
       
       await this.setUserToken(response.headers.client)
     } catch (err) {
-      this.error = 'Adresse Email ou mot de passe invalide'
+      this.error = 'Adresse e-mail ou mot de passe invalide'
     }
   }
 
@@ -110,7 +109,7 @@ export default class Login extends Vue {
   }
 
   @Emit('login-done')
-  onLoginDone () {
+  onLoginDone() {
     return true
   }
 }

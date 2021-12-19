@@ -13,7 +13,7 @@
           max-width="1400"
           width="100%"
         >
-          <div class="text-h4">
+          <div class="text-h4 py-3">
             Catégories
           </div>
           <v-row class="py-12">
@@ -42,9 +42,9 @@
                     {{ category.attributes.name }}
                   </span>
                 </v-card-title>
-                <v-card-text>
+                <v-subheader>
                   {{ category.relationships.posts.data | length }} article(s)
-                </v-card-text>
+                </v-subheader>
               </v-card>
             </v-col>
           </v-row>

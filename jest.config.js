@@ -28,6 +28,6 @@ module.exports = {
     }
   },
   testEnvironment: 'jsdom',
-  testRegex: './test/.*.js$',
+  testRegex: './test/.*.spec.js$',
   testResultsProcessor: 'jest-sonar-reporter'
 }

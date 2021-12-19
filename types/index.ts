@@ -1,25 +1,34 @@
-export interface UserType {
-  id?: number,
-  name: string,
-  email: string,
-  roles: Array<string>,
-  groups: Array<string>
-}
-
-export interface CategoryAttributesType {
-  name: string
-}
-
-export interface CategoryRelationshipsType {
-  posts: object
-}
-
 export interface CategoryType {
-  id?: number,
-  type: string,
+  id?: string,
+  type: 'category',
   name: string,
-  attributes: CategoryAttributesType,
-  relationships: CategoryRelationshipsType
+  attributes: {
+    name: string
+  },
+  relationships: {
+    posts: {
+      data: {
+        id: string,
+        type: 'post'
+      }
+    }
+  }
+}
+
+export const CategoryDefault: CategoryType = {
+  type: 'category',
+  name: '',
+  attributes: {
+    name: ''
+  },
+  relationships: {
+    posts: {
+      data: {
+        id: '0',
+        type: 'post'
+      }
+    }
+  }
 }
 
 export interface CategoryFormType {
@@ -27,23 +36,47 @@ export interface CategoryFormType {
   name: string
 }
 
-export interface PostAttributesType {
-  title: string,
-  description: string,
-  content: string
+export const CategoryFormDefault: CategoryFormType = {
+  name: ''
 }
 
-export interface PostRelationshipsType {
-  categories: object,
-  users: object
+export interface CategoryFormErrorType {
+  name: Array<object>
+}
+
+export const CategoryFormErrorDefault: CategoryFormErrorType = {
+  name: []
 }
 
 export interface PostType {
   id: number,
   type: string,
-  attributes: PostAttributesType,
-  relationships: PostRelationshipsType
+  attributes: {
+    title: string,
+    description: string,
+    content: string
+  },
+  relationships: {
+    categories: {
+      data: {
+        [index: number]: {
+          id: number,
+          type: 'category'
+        }
+      }
+    },
+    users: {
+      data: {
+        [index: number]: {
+          id: number,
+          type: 'user'
+        }
+      }
+    }
+  }
 }
+
+
 
 export const PostDefault: PostType = {
   id: 0,
@@ -53,8 +86,49 @@ export const PostDefault: PostType = {
     content: ''
   },
   relationships: {
-    categories: {},
-    users: {}
+    categories: {
+      data: []
+    },
+    users: {
+      data: []
+    },
   },
   type: 'post'
+}
+
+export interface PostFormType {
+  id?: number,
+  title: string,
+  description: string,
+  content: string
+  categories: Array<number>
+}
+
+export const PostFormDefault: PostFormType = {
+  title: '',
+  description: '',
+  content: '',
+  categories: []
+}
+
+export interface PostFormErrorType {
+  title: Array<Object>,
+  description: Array<Object>,
+  content: Array<Object>,
+  categories: Array<Object>
+}
+
+export const PostFormErrorDefault: PostFormErrorType = {
+  title: [],
+  description: [],
+  content: [],
+  categories: []
+}
+
+export interface UserType {
+  id?: number,
+  name: string,
+  email: string,
+  roles: Array<string>,
+  groups: Array<string>
 }

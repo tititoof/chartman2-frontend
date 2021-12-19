@@ -12,7 +12,7 @@ export default axios => ({
   },
 
   find(id) {
-    return axios.$post('/categories/' + id);
+    return axios.$get('/categories/' + id);
   },
 
   update(id, payload) {

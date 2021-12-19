@@ -44,7 +44,7 @@ export default class BaseAvatar extends Vue {
   @Prop() readonly dark!: boolean
   @Prop() readonly icon!: string
   @Prop() readonly outlined!: boolean
-  @Prop({ default: { type: 56 } }) readonly size!: object
+  @Prop({ default: 56 }) readonly size!: number
 
   multiply: number = 6
 
@@ -55,11 +55,11 @@ export default class BaseAvatar extends Vue {
   }
 
   get outlineSize () {
-    return Number(this.size) + (Number(this.size) / this.multiply)
+    return this.size + (this.size / this.multiply)
   }
 
   get styles () {
-    const margin = Number(this.size) / (this.multiply * 2)
+    const margin = this.size / (this.multiply * 2)
 
     return {
       // Aligns the outline content with the content

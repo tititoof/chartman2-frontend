@@ -1,67 +1,51 @@
 import AdminCategoryNew from '@/pages/admin/category/new.vue'
-import Vuex from 'vuex'
 import { createLocalVue, mount } from '@vue/test-utils'
+import flushPromises from 'flush-promises'
+import Vuex from 'vuex'
+//Mocks
+import apiMock from '~/test/mock/apiMock'
+import routerMock from '~/test/mock/routerMock'
+import storeMock from '~/test/mock/storeMock'
+// Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
-// Utilities
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
+const store = new Vuex.Store(storeMock)
+
 describe('AdminCategoryNew', () => {
   let wrapper
-  let store
 
   beforeEach(() => {
-    store = new Vuex.Store({
-      modules: {
-        CategoryModule: {
-          namespaced: true,
-          actions: {
-            find: jest.fn(() => Promise.resolve()),
-            create: jest.fn(() => Promise.resolve())
-          }
-        },
-        MainStore: {
-          namespaced: true,
-          actions: {
-            showSnackbar: jest.fn()
-          }
-        }
-      }
-    })
     wrapper = mount(AdminCategoryNew, {
       localVue,
       store,
       mocks: {
-        $vuetify: {
-          breakpoint: {
-            smAndDown: () => true
-          }
-        },
-        $axios: {
-          $post: jest.fn(() => Promise.resolve(''))
-        }
+        $router: routerMock,
+        $api: apiMock
       },
       stubs: vuetifyStub
     })
   })
 
-  it('trigger submitForm', () => {
-    wrapper.setMethods({ submitForm: jest.fn() })
-    const button = wrapper.find('#submit')
-    button.trigger('click')
-
-    expect(wrapper.vm.submitForm).toHaveBeenCalledTimes(1)
-  })
-
-  it('send form', () => {
-    wrapper.vm.submitForm()
-    wrapper.vm.$nextTick(() => {
-      expect(wrapper.vm.$axios.$post).toHaveBeenCalledTimes(1)
-    })
-  })
-
-  it('is a Vue component', () => {
+  it('>> Vue component', () => {
     expect(wrapper.findComponent(AdminCategoryNew).vm).toBeTruthy()
+  })
+
+  it('>> submitForm', async () => {
+    const apiCategorySpy = jest.spyOn(apiMock.categories, 'create')
+    wrapper.vm.form.title = "title"
+    wrapper.vm.submitForm()
+
+    await flushPromises()
+
+    expect(apiCategorySpy).toHaveBeenCalledTimes(1)
+  })
+
+  it('>> router.back', () => {
+    wrapper.vm.goBack()
+
+    expect(routerMock.back).toHaveBeenCalledTimes(1)
   })
 })

@@ -6,21 +6,21 @@
       :src="background"
       contain
     >
-      <v-container class="fill-height px-4 py-12 justify-center overflow-y-auto">
+      <v-container class="fill-height px-4 py-3 justify-center overflow-y-auto">
         <v-responsive
           class="d-flex px-4 py-12 overflow-y-auto"
           height="100%"
           max-width="1400"
           width="100%"
         >
-          <div class="text-h4">
+          <div class="text-h4 py-3">
             <v-btn
               class="mx-2 float-left"
               small
               fab
               dark
               color="indigo"
-              @click.prevent="back"
+              @click.prevent="goBack"
             >
               <v-icon
                 dark
@@ -30,7 +30,7 @@
             </v-btn>
             {{ category }}
           </div>
-          <v-row>
+          <v-row class="py-12">
             <v-col
               v-for="article in articles"
               :key="article.id"
@@ -84,15 +84,14 @@ export default class TutorialsCategory extends Vue {
   background: string = '/backgrounds/library.svg'
   minHeight: string = '200'
   maxHeight: string = '700'
-  title: string = ''
   category: string = ''
 
-  goToArticle (id: number) {
+  goToArticle(id: number) {
     this.$router.push('/tutorials/article/' + id)
   }
 
-  back () {
-    this.$router.push('/tutorials')
+  goBack() {
+    this.$router.back()
   }
 }
 </script>

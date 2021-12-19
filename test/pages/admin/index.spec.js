@@ -1,32 +1,27 @@
 import AdminIndex from '@/pages/admin/index.vue'
-import Vuetify from 'vuetify'
-
-// Utilities
-import { createLocalVue, shallowMount } from '@vue/test-utils'
+import { createLocalVue, mount } from '@vue/test-utils'
+import flushPromises from 'flush-promises'
+import Vuex from 'vuex'
+//Mocks
+import routerMock from '~/test/mock/routerMock'
+import storeMock from '~/test/mock/storeMock'
+// Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 
 const localVue = createLocalVue()
-const vuetify = new Vuetify()
+localVue.use(Vuex)
+
+const store = new Vuex.Store(storeMock)
 
 describe('IndexAdmin', () => {
-  it('is a Vue component', () => {
-    const mockRoute = {
-      params: {
-        id: 1
-      }
-    }
-    const mockRouter = {
-      push: jest.fn()
-    }
-    const wrapper = shallowMount(AdminIndex, {
+  let wrapper
+
+  beforeEach(() => {
+    wrapper = mount(AdminIndex, {
       localVue,
-      vuetify,
+      store,
       mocks: {
-        $vuetify: {
-          breakpoint: {
-            smAndDown: () => true
-          }
-        },
+        $router: routerMock,
         $auth: {
           user: {
             loggedIn: true,
@@ -34,18 +29,24 @@ describe('IndexAdmin', () => {
           }
         },
         $axios: {
-          $get: () => {
-            return new Promise((resolve) => {
-              resolve('foo')
-            })
-          }
-        },
-        $route: mockRoute,
-        $router: mockRouter
+          $get: () => Promise.resolve()
+        }
       },
-      stubs: vuetifyStub
+      stubs: vuetifyStub,
     })
+  })
 
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
+  it('>> Vue component', () => {
     expect(wrapper.findComponent(AdminIndex).vm).toBeTruthy()
+  })
+
+  it('>> onLoginDone', async () => {
+    await flushPromises()
+
+    expect(routerMock.push).toHaveBeenCalledWith('/admin/cards')
   })
 })

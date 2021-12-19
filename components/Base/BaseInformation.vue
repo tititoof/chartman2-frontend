@@ -57,7 +57,6 @@ export default class BaseInformation extends Vue {
     @Prop({ default: 'Default text' }) readonly textProp!: String
     @Prop({ default: '' }) readonly textContentClassProp!: String
     @Prop({ default: '' }) readonly contentProp!: String
-
     @Prop({ default: 'base-body text-body-1 mx-auto text--lighten-1 text-left' }) readonly textClassProp!: String
 
     get avatarColor () {

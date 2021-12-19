@@ -1,93 +1,83 @@
 import AdminCategoryId from '@/pages/admin/category/_id.vue'
+import { createLocalVue, shallowMount } from '@vue/test-utils'
+import flushPromises from 'flush-promises'
 import Vuex from 'vuex'
-import { createLocalVue, mount } from '@vue/test-utils'
+//Mocks
+import apiMock from '~/test/mock/apiMock'
+import routerMock from '~/test/mock/routerMock'
+import storeMock from '~/test/mock/storeMock'
+// Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
-// Utilities
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
-const mockAxiosGetResult = { data: { id: '5', type: 'post', attributes: { name: 'yy', description: 'description', content: 'tt' }, relationships: { user: { data: { id: '1', type: 'user' } }, categories: { data: [] } } } }
-jest.mock('axios', () => ({
-  $get: () => Promise.resolve(mockAxiosGetResult.data)
-}))
+const store = new Vuex.Store(storeMock)
+
+const mockRoute = {
+  params: {
+    id: 1
+  }
+}
 
 describe('AdminCategoryId', () => {
   let wrapper
-  let store
 
   beforeEach(() => {
-    const mockRoute = {
-      params: {
-        id: 1
-      }
-    }
+    jest.resetModules()
+    jest.clearAllMocks()
 
-    const mockRouter = {
-      push: jest.fn()
-    }
-
-    store = new Vuex.Store({
-      modules: {
-        CategoryModule: {
-          namespaced: true,
-          actions: {
-            find: jest.fn(() => Promise.resolve(mockAxiosGetResult)),
-            update: jest.fn(() => Promise.resolve(mockAxiosGetResult))
-          }
-        },
-        MainStore: {
-          namespaced: true,
-          actions: {
-            showSnackbar: jest.fn()
-          }
-        }
-      }
-    })
-
-    wrapper = mount(AdminCategoryId, {
+    wrapper = shallowMount(AdminCategoryId, {
       localVue,
       store,
       mocks: {
-        $vuetify: {
-          breakpoint: {
-            smAndDown: () => true
-          }
-        },
-        $axios: {
-          $get: jest.fn(() => Promise.resolve(mockAxiosGetResult)),
-          $put: jest.fn(() => Promise.resolve(mockAxiosGetResult))
-        },
+        $router: routerMock,
         $route: mockRoute,
-        $router: mockRouter
+        $api: apiMock
+      },
+      propsData: {
+        id: 1
       },
       stubs: vuetifyStub
     })
+
+    wrapper.vm.category = {"id":"1","type":"category","attributes":{"name":"NuxtJS"},"relationships":{"posts":{"data":[{"id":"1","type":"post"},{"id":"2","type":"post"},{"id":"3","type":"post"},{"id":"4","type":"post"}]}}}
   })
 
-  it('is a Vue component', () => {
+  it('>> Vue component', () => {
     expect(wrapper.findComponent(AdminCategoryId).vm).toBeTruthy()
   })
 
-  it('trigger submitForm', () => {
-    wrapper.setMethods({ submitForm: jest.fn() })
-    const button = wrapper.find('#submit')
-    button.trigger('click')
+  it('>> asyncData - categories.find', async () => {
+    const apiCategorySpy = jest.spyOn(apiMock.categories, 'find')
+    const response = await wrapper.vm.$options.asyncData({ $api: apiMock, params: mockRoute.params })
 
-    expect(wrapper.vm.submitForm).toHaveBeenCalledTimes(1)
+    await flushPromises()
+
+    expect(apiCategorySpy).toHaveBeenCalledTimes(1)
+    expect(response.category).toStrictEqual({"id":"1","type":"category","attributes":{"name":"NuxtJS"},"relationships":{"posts":{"data":[{"id":"1","type":"post"},{"id":"2","type":"post"},{"id":"3","type":"post"},{"id":"4","type":"post"}]}}})
   })
 
-  it('send form', () => {
+  it('>> initialize', async () => {
+    wrapper.vm.initialize()
+
+    expect(wrapper.vm.title).toStrictEqual('Edition de la catégorie NuxtJS')
+    expect(wrapper.vm.form.name).toStrictEqual('NuxtJS')
+  })
+
+  it('>> submitForm', async () => {
+    const apiCategorySpy = jest.spyOn(apiMock.categories, 'update')
+    wrapper.vm.form.title = "title"
     wrapper.vm.submitForm()
-    wrapper.vm.$nextTick(() => {
-      expect(wrapper.vm.$axios.$put).toHaveBeenCalledTimes(1)
-    })
+
+    await flushPromises()
+
+    expect(apiCategorySpy).toHaveBeenCalledTimes(1)
   })
 
-  it('get categories', () => {
-    wrapper.vm.getCategory()
-    wrapper.vm.$nextTick(() => {
-      expect(wrapper.vm.$axios.$get).toHaveBeenCalledTimes(1)
-    })
+  it('>> router.back', () => {
+    wrapper.vm.goBack()
+
+    expect(routerMock.back).toHaveBeenCalledTimes(1)
   })
 })

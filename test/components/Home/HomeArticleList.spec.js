@@ -1,89 +1,58 @@
 import HomeArticleList from '@/components/Home/HomeArticleList.vue'
-import Vuex from 'vuex'
 import { createLocalVue, mount } from '@vue/test-utils'
-import vuetifyStub from '~/test/stub/vuetifyStub'
 import flushPromises from 'flush-promises'
+import Vuex from 'vuex'
+//Mocks
+import apiMock from '~/test/mock/apiMock'
+import routerMock from '~/test/mock/routerMock'
+import storeMock from '~/test/mock/storeMock'
+// Stubs
+import vuetifyStub from '~/test/stub/vuetifyStub'
 
 const localVue = createLocalVue()
-// const vuetify = new Vuetify()
 localVue.use(Vuex)
 
+const store = new Vuex.Store(storeMock)
+
 describe('HomeArticleList', () => {
-  let wrapper: any
-  let store: any
-  const mockRouter = {
-    push: jest.fn()
-  }
+  let wrapper
+
   beforeEach(() => {
-    const mockRoute = {
-      params: {
-        id: 1
-      }
-    }
-
-    store = new Vuex.Store({
-      modules: {
-        PostModule: {
-          namespaced: true,
-          actions: {
-            find: jest.fn(() => Promise.resolve()),
-            create: jest.fn(() => Promise.resolve()),
-            destroy: jest.fn(() => Promise.resolve())
-          }
-        },
-        MainStore: {
-          namespaced: true,
-          actions: {
-            showSnackbar: jest.fn()
-          }
-        }
-      }
-    })
-
     wrapper = mount(HomeArticleList, {
       localVue,
       store,
       mocks: {
-        $vuetify: {
-          breakpoint: {
-            smAndDown: () => true
-          }
-        },
-        $route: mockRoute,
-        $router: mockRouter,
-        $axios: {
-          $get: jest.fn(() => Promise.resolve('toto')),
-          $delete: jest.fn(() => Promise.resolve('toto'))
-        }
+        $router: routerMock,
+        $api: apiMock
       },
       stubs: vuetifyStub
     })
   })
 
-  it('is a Vue component', () => {
+  it('>> Vue component', () => {
     expect(wrapper.findComponent(HomeArticleList).vm).toBeTruthy()
   })
 
-  it('get pathNew', () => {
+  it('>> pathNew getter', () => {
     const pathNew = wrapper.vm.pathNew
 
     expect(pathNew).toEqual('/new')
   })
 
-  it('get pathEdit', () => {
+  it('>> pathEdit getter', () => {
     const pathEdit = wrapper.vm.pathEdit
 
     expect(pathEdit).toEqual('/_id')
   })
 
-  it('format categories', () => {
+  it('>> formatedCategories', () => {
     wrapper.vm.categories = [{ id: 1, attributes: { name: 'toto' } }]
     const formatedCategories = wrapper.vm.formatedCategories([{ id: 1 }])
 
     expect(formatedCategories).toEqual('toto')
   })
 
-  it('confirmDestroy', () => {
+  it('>> confirmDestroy', () => {
     wrapper.vm.confirmDestroy(1, 1, 'test')
 
     expect(wrapper.vm.dialogItemId).toEqual(1)
@@ -92,30 +61,32 @@ describe('HomeArticleList', () => {
     expect(wrapper.vm.dialogShow).toBeTruthy()
   })
 
-  it('push to edit', () => {
+  it('>> edit', () => {
     wrapper.vm.edit(1)
 
-    expect(mockRouter.push).toHaveBeenCalledWith('/1')
+    expect(routerMock.push).toHaveBeenCalledWith('/1')
   })
 
-  it('destroy', async () => {
+  it('>> destroy', async () => {
+    const apiPostsSpy = jest.spyOn(apiMock.posts, 'destroy')
     wrapper.vm.dialogItemId = 1
     wrapper.vm.destroy()
 
     await flushPromises()
 
-    expect(wrapper.vm.$axios.$delete).toHaveBeenCalledTimes(1)
+    expect(apiPostsSpy).toHaveBeenCalledTimes(1)
   })
 
-  it('getCategories', async () => {
+  it('>> getCategories', async () => {
+    const apiCategoriesSpy = jest.spyOn(apiMock.categories, 'findAll')
     wrapper.vm.getCategories()
 
     await flushPromises()
 
-    expect(wrapper.vm.$axios.$get).toHaveBeenCalledTimes(1)
+    expect(apiCategoriesSpy).toHaveBeenCalledTimes(1)
   })
 
-  it('show article', () => {
+  it('>> show', () => {
     wrapper.vm.show('titre', 'contenu')
 
     expect(wrapper.vm.showDialogTitle).toEqual('titre')
