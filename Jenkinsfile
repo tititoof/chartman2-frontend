@@ -28,7 +28,7 @@ pipeline {
                     ''')
                     sh("yarn start &")
                     sh('''
-                        yarn lint:js
+                        yarn lint
                         yarn jest
                     ''')
                     echo 'Finished tests!'
