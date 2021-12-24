@@ -42,9 +42,9 @@ import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
 @Component
 export default class HomeCard extends Vue {
-  @Prop({ default: 'mdi-twitter' }) readonly cardIcon!: String|undefined
-  @Prop({ default: 'Twitter' }) readonly cardName!: String|undefined
-  @Prop({ default: '"Card description."' }) readonly cardDescription!: String|undefined
-  @Prop({ default: '/admin/cards' }) readonly cardRoute!: String|undefined
+  @Prop({ default: 'mdi-twitter' }) readonly cardIcon!: string|undefined
+  @Prop({ default: 'Twitter' }) readonly cardName!: string|undefined
+  @Prop({ default: '"Card description."' }) readonly cardDescription!: string|undefined
+  @Prop({ default: '/admin/cards' }) readonly cardRoute!: string|undefined
 }
 </script>

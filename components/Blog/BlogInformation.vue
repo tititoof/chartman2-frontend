@@ -194,7 +194,7 @@ export default class BlogInformation extends Vue {
     }
   ]
 
-  itemTypeOf (item: any, defaultValue: String) {
+  itemTypeOf (item: any, defaultValue: string) {
     return typeof item !== 'undefined' ? item : defaultValue
   }
 }

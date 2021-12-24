@@ -61,7 +61,7 @@ import HomeDrawer from '@/components/Home/HomeDrawer.vue'
   }
 })
 export default class HomeAppBar extends Vue {
-  drawer: Boolean = false
+  drawer: boolean = false
 
   get items (): Array<Object> {
     return [

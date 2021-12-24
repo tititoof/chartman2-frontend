@@ -17,7 +17,7 @@ import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
 @Component
 export default class Error extends Vue {
-  @Prop({ default: 404 }) readonly error!: Number
+  @Prop({ default: 404 }) readonly error!: number
 
   layout: string = 'empty'
   pageNotFound: string = '404 Not Found'

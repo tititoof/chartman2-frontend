@@ -9,6 +9,6 @@ import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
 @Component
 export default class BaseIcon extends Vue {
-  @Prop({ default: 56 }) readonly size!: Number
+  @Prop({ default: 56 }) readonly size!: number
 }
 </script>

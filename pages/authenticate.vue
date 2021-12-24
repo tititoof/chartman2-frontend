@@ -48,8 +48,8 @@ import Register from '~/components/Home/Register.vue'
   }
 })
 export default class Authenticate extends Vue {
-  dialog: Boolean = true
-  tab: Number = 0
+  dialog: boolean = true
+  tab: number = 0
   tabs: Array<Object> = [
     { name: 'Connexion', icon: 'mdi-account' },
     { name: 'Enregistrement', icon: 'mdi-account-outline' }

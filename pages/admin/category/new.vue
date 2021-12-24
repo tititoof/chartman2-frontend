@@ -81,13 +81,13 @@ export default class AdminCategoryNew extends Vue {
   @mainModule.Action('showSnackbar') showSnackbar: any
 
   // Data
-  title: String = 'Nouvelle catégorie'
-  background: String = '/backgrounds/business.svg'
-  minHeight: String = '200'
-  maxHeight: String = '500'
+  title: string = 'Nouvelle catégorie'
+  background: string = '/backgrounds/business.svg'
+  minHeight: string = '200'
+  maxHeight: string = '500'
   form: CategoryFormType = CategoryFormDefault
   formError: CategoryFormErrorType = CategoryFormErrorDefault
-  formValid: Boolean = false
+  formValid: boolean = false
   rules: Object = {
     required: (value: any) => !!value || 'Requis.'
   }
@@ -98,7 +98,6 @@ export default class AdminCategoryNew extends Vue {
       this.showSnackbar('Catégorie créée.')
       this.$router.push('/admin/category')
     } catch (reason: any) {
-      console.log(reason)
       this.formError = reason
     }
   }

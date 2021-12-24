@@ -74,18 +74,18 @@ export default class Login extends Vue {
   mainModule = getModule(MainStore, this.$store)
   @mainModule.Action('showSnackbar') showSnackbar: any
 
-  error: String = ''
-  valid: Boolean = false
-  loginEmail: String = ''
-  loginPassword: String = ''
-  show1: Boolean = false
+  error: string = ''
+  valid: boolean = false
+  loginEmail: string = ''
+  loginPassword: string = ''
+  show1: boolean = false
   rules: Object = {
     required: (value: any) => !!value || 'Requis.',
     min: (v: any) => (v && v.length >= 8) || '8 charactères minimum',
     email: (v: any) => /.+@.+\..+/.test(v) || 'E-mail doit être valide'
   }
 
-  snackbarText: String = 'Vous êtes connecté.'
+  snackbarText: string = 'Vous êtes connecté.'
 
   async userLogin () {
     try {

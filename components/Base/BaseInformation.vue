@@ -48,16 +48,16 @@ import BaseAvatar from '~/components/Base/BaseAvatar.vue'
   components: { BaseAvatar }
 })
 export default class BaseInformation extends Vue {
-    @Prop({ default: '' }) readonly avatarColorProp!: String
-    @Prop({ default: 'icon' }) readonly typeProp!: String
-    @Prop({ default: 'mdi-cursor-default-outline' }) readonly iconProp!: String
-    @Prop({ default: '' }) readonly iconColorProp!: String
-    @Prop({ default: 72 }) readonly iconHeightProp!: Number
-    @Prop({ default: 'images/gitea.png' }) readonly imageProp!: String
-    @Prop({ default: 'Default text' }) readonly textProp!: String
-    @Prop({ default: '' }) readonly textContentClassProp!: String
-    @Prop({ default: '' }) readonly contentProp!: String
-    @Prop({ default: 'base-body text-body-1 mx-auto text--lighten-1 text-left' }) readonly textClassProp!: String
+    @Prop({ default: '' }) readonly avatarColorProp!: string
+    @Prop({ default: 'icon' }) readonly typeProp!: string
+    @Prop({ default: 'mdi-cursor-default-outline' }) readonly iconProp!: string
+    @Prop({ default: '' }) readonly iconColorProp!: string
+    @Prop({ default: 72 }) readonly iconHeightProp!: number
+    @Prop({ default: 'images/gitea.png' }) readonly imageProp!: string
+    @Prop({ default: 'Default text' }) readonly textProp!: string
+    @Prop({ default: '' }) readonly textContentClassProp!: string
+    @Prop({ default: '' }) readonly contentProp!: string
+    @Prop({ default: 'base-body text-body-1 mx-auto text--lighten-1 text-left' }) readonly textClassProp!: string
 
     get avatarColor () {
       return this.avatarColorProp
