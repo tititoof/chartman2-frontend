@@ -13,7 +13,7 @@ describe('ErrorPage', () => {
   beforeEach(() => {
     wrapper = mount(Error, {
       localVue,
-      propsData: { error: { statusCode: 404 } },
+      propsData: { error: 404 },
       stubs: vuetifyStub
     })
   })

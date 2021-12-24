@@ -13,8 +13,9 @@
 </template>
 
 <script lang="ts">
-import { Vue, Prop } from 'nuxt-property-decorator'
+import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
+@Component
 export default class Error extends Vue {
   @Prop({ default: 404 }) readonly error!: Number
 
