@@ -1,6 +1,6 @@
-import BaseBtn from '@/components/Base/BaseBtn.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import Vuex from 'vuex'
+import BaseBtn from '@/components/Base/BaseBtn.vue'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 

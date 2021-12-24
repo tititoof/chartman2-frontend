@@ -1,11 +1,10 @@
-import Authenticate from '@/pages/authenticate.vue'
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Vuex from 'vuex'
-//Mocks
+import Authenticate from '@/pages/authenticate.vue'
+// Mocks
 import storeMock from '~/test/mock/storeMock'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
-
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -19,7 +18,7 @@ describe('Authenticate', () => {
     mocks: {
       $auth: {
         loggedIn: true
-      },
+      }
     },
     stubs: vuetifyStub
   })

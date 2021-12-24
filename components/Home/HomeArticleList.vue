@@ -9,7 +9,7 @@
         :height="maxHeight"
         :item-height="63"
       >
-        <template v-slot:default="{ index, item }">
+        <template #default="{ index, item }">
           <v-list-item
             :key="index"
             two-line
@@ -174,26 +174,26 @@ export default class HomeArticleList extends Vue {
     }
   }
 
-  get pathNew() {
+  get pathNew () {
     return this.basePathItem + '/new'
   }
 
-  get pathEdit() {
+  get pathEdit () {
     return this.basePathItem + '/_id'
   }
 
-  mounted() {
+  mounted () {
     this.getCategories()
   }
 
-  confirmDestroy(id: number, index: number, name: string) {
+  confirmDestroy (id: number, index: number, name: string) {
     this.dialogItemId = id
     this.dialogItemIndex = index
     this.dialogName = 'Êtes vous sûr de vouloir supprimer l\'article "' + name + '" ?'
     this.dialogShow = true
   }
 
-  formatedCategories(categories: Array<any>) {
+  formatedCategories (categories: Array<any>) {
     const listCategories: Array<CategoryType> = this.categories.filter((item) => {
       return categories.some((category) => {
         return category.id === item.id
@@ -203,27 +203,27 @@ export default class HomeArticleList extends Vue {
     return listCategories.map(category => category.attributes.name).join(', ')
   }
 
-  show(title: string, content: string) {
+  show (title: string, content: string) {
     this.showDialogTitle = title
     this.showDialogContent = content
     this.showDialogVisible = true
   }
 
-  edit(id: number) {
+  edit (id: number) {
     this.$router.push(this.basePathItem + '/' + id)
   }
 
-  destroy() {
+  destroy () {
     try {
       this.dialogShow = false
       this.$api.posts.destroy(this.dialogItemId)
       this.showSnackbar('Article supprimé.')
-    } catch(reason) {
+    } catch (reason) {
       this.showSnackbar('Impossible de supprimer l\'article.')
     }
   }
 
-  async getCategories() {
+  async getCategories () {
     const response = await this.$api.categories.findAll()
 
     this.categories = response.data

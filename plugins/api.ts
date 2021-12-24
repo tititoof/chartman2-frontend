@@ -1,8 +1,8 @@
-import Auth from "~/api/auth"
-import Articles from '~/api/articles'
-import Categories from "~/api/categories"
-import Posts from '~/api/post'
 import { Plugin } from '@nuxt/types'
+import Auth from '~/api/auth'
+import Articles from '~/api/articles'
+import Categories from '~/api/categories'
+import Posts from '~/api/post'
 
 declare module 'vue/types/vue' {
   // this.$api inside Vue components

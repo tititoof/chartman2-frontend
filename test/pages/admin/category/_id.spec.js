@@ -1,8 +1,8 @@
-import AdminCategoryId from '@/pages/admin/category/_id.vue'
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import Vuex from 'vuex'
-//Mocks
+import AdminCategoryId from '@/pages/admin/category/_id.vue'
+// Mocks
 import apiMock from '~/test/mock/apiMock'
 import routerMock from '~/test/mock/routerMock'
 import storeMock from '~/test/mock/storeMock'
@@ -41,7 +41,7 @@ describe('AdminCategoryId', () => {
       stubs: vuetifyStub
     })
 
-    wrapper.vm.category = {"id":"1","type":"category","attributes":{"name":"NuxtJS"},"relationships":{"posts":{"data":[{"id":"1","type":"post"},{"id":"2","type":"post"},{"id":"3","type":"post"},{"id":"4","type":"post"}]}}}
+    wrapper.vm.category = { id: '1', type: 'category', attributes: { name: 'NuxtJS' }, relationships: { posts: { data: [{ id: '1', type: 'post' }, { id: '2', type: 'post' }, { id: '3', type: 'post' }, { id: '4', type: 'post' }] } } }
   })
 
   it('>> Vue component', () => {
@@ -55,7 +55,7 @@ describe('AdminCategoryId', () => {
     await flushPromises()
 
     expect(apiCategorySpy).toHaveBeenCalledTimes(1)
-    expect(response.category).toStrictEqual({"id":"1","type":"category","attributes":{"name":"NuxtJS"},"relationships":{"posts":{"data":[{"id":"1","type":"post"},{"id":"2","type":"post"},{"id":"3","type":"post"},{"id":"4","type":"post"}]}}})
+    expect(response.category).toStrictEqual({ id: '1', type: 'category', attributes: { name: 'NuxtJS' }, relationships: { posts: { data: [{ id: '1', type: 'post' }, { id: '2', type: 'post' }, { id: '3', type: 'post' }, { id: '4', type: 'post' }] } } })
   })
 
   it('>> initialize', async () => {
@@ -67,7 +67,7 @@ describe('AdminCategoryId', () => {
 
   it('>> submitForm', async () => {
     const apiCategorySpy = jest.spyOn(apiMock.categories, 'update')
-    wrapper.vm.form.title = "title"
+    wrapper.vm.form.title = 'title'
     wrapper.vm.submitForm()
 
     await flushPromises()

@@ -1,8 +1,8 @@
-import AdminCategoryNew from '@/pages/admin/category/new.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import Vuex from 'vuex'
-//Mocks
+import AdminCategoryNew from '@/pages/admin/category/new.vue'
+// Mocks
 import apiMock from '~/test/mock/apiMock'
 import routerMock from '~/test/mock/routerMock'
 import storeMock from '~/test/mock/storeMock'
@@ -35,7 +35,7 @@ describe('AdminCategoryNew', () => {
 
   it('>> submitForm', async () => {
     const apiCategorySpy = jest.spyOn(apiMock.categories, 'create')
-    wrapper.vm.form.title = "title"
+    wrapper.vm.form.title = 'title'
     wrapper.vm.submitForm()
 
     await flushPromises()

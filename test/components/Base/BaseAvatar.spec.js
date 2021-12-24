@@ -1,6 +1,6 @@
-import BaseAvatar from '@/components/Base/BaseAvatar.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import Vuex from 'vuex'
+import BaseAvatar from '@/components/Base/BaseAvatar.vue'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 
@@ -42,6 +42,6 @@ describe('BaseAvatar', () => {
     const test = wrapper.vm.styles
     const margin = 56 / 12
 
-    expect(test).toEqual({margin: `-${margin}px 0 0 -${margin}px`})
+    expect(test).toEqual({ margin: `-${margin}px 0 0 -${margin}px` })
   })
 })

@@ -1,6 +1,6 @@
-import BlogInformation from '@/components/Blog/BlogInformation.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import Vuex from 'vuex'
+import BlogInformation from '@/components/Blog/BlogInformation.vue'
 import vuetifyStub from '~/test/stub/vuetifyStub'
 
 const localVue = createLocalVue()

@@ -89,21 +89,21 @@ export default class AdminCategoryNew extends Vue {
   formError: CategoryFormErrorType = CategoryFormErrorDefault
   formValid: Boolean = false
   rules: Object = {
-    required: (value: any) => !!value || 'Requis.',
+    required: (value: any) => !!value || 'Requis.'
   }
 
-  submitForm() {
+  submitForm () {
     try {
       this.$api.categories.create(this.form)
       this.showSnackbar('Catégorie créée.')
       this.$router.push('/admin/category')
-    } catch(reason: any) {
+    } catch (reason: any) {
       console.log(reason)
       this.formError = reason
     }
   }
 
-  goBack() {
+  goBack () {
     this.$router.back()
   }
 }

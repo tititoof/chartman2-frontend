@@ -1,8 +1,8 @@
-import TutorialsArticle from '@/pages/tutorials/article/_id.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import Vuex from 'vuex'
-//Mocks
+import TutorialsArticle from '@/pages/tutorials/article/_id.vue'
+// Mocks
 import apiMock from '~/test/mock/apiMock'
 import routerMock from '~/test/mock/routerMock'
 import storeMock from '~/test/mock/storeMock'
@@ -29,7 +29,7 @@ describe('TutorialsArticle', () => {
       mocks: {
         $router: routerMock
       },
-      stubs: vuetifyStub,
+      stubs: vuetifyStub
     })
   })
 
@@ -40,14 +40,14 @@ describe('TutorialsArticle', () => {
   it('>> asyncData - articles.find', async () => {
     const apiSpy = jest.spyOn(apiMock.articles, 'find')
     const response = await wrapper.vm.$options.asyncData({ $api: apiMock, params: mockRoute.params })
-    
+
     await flushPromises()
 
     expect(apiSpy).toHaveBeenCalledTimes(1)
     expect(response.article.attributes.title).toStrictEqual('mon test')
     expect(response.article.attributes.description).toStrictEqual('C\'est ma little description')
     expect(response.article.attributes.content).toStrictEqual('# Yey !!!!\n\nHello comment ça va ? ')
-    expect(response.article.relationships.categories).toStrictEqual({"data":[{"id":"1","type":"category"}]})
+    expect(response.article.relationships.categories).toStrictEqual({ data: [{ id: '1', type: 'category' }] })
   })
 
   it('>> router.back', () => {

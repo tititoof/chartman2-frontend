@@ -76,8 +76,6 @@ export interface PostType {
   }
 }
 
-
-
 export const PostDefault: PostType = {
   id: 0,
   attributes: {
@@ -91,7 +89,7 @@ export const PostDefault: PostType = {
     },
     users: {
       data: []
-    },
+    }
   },
   type: 'post'
 }

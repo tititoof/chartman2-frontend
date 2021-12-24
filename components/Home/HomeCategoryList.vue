@@ -9,7 +9,7 @@
         :height="maxHeight"
         :item-height="57"
       >
-        <template v-slot:default="{ index, item }">
+        <template #default="{ index, item }">
           <v-list-item
             :key="index"
           >
@@ -110,32 +110,32 @@ export default class HomeCategoryList extends Vue {
   dialogItemId: number = 0
   dialogItemIndex: number = 0
 
-  get pathNew() {
+  get pathNew () {
     return this.basePathItem + '/new'
   }
 
-  get pathEdit() {
+  get pathEdit () {
     return this.basePathItem + '/_id'
   }
 
-  confirmDestroy(id: number, index: number, name: string) {
+  confirmDestroy (id: number, index: number, name: string) {
     this.dialogItemId = id
     this.dialogItemIndex = index
     this.dialogName = 'Êtes vous sûr de vouloir supprimer la catégorie "' + name + '" ?'
     this.dialogShow = true
   }
 
-  edit(id: number) {
+  edit (id: number) {
     this.$router.push(this.basePathItem + '/' + id)
   }
 
-  async destroy() {
+  async destroy () {
     this.dialogShow = false
     try {
       await this.$api.categories.destroy(this.dialogItemId)
       this.showSnackbar('Catégorie supprimée.')
       this.$delete(this.syncedItems, this.dialogItemIndex)
-    } catch(reason) {
+    } catch (reason) {
       this.showSnackbar('Impossible de supprimer la catégorie.')
     }
   }

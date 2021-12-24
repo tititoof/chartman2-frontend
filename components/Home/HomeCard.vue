@@ -32,8 +32,7 @@
       <v-row
         align="end"
         justify="end"
-      >
-      </v-row>
+      />
     </v-card-actions>
   </v-card>
 </template>

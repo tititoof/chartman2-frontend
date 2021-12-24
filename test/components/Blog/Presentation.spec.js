@@ -1,8 +1,8 @@
-import Presentation from '@/components/Blog/Presentation.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import Vuex from 'vuex'
-//Mocks
+import Presentation from '@/components/Blog/Presentation.vue'
+// Mocks
 import apiMock from '~/test/mock/apiMock'
 import routerMock from '~/test/mock/routerMock'
 import storeMock from '~/test/mock/storeMock'
@@ -45,13 +45,13 @@ describe('Presentation', () => {
     await flushPromises()
 
     expect(apiCategoriesSpy).toHaveBeenCalledTimes(1)
-    expect(response.data).toStrictEqual([{"id":"1","type":"category","attributes":{"name":"NuxtJS"},"relationships":{"posts":{"data":[{"id":"1","type":"post"},{"id":"2","type":"post"},{"id":"3","type":"post"},{"id":"4","type":"post"}]}}}])
+    expect(response.data).toStrictEqual([{ id: '1', type: 'category', attributes: { name: 'NuxtJS' }, relationships: { posts: { data: [{ id: '1', type: 'post' }, { id: '2', type: 'post' }, { id: '3', type: 'post' }, { id: '4', type: 'post' }] } } }])
   })
 
   it('>> getCategoryId', () => {
     const routeId = wrapper.vm.getCategoryId('NuxtJS', apiMock.categories.findAll().data)
 
-    expect(routeId).toEqual("1")
+    expect(routeId).toEqual('1')
   })
 
   it('>> goTo', async () => {

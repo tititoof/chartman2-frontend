@@ -1,17 +1,17 @@
 export default axios => ({
-  create(payload) {
+  create (payload) {
     return axios.$post('/posts', { post: payload })
   },
-  destroy(id) {
+  destroy (id) {
     return axios.$delete('/posts/' + id)
   },
-  findAll() {
-    return axios.$get("/posts")
+  findAll () {
+    return axios.$get('/posts')
   },
-  find(id) {
+  find (id) {
     return axios.$get('/posts/' + id)
   },
-  update(id, payload) {
+  update (id, payload) {
     return axios.$put('/posts/' + id, { post: payload })
   }
- })
+})

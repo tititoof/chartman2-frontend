@@ -69,13 +69,13 @@ import { Vue, Component } from 'nuxt-property-decorator'
 import { PostType } from '~/types/index'
 
 @Component({
-  async asyncData({ $api, params }) {
+  async asyncData ({ $api, params }) {
     const responseCategory = await $api.articles.category(params.id)
-    const category  = responseCategory.data.attributes.name
-    
+    const category = responseCategory.data.attributes.name
+
     const response = await $api.articles.fromCategory(params.id)
     const articles = response.data
-    
+
     return { articles, category }
   }
 })
@@ -86,11 +86,11 @@ export default class TutorialsCategory extends Vue {
   maxHeight: string = '700'
   category: string = ''
 
-  goToArticle(id: number) {
+  goToArticle (id: number) {
     this.$router.push('/tutorials/article/' + id)
   }
 
-  goBack() {
+  goBack () {
     this.$router.back()
   }
 }

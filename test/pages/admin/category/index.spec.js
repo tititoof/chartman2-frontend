@@ -1,8 +1,8 @@
-import AdminCategory from '@/pages/admin/category/index.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import Vuex from 'vuex'
-//Mocks
+import AdminCategory from '@/pages/admin/category/index.vue'
+// Mocks
 import apiMock from '~/test/mock/apiMock'
 import storeMock from '~/test/mock/storeMock'
 // Stubs
@@ -26,7 +26,7 @@ describe('AdminCategory', () => {
             loggedIn: true,
             admin: true
           }
-        },
+        }
       },
       stubs: vuetifyStub
     })
@@ -39,10 +39,10 @@ describe('AdminCategory', () => {
   it('>> asyncData - categories.findAll', async () => {
     const apiSpy = jest.spyOn(apiMock.categories, 'findAll')
     const response = await wrapper.vm.$options.asyncData({ $api: apiMock })
-    
+
     await flushPromises()
 
     expect(apiSpy).toHaveBeenCalledTimes(1)
-    expect(response.categories).toStrictEqual([{"id":"1","type":"category","attributes":{"name":"NuxtJS"},"relationships":{"posts":{"data":[{"id":"1","type":"post"},{"id":"2","type":"post"},{"id":"3","type":"post"},{"id":"4","type":"post"}]}}}])
+    expect(response.categories).toStrictEqual([{ id: '1', type: 'category', attributes: { name: 'NuxtJS' }, relationships: { posts: { data: [{ id: '1', type: 'post' }, { id: '2', type: 'post' }, { id: '3', type: 'post' }, { id: '4', type: 'post' }] } } }])
   })
 })

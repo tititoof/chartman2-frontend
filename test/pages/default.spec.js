@@ -1,7 +1,7 @@
-import Default from '@/layouts/default.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import Vuex from 'vuex'
-//Mocks
+import Default from '@/layouts/default.vue'
+// Mocks
 import storeMock from '~/test/mock/storeMock'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'

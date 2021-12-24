@@ -1,7 +1,7 @@
-import HomeNew from '@/components/Home/HomeNew.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import Vuex from 'vuex'
+import HomeNew from '@/components/Home/HomeNew.vue'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 

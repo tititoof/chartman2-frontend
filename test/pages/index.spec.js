@@ -1,7 +1,7 @@
-import Index from '~/pages/index.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import Vuex from 'vuex'
-//Mocks
+import Index from '~/pages/index.vue'
+// Mocks
 import storeMock from '~/test/mock/storeMock'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'

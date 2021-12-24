@@ -1,6 +1,6 @@
-import BaseInformation from '@/components/Base/BaseInformation.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import Vuex from 'vuex'
+import BaseInformation from '@/components/Base/BaseInformation.vue'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 
@@ -19,7 +19,7 @@ describe('BaseInformation', () => {
         iconColorProp: 'green',
         textContentClassProp: 'text-class',
         contentProp: 'content-prop'
-      },
+      }
     })
   })
 

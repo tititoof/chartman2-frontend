@@ -112,7 +112,7 @@ import { CategoryType, PostFormDefault, PostFormErrorDefault, PostFormErrorType,
 const mainModule = namespace('MainStore')
 
 @Component({
-  async asyncData({ $api }) {
+  async asyncData ({ $api }) {
     const responseCategories = await $api.categories.findAll()
     const categories = responseCategories.data
 
@@ -146,22 +146,22 @@ export default class AdminArticleNew extends Vue {
     }
   }
 
-  goBack() {
+  goBack () {
     this.$router.back()
   }
 
-  async submitForm() {
+  async submitForm () {
     try {
       await this.$api.posts.create(this.form)
       this.showSnackbar('Article créé.')
       this.goBack()
-    } catch(e) {
+    } catch (e) {
       this.showSnackbar('Impossible de créer l\'article.')
     }
   }
 
   @Watch('form.title')
-  onFormNameChange(val: string, oldVal: string) {
+  onFormNameChange (val: string, oldVal: string) {
     if (val !== oldVal) {
       this.formError.title = []
     }

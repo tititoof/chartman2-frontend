@@ -1,8 +1,8 @@
-import Login from '@/components/Home/Login.vue'
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import Vuex from 'vuex'
-//Mocks
+import Login from '@/components/Home/Login.vue'
+// Mocks
 import apiMock from '~/test/mock/apiMock'
 import routerMock from '~/test/mock/routerMock'
 import storeMock from '~/test/mock/storeMock'

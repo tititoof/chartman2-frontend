@@ -1,6 +1,6 @@
-import HomeFooter from '@/components/Home/HomeFooter.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import Vuex from 'vuex'
+import HomeFooter from '@/components/Home/HomeFooter.vue'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 
@@ -23,7 +23,7 @@ describe('HomeFooter', () => {
 
   it('>> social getter', () => {
     expect(wrapper.vm.social).toStrictEqual([
-      { name: 'Facebook', route: 'https://www.facebook.com/christophe.hartmann1/' }, 
+      { name: 'Facebook', route: 'https://www.facebook.com/christophe.hartmann1/' },
       { name: 'Linkedin', route: 'https://www.linkedin.com/in/christophe-hartmann-3a297a42/' }
     ])
   })

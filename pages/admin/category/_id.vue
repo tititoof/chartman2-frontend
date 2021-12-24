@@ -71,7 +71,7 @@ import { CategoryDefault, CategoryFormDefault, CategoryFormErrorDefault, Categor
 const mainModule = namespace('MainStore')
 
 @Component({
-  async asyncData({ $api, params }) {
+  async asyncData ({ $api, params }) {
     const responseCategory = await $api.categories.find(params.id)
     const category = responseCategory.data
 
@@ -95,29 +95,29 @@ export default class AdminCategoryId extends Vue {
   formError: CategoryFormErrorType = CategoryFormErrorDefault
   formValid: boolean = false
   rules: Object = {
-    required: (value: any) => !!value || 'Requis.',
+    required: (value: any) => !!value || 'Requis.'
   }
 
-  initialize() {
+  initialize () {
     this.title = 'Edition de la catégorie ' + this.category.attributes.name
     this.form.name = this.category.attributes.name
   }
 
-  mounted() {
+  mounted () {
     this.initialize()
   }
 
-  submitForm() {
+  submitForm () {
     try {
       this.$api.categories.update(this.$route.params.id, this.form)
       this.showSnackbar('Catégorie modifiée.')
       this.$router.push('/admin/category')
-    } catch(reason: any) {
+    } catch (reason: any) {
       this.formError = reason
     }
   }
 
-  goBack() {
+  goBack () {
     this.$router.back()
   }
 }

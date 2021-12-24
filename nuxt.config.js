@@ -28,7 +28,7 @@ export default {
     '~/plugins/axios.js',
     '~/plugins/axios-accessor.ts',
     '~/plugins/filters.js',
-    "~/plugins/api.ts"
+    '~/plugins/api.ts'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,7 +39,7 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
+    '@nuxtjs/vuetify'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -48,7 +48,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
     // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt#readme
-    'cookie-universal-nuxt',
+    'cookie-universal-nuxt'
     // https://www.npmjs.com/package/nuxt-vuex-localstorage
     // 'nuxt-vuex-localstorage'
   ],

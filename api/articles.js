@@ -1,14 +1,14 @@
 export default axios => ({
-  fromCategory(id) {
+  fromCategory (id) {
     return axios.$get('/articles/category/' + id)
   },
-  categories() {
+  categories () {
     return axios.$get('/articles/categories')
   },
-  category(id) {
+  category (id) {
     return axios.$get('/category/' + id)
   },
-  find(id) {
+  find (id) {
     return axios.$get('/article/' + id)
-  },
- })
+  }
+})

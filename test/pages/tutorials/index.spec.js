@@ -1,8 +1,8 @@
-import Index from '@/pages/tutorials/index.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import Vuex from 'vuex'
-//Mocks
+import Index from '@/pages/tutorials/index.vue'
+// Mocks
 import apiMock from '~/test/mock/apiMock'
 import routerMock from '~/test/mock/routerMock'
 import storeMock from '~/test/mock/storeMock'
@@ -29,7 +29,7 @@ describe('IndexTutorials', () => {
       mocks: {
         $router: routerMock
       },
-      stubs: vuetifyStub,
+      stubs: vuetifyStub
     })
   })
 
@@ -40,11 +40,11 @@ describe('IndexTutorials', () => {
   it('>> asyncData - articles.categories', async () => {
     const apiSpy = jest.spyOn(apiMock.articles, 'categories')
     const response = await wrapper.vm.$options.asyncData({ $api: apiMock })
-    
+
     await flushPromises()
 
     expect(apiSpy).toHaveBeenCalledTimes(1)
-    expect(response.categories).toStrictEqual([{"id":"1","type":"category","attributes":{"name":"NuxtJS"},"relationships":{"posts":{"data":[{"id":"1","type":"post"},{"id":"2","type":"post"},{"id":"3","type":"post"},{"id":"4","type":"post"}]}}}])
+    expect(response.categories).toStrictEqual([{ id: '1', type: 'category', attributes: { name: 'NuxtJS' }, relationships: { posts: { data: [{ id: '1', type: 'post' }, { id: '2', type: 'post' }, { id: '3', type: 'post' }, { id: '4', type: 'post' }] } } }])
   })
 
   it('>> goToCategory', () => {

@@ -12,14 +12,14 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, namespace, getModule } from 'nuxt-property-decorator'
+import { Vue, Component } from 'nuxt-property-decorator'
 import HomeList from '~/components/Home/HomeList.vue'
 
 @Component({
-  async asyncData({ $api }) {
+  async asyncData ({ $api }) {
     const response = await $api.categories.findAll()
     const categories = response.data
-    
+
     return { categories }
   },
   middleware: ['auth'],

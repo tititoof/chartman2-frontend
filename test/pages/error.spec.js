@@ -1,6 +1,6 @@
-import Error from '~/layouts/error.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import Vuex from 'vuex'
+import Error from '~/layouts/error.vue'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 

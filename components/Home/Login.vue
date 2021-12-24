@@ -87,11 +87,11 @@ export default class Login extends Vue {
 
   snackbarText: String = 'Vous êtes connecté.'
 
-  async userLogin() {
+  async userLogin () {
     try {
       this.error = ''
       const response: any = await this.$auth.loginWith('local', { data: { email: this.loginEmail, password: this.loginPassword } })
-      
+
       await this.setUserToken(response.headers.client)
     } catch (err) {
       this.error = 'Adresse e-mail ou mot de passe invalide'
@@ -109,7 +109,7 @@ export default class Login extends Vue {
   }
 
   @Emit('login-done')
-  onLoginDone() {
+  onLoginDone () {
     return true
   }
 }

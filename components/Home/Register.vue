@@ -80,11 +80,11 @@ export default class Register extends Vue {
     min: (v: any) => (v && v.length >= 8) || '8 charactères minimum'
   }
 
-  get passwordMatch() {
+  get passwordMatch () {
     return () => this.password === this.verify || 'Les mots de passes doivent correspondre'
   }
 
-  register() {
+  register () {
     return true
   }
 }

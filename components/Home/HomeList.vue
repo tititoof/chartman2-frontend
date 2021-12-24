@@ -82,15 +82,15 @@ export default class HomeList extends Vue {
   @Prop({ default: '' }) readonly basePathItem!: String
   @Prop({ default: 'HomeCategoryList' }) readonly itemComponent!: String
 
-  get itemComponentInstance() {
+  get itemComponentInstance () {
     return () => import(`~/components/Home/${this.itemComponent}`)
   }
 
-  get pathNew() {
+  get pathNew () {
     return this.basePathItem + '/new'
   }
 
-  goBack() {
+  goBack () {
     this.$router.push('/admin/cards')
   }
 }

@@ -63,7 +63,7 @@ import HomeDrawer from '@/components/Home/HomeDrawer.vue'
 export default class HomeAppBar extends Vue {
   drawer: Boolean = false
 
-  get items(): Array<Object> {
+  get items (): Array<Object> {
     return [
       { name: 'Home', route: '/' },
       { name: 'Tutoriels', route: '/tutorials' },

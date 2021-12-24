@@ -82,120 +82,120 @@ import BaseInformation from '~/components/Base/BaseInformation.vue'
   }
 })
 export default class BlogInformation extends Vue {
-    itemList: Array<Object> = [
-      {
-        name: 'Contact',
-        md: 3,
-        information: [
-          {
-            icon: 'mdi-map-marker-outline',
-            text: '1 route de Cormery<br/>37320 Saint Branchs',
-            textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
-          },
-          {
-            icon: 'mdi-cellphone',
-            text: '06 65 71 19 75',
-            textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mt-6'
-          },
-          {
-            icon: 'mdi-email',
-            text: 'chartmann.35@gmail.com',
-            textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mt-6'
-          }
-        ]
-      },
-      {
-        name: 'Frontend',
-        md: 2,
-        information: [
-          {
-            icon: 'mdi-language-javascript',
-            text: 'JavaScript',
-            content: 'Interactive web page',
-            textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
-          },
-          {
-            icon: 'mdi-vuejs',
-            text: 'VueJS',
-            content: 'Progressive framework',
-            textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
-          },
-          {
-            icon: 'mdi-nuxt',
-            text: 'NuxtJS',
-            content: 'Frontend framework',
-            textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
-          },
-          {
-            icon: 'mdi-vuetify',
-            text: 'Vuetify',
-            content: 'Material design framework',
-            textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
-          }
-        ]
-      },
-      {
-        name: 'Backend',
-        md: 2,
-        information: [
-          {
-            icon: 'mdi-language-ruby',
-            text: 'Ruby',
-            content: 'Dynamic language',
-            textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
-          },
-          {
-            icon: 'mdi-language-ruby-on-rails',
-            text: 'Ruby on Rails',
-            content: 'Web framework',
-            textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
-          },
-          {
-            icon: 'mdi-database',
-            text: 'Database design',
-            content: 'MySQL / PostgreSQL',
-            textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
-          }
-        ]
-      },
-      {
-        name: 'CI/CD',
-        md: 2,
-        information: [
-          {
-            type: 'image',
-            image: 'images/gitea.png',
-            text: 'Gitea',
-            content: 'Code hosting',
-            textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
-          },
-          {
-            type: 'image',
-            image: 'images/jenkins.png',
-            text: 'Jenkins',
-            content: 'Automation',
-            textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
-          },
-          {
-            type: 'image',
-            image: 'images/sonarqube.png',
-            text: 'SonarQube',
-            content: 'Code quality and security',
-            textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
-          },
-          {
-            type: 'image',
-            image: 'images/openproject.jpg',
-            text: 'Openproject',
-            content: 'Project managment',
-            textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
-          }
-        ]
-      }
-    ]
-
-    itemTypeOf (item: any, defaultValue: String) {
-      return typeof item !== 'undefined' ? item : defaultValue
+  itemList: Array<Object> = [
+    {
+      name: 'Contact',
+      md: 3,
+      information: [
+        {
+          icon: 'mdi-map-marker-outline',
+          text: '1 route de Cormery<br/>37320 Saint Branchs',
+          textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
+        },
+        {
+          icon: 'mdi-cellphone',
+          text: '06 65 71 19 75',
+          textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mt-6'
+        },
+        {
+          icon: 'mdi-email',
+          text: 'chartmann.35@gmail.com',
+          textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mt-6'
+        }
+      ]
+    },
+    {
+      name: 'Frontend',
+      md: 2,
+      information: [
+        {
+          icon: 'mdi-language-javascript',
+          text: 'JavaScript',
+          content: 'Interactive web page',
+          textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
+        },
+        {
+          icon: 'mdi-vuejs',
+          text: 'VueJS',
+          content: 'Progressive framework',
+          textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
+        },
+        {
+          icon: 'mdi-nuxt',
+          text: 'NuxtJS',
+          content: 'Frontend framework',
+          textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
+        },
+        {
+          icon: 'mdi-vuetify',
+          text: 'Vuetify',
+          content: 'Material design framework',
+          textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
+        }
+      ]
+    },
+    {
+      name: 'Backend',
+      md: 2,
+      information: [
+        {
+          icon: 'mdi-language-ruby',
+          text: 'Ruby',
+          content: 'Dynamic language',
+          textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
+        },
+        {
+          icon: 'mdi-language-ruby-on-rails',
+          text: 'Ruby on Rails',
+          content: 'Web framework',
+          textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
+        },
+        {
+          icon: 'mdi-database',
+          text: 'Database design',
+          content: 'MySQL / PostgreSQL',
+          textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
+        }
+      ]
+    },
+    {
+      name: 'CI/CD',
+      md: 2,
+      information: [
+        {
+          type: 'image',
+          image: 'images/gitea.png',
+          text: 'Gitea',
+          content: 'Code hosting',
+          textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
+        },
+        {
+          type: 'image',
+          image: 'images/jenkins.png',
+          text: 'Jenkins',
+          content: 'Automation',
+          textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
+        },
+        {
+          type: 'image',
+          image: 'images/sonarqube.png',
+          text: 'SonarQube',
+          content: 'Code quality and security',
+          textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
+        },
+        {
+          type: 'image',
+          image: 'images/openproject.jpg',
+          text: 'Openproject',
+          content: 'Project managment',
+          textClass: 'base-body text-body-1 mx-auto text--lighten-1 text-left mb-0 mt-3'
+        }
+      ]
     }
+  ]
+
+  itemTypeOf (item: any, defaultValue: String) {
+    return typeof item !== 'undefined' ? item : defaultValue
+  }
 }
 </script>

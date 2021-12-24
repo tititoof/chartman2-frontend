@@ -111,7 +111,7 @@ export default class Presentation extends Vue {
   minHeight: number = 100
   maxHeight: number = 700
 
-  goTo(category: string) {
+  goTo (category: string) {
     this.getCategories().then((response: any) => {
       const routeId = this.getCategoryId(category, response.data)
 
@@ -123,7 +123,7 @@ export default class Presentation extends Vue {
     })
   }
 
-  getCategoryId(category: string, categories: Array<any>) {
+  getCategoryId (category: string, categories: Array<any>) {
     let routeId = null
 
     for (const categoryIndex in categories) {
@@ -135,7 +135,7 @@ export default class Presentation extends Vue {
     return routeId
   }
 
-  async getCategories(): Promise<any> {
+  async getCategories (): Promise<any> {
     return await this.$api.categories.findAll()
   }
 }

@@ -1,6 +1,6 @@
-import HomeDrawer from '@/components/Home/HomeDrawer.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import Vuex from 'vuex'
+import HomeDrawer from '@/components/Home/HomeDrawer.vue'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 

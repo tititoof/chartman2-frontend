@@ -1,8 +1,8 @@
-import HomeArticleList from '@/components/Home/HomeArticleList.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import Vuex from 'vuex'
-//Mocks
+import HomeArticleList from '@/components/Home/HomeArticleList.vue'
+// Mocks
 import apiMock from '~/test/mock/apiMock'
 import routerMock from '~/test/mock/routerMock'
 import storeMock from '~/test/mock/storeMock'

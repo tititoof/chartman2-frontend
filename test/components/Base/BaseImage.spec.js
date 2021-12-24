@@ -1,6 +1,6 @@
-import BaseImage from '@/components/Base/BaseImage.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import Vuex from 'vuex'
+import BaseImage from '@/components/Base/BaseImage.vue'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 

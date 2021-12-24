@@ -58,10 +58,10 @@ import { Vue, Component } from 'nuxt-property-decorator'
 import { CategoryType } from '~/types'
 
 @Component({
-  async asyncData({ $api }) {
+  async asyncData ({ $api }) {
     const response = await $api.articles.categories()
     const categories = response.data
-    
+
     return { categories }
   }
 })
@@ -71,7 +71,7 @@ export default class Tutorials extends Vue {
   background: string = '/backgrounds/tutorial.svg'
   categories: Array<CategoryType> = []
 
-  goToCategory(id: number) {
+  goToCategory (id: number) {
     this.$router.push('/tutorials/category/' + id)
   }
 }

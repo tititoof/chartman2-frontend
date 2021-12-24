@@ -5,7 +5,7 @@ import { createStore } from '~/.nuxt/store'
 import MainStore from '~/store/MainStore'
 
 describe('PostStore', () => {
-  const store= createStore()
+  const store = createStore()
   let mainStore = namespace('MainStore')
 
   beforeEach(() => {

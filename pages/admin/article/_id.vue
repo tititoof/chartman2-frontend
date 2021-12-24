@@ -113,13 +113,13 @@ import { CategoryType, PostDefault, PostFormDefault, PostFormType, PostType } fr
 const mainModule = namespace('MainStore')
 
 @Component({
-  async asyncData({ $api, params }) {
+  async asyncData ({ $api, params }) {
     const responseCategories = await $api.categories.findAll()
     const categories = responseCategories.data
 
     const responseArticle = await $api.posts.find(params.id)
     const article = responseArticle.data
-    
+
     return { article, categories }
   },
   middleware: ['auth'],
@@ -157,19 +157,19 @@ export default class AdminArticleId extends Vue {
     }
   }
 
-  mounted() {
+  mounted () {
     this.initialize()
   }
 
-  goBack() {
+  goBack () {
     this.$router.back()
   }
 
-  initialize() {
+  initialize () {
     const attributes = this.article.attributes
     const relationships = this.article.relationships
     this.title = 'Edition de l\'article ' + attributes.title
-  
+
     this.form.categories = []
     this.form.title = attributes.title
     this.form.description = attributes.description
@@ -180,19 +180,19 @@ export default class AdminArticleId extends Vue {
     }
   }
 
-  submitForm() {
+  submitForm () {
     try {
       this.$api.posts.update(this.$route.params.id, this.form)
       this.showSnackbar('L\'article est sauvegardé')
       this.goBack()
-    } catch(e) {
+    } catch (e) {
       this.showSnackbar('Impossible de mettre à jour l\'article.')
     }
   }
 
   // Watch form title changes
   @Watch('form.title')
-  onFormNameChange(val: string, oldVal: string) {
+  onFormNameChange (val: string, oldVal: string) {
     if (val !== oldVal) {
       this.formError.title = []
     }

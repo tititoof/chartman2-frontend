@@ -1,7 +1,7 @@
-import HomeList from '~/components/Home/HomeList.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import Vuex from 'vuex'
-//Mocks
+import HomeList from '~/components/Home/HomeList.vue'
+// Mocks
 import routerMock from '~/test/mock/routerMock'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
@@ -32,7 +32,6 @@ describe('HomeList', () => {
   it('>> pathNew getter', () => {
     expect(wrapper.vm.pathNew).toStrictEqual('/new')
   })
-
 
   it('>> router.back', () => {
     wrapper.vm.goBack()

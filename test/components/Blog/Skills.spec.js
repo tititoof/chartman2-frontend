@@ -1,7 +1,7 @@
-import Skills from '@/components/Blog/Skills.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import Vuex from 'vuex'
-//Mocks
+import Skills from '@/components/Blog/Skills.vue'
+// Mocks
 import apiMock from '~/test/mock/apiMock'
 import routerMock from '~/test/mock/routerMock'
 import storeMock from '~/test/mock/storeMock'

@@ -58,10 +58,10 @@ import { PostDefault, PostType } from '~/types'
 const mainModule = namespace('MainStore')
 
 @Component({
-  async asyncData({ $api, params }) {
+  async asyncData ({ $api, params }) {
     const response = await $api.articles.find(params.id)
     const article = response.data
-    
+
     return { article }
   },
   components: { Editor }
@@ -81,7 +81,7 @@ export default class TutorialsArticle extends Vue {
     }
   }
 
-  goBack() {
+  goBack () {
     this.$router.back()
   }
 }

@@ -1,6 +1,6 @@
-import Register from '@/components/Home/Register.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import Vuex from 'vuex'
+import Register from '@/components/Home/Register.vue'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 

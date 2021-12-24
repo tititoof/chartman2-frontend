@@ -1,8 +1,8 @@
-import AdminIndex from '@/pages/admin/index.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import Vuex from 'vuex'
-//Mocks
+import AdminIndex from '@/pages/admin/index.vue'
+// Mocks
 import routerMock from '~/test/mock/routerMock'
 import storeMock from '~/test/mock/storeMock'
 // Stubs
@@ -32,7 +32,7 @@ describe('IndexAdmin', () => {
           $get: () => Promise.resolve()
         }
       },
-      stubs: vuetifyStub,
+      stubs: vuetifyStub
     })
   })
 

@@ -1,6 +1,6 @@
-import HomeAppBar from '@/components/Home/HomeAppBar.vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 import Vuex from 'vuex'
+import HomeAppBar from '@/components/Home/HomeAppBar.vue'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 

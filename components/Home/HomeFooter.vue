@@ -50,12 +50,12 @@ import { Vue, Component } from 'nuxt-property-decorator'
 
 @Component
 export default class HomeFooter extends Vue {
-  get social(): Array<object> {
+  get social (): Array<object> {
     return [
-      { name: 'Facebook', route: 'https://www.facebook.com/christophe.hartmann1/' }, 
+      { name: 'Facebook', route: 'https://www.facebook.com/christophe.hartmann1/' },
       { name: 'Linkedin', route: 'https://www.linkedin.com/in/christophe-hartmann-3a297a42/' }
     ]
-  } 
+  }
 }
 </script>
 
