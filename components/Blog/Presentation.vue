@@ -111,16 +111,15 @@ export default class Presentation extends Vue {
   minHeight: number = 100
   maxHeight: number = 700
 
-  goTo (category: string) {
-    this.getCategories().then((response: any) => {
-      const routeId = this.getCategoryId(category, response.data)
+  async goTo (category: string) {
+    const response = await this.getCategories()
+    const routeId = this.getCategoryId(category, response.data)
 
-      if (routeId !== null) {
-        this.$router.push('/tutorials/category/' + routeId)
-      } else {
-        this.showSnackbar('La catégorie n\'a pas été trouvée')
-      }
-    })
+    if (routeId !== null) {
+      this.$router.push('/tutorials/category/' + routeId)
+    } else {
+      this.showSnackbar('La catégorie n\'a pas été trouvée')
+    }
   }
 
   getCategoryId (category: string, categories: Array<any>) {
@@ -135,8 +134,8 @@ export default class Presentation extends Vue {
     return routeId
   }
 
-  async getCategories (): Promise<any> {
-    return await this.$api.categories.findAll()
+  getCategories (): Promise<any> {
+    return this.$api.categories.findAll()
   }
 }
 </script>
