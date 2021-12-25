@@ -75,4 +75,10 @@ describe('Login', () => {
 
     expect(wrapper.emitted('login-done')).toBeTruthy()
   })
+
+  it('>> rules', () => {
+    expect(wrapper.vm.rules.required('')).toStrictEqual('Requis.')
+    expect(wrapper.vm.rules.email('notValidEmail')).toStrictEqual('E-mail doit être valide')
+    expect(wrapper.vm.rules.min('test')).toStrictEqual('8 charactères minimum')
+  })
 })

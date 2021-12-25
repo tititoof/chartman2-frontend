@@ -48,4 +48,8 @@ describe('AdminCategoryNew', () => {
 
     expect(routerMock.back).toHaveBeenCalledTimes(1)
   })
+
+  it('>> rule', () => {
+    expect(wrapper.vm.rules.required('')).toStrictEqual('Requis.')
+  })
 })

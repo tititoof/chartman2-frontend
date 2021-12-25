@@ -75,4 +75,9 @@ describe('AdminArticleNew', () => {
 
     expect(routerMock.back).toHaveBeenCalledTimes(1)
   })
+
+  it('>> rules', () => {
+    expect(wrapper.vm.rules.required('')).toStrictEqual('Requis.')
+    expect(wrapper.vm.rules.categories([])).toStrictEqual('Au moins 1 catégorie est requise')
+  })
 })
