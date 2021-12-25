@@ -31,7 +31,7 @@ import HomeCard from '~/components/Home/HomeCard.vue'
   middleware: ['auth'],
   components: { HomeCard }
 })
-export default class AdminCards extends Vue {
+export default class Cards extends Vue {
   minHeight: string = '200'
   maxHeight: string = '700'
   background: string = '/backgrounds/admin.svg'

@@ -79,7 +79,7 @@ import { PostType } from '~/types/index'
     return { articles, category }
   }
 })
-export default class TutorialsCategory extends Vue {
+export default class Id extends Vue {
   articles: Array<PostType> = []
   background: string = '/backgrounds/library.svg'
   minHeight: string = '200'

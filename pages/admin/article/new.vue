@@ -121,7 +121,7 @@ const mainModule = namespace('MainStore')
   middleware: ['auth'],
   components: { Editor }
 })
-export default class AdminArticleNew extends Vue {
+export default class New extends Vue {
   // Stores
   mainModule = getModule(MainStore, this.$store)
   @mainModule.Action('showSnackbar') showSnackbar: any
