@@ -1,182 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/new.spec.js">
+    <testCase name="AdminCategoryNew &gt;&gt; Vue component" duration="71"/>
+    <testCase name="AdminCategoryNew &gt;&gt; submitForm" duration="16"/>
+    <testCase name="AdminCategoryNew &gt;&gt; router.back" duration="14"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/_id.spec.js">
+    <testCase name="AdminCategoryId &gt;&gt; Vue component" duration="104"/>
+    <testCase name="AdminCategoryId &gt;&gt; asyncData - categories.find" duration="25"/>
+    <testCase name="AdminCategoryId &gt;&gt; initialize" duration="29"/>
+    <testCase name="AdminCategoryId &gt;&gt; submitForm" duration="69"/>
+    <testCase name="AdminCategoryId &gt;&gt; router.back" duration="27"/>
+  </file>
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/article/index.spec.js">
-    <testCase name="AdminArticle &gt;&gt; Vue component" duration="60"/>
-    <testCase name="AdminArticle &gt;&gt; asyncData - posts.findAll" duration="38"/>
+    <testCase name="AdminArticle &gt;&gt; Vue component" duration="37"/>
+    <testCase name="AdminArticle &gt;&gt; asyncData - posts.findAll" duration="54"/>
   </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/Login.spec.js">
-    <testCase name="Login &gt;&gt; Vue component" duration="84"/>
-    <testCase name="Login &gt;&gt; userLogin" duration="20"/>
-    <testCase name="Login &gt;&gt; logout" duration="36"/>
-    <testCase name="Login &gt;&gt; setUserToken" duration="27"/>
-    <testCase name="Login &gt;&gt; Emit - onLoginDone" duration="24"/>
-  </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeCategoryList.spec.js">
-    <testCase name="HomeCategoryList &gt;&gt; Vue component" duration="72"/>
-    <testCase name="HomeCategoryList &gt;&gt; pathNew getter" duration="31"/>
-    <testCase name="HomeCategoryList &gt;&gt; pathEdit getter" duration="25"/>
-    <testCase name="HomeCategoryList &gt;&gt; confirmDestroy" duration="61"/>
-    <testCase name="HomeCategoryList &gt;&gt; edit" duration="23"/>
-    <testCase name="HomeCategoryList &gt;&gt; destroy" duration="26"/>
-  </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/index.spec.js">
-    <testCase name="IndexAdmin &gt;&gt; Vue component" duration="100"/>
-    <testCase name="IndexAdmin &gt;&gt; onLoginDone" duration="55"/>
-  </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/View.spec.js">
-    <testCase name="FadeView &gt;&gt; Vue component" duration="9"/>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/cards.spec.js">
+    <testCase name="CardsAdmin &gt;&gt; Vue component" duration="39"/>
   </file>
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Blog/Presentation.spec.js">
-    <testCase name="Presentation &gt;&gt; Vue component" duration="91"/>
-    <testCase name="Presentation &gt;&gt; getCategories" duration="21"/>
-    <testCase name="Presentation &gt;&gt; getCategoryId" duration="41"/>
-    <testCase name="Presentation &gt;&gt; goTo" duration="39"/>
+    <testCase name="Presentation &gt;&gt; Vue component" duration="95"/>
+    <testCase name="Presentation &gt;&gt; getCategories" duration="34"/>
+    <testCase name="Presentation &gt;&gt; getCategoryId" duration="33"/>
+    <testCase name="Presentation &gt;&gt; goTo" duration="30"/>
   </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Blog/BlogInformation.spec.js">
-    <testCase name="BlogInformation &gt;&gt; Vue component" duration="178"/>
-    <testCase name="BlogInformation &gt;&gt; itemTypeOf" duration="126"/>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/tutorials/category/_id.spec.js">
+    <testCase name="TutorialsCategory &gt;&gt; Vue component" duration="16"/>
+    <testCase name="TutorialsCategory &gt;&gt; asyncData - articles.category" duration="18"/>
+    <testCase name="TutorialsCategory &gt;&gt; goToArticle" duration="32"/>
+    <testCase name="TutorialsCategory &gt;&gt; router.back" duration="12"/>
   </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/tutorials/index.spec.js">
-    <testCase name="IndexTutorials &gt;&gt; Vue component" duration="11"/>
-    <testCase name="IndexTutorials &gt;&gt; asyncData - articles.categories" duration="15"/>
-    <testCase name="IndexTutorials &gt;&gt; goToCategory" duration="9"/>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeCategoryList.spec.js">
+    <testCase name="HomeCategoryList &gt;&gt; Vue component" duration="96"/>
+    <testCase name="HomeCategoryList &gt;&gt; pathNew getter" duration="34"/>
+    <testCase name="HomeCategoryList &gt;&gt; pathEdit getter" duration="35"/>
+    <testCase name="HomeCategoryList &gt;&gt; confirmDestroy" duration="22"/>
+    <testCase name="HomeCategoryList &gt;&gt; edit" duration="23"/>
+    <testCase name="HomeCategoryList &gt;&gt; destroy" duration="39"/>
   </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Blog/Skills.spec.js">
-    <testCase name="Skills &gt;&gt; Vue component" duration="61"/>
-    <testCase name="Skills &gt;&gt; itemTypeOf" duration="54"/>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/index.spec.js">
+    <testCase name="AdminCategory &gt;&gt; Vue component" duration="16"/>
+    <testCase name="AdminCategory &gt;&gt; asyncData - categories.findAll" duration="54"/>
   </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeAppBar.spec.js">
-    <testCase name="HomeAppBar &gt;&gt; Vue component" duration="67"/>
-    <testCase name="HomeAppBar &gt;&gt; items getter" duration="27"/>
-  </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/index.spec.js">
-    <testCase name="HomePage &gt;&gt; Vue component" duration="2"/>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/index.spec.js">
+    <testCase name="IndexAdmin &gt;&gt; Vue component" duration="118"/>
+    <testCase name="IndexAdmin &gt;&gt; onLoginDone" duration="101"/>
   </file>
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Base/BaseInformation.spec.js">
-    <testCase name="BaseInformation &gt;&gt; Vue component" duration="13"/>
-    <testCase name="BaseInformation &gt;&gt; avatarColor getter" duration="8"/>
-    <testCase name="BaseInformation &gt;&gt; typeIconImage getter" duration="10"/>
-    <testCase name="BaseInformation &gt;&gt; icon getter" duration="12"/>
+    <testCase name="BaseInformation &gt;&gt; Vue component" duration="14"/>
+    <testCase name="BaseInformation &gt;&gt; avatarColor getter" duration="10"/>
+    <testCase name="BaseInformation &gt;&gt; typeIconImage getter" duration="11"/>
+    <testCase name="BaseInformation &gt;&gt; icon getter" duration="14"/>
     <testCase name="BaseInformation &gt;&gt; iconColor getter" duration="13"/>
-    <testCase name="BaseInformation &gt;&gt; iconHeight getter" duration="13"/>
-    <testCase name="BaseInformation &gt;&gt; image getter" duration="13"/>
-    <testCase name="BaseInformation &gt;&gt; text getter" duration="44"/>
-    <testCase name="BaseInformation &gt;&gt; textContentClass getter" duration="45"/>
-    <testCase name="BaseInformation &gt;&gt; content getter" duration="10"/>
-    <testCase name="BaseInformation &gt;&gt; textClass getter" duration="11"/>
+    <testCase name="BaseInformation &gt;&gt; iconHeight getter" duration="18"/>
+    <testCase name="BaseInformation &gt;&gt; image getter" duration="14"/>
+    <testCase name="BaseInformation &gt;&gt; text getter" duration="37"/>
+    <testCase name="BaseInformation &gt;&gt; textContentClass getter" duration="26"/>
+    <testCase name="BaseInformation &gt;&gt; content getter" duration="20"/>
+    <testCase name="BaseInformation &gt;&gt; textClass getter" duration="12"/>
   </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeNew.spec.js">
-    <testCase name="HomeNew &gt;&gt; Vue component" duration="12"/>
-    <testCase name="HomeNew &gt;&gt; pathNew getter" duration="21"/>
-    <testCase name="HomeNew &gt;&gt; pathEdit getter" duration="13"/>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Blog/BlogInformation.spec.js">
+    <testCase name="BlogInformation &gt;&gt; Vue component" duration="141"/>
+    <testCase name="BlogInformation &gt;&gt; itemTypeOf" duration="188"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeList.spec.js">
+    <testCase name="HomeList &gt;&gt; Vue component" duration="17"/>
+    <testCase name="HomeList &gt;&gt; itemComponentInstance getter" duration="14"/>
+    <testCase name="HomeList &gt;&gt; pathNew getter" duration="12"/>
+    <testCase name="HomeList &gt;&gt; router.back" duration="19"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/Register.spec.js">
+    <testCase name="Register &gt;&gt; Vue component" duration="26"/>
+    <testCase name="Register &gt;&gt; passwordMatch" duration="26"/>
+    <testCase name="Register &gt;&gt; register" duration="16"/>
   </file>
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/default.spec.js">
     <testCase name="DefaultPage &gt;&gt; Vue component" duration="2"/>
   </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/index.spec.js">
-    <testCase name="AdminCategory &gt;&gt; Vue component" duration="41"/>
-    <testCase name="AdminCategory &gt;&gt; asyncData - categories.findAll" duration="27"/>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/NuxtLogo.spec.js">
+    <testCase name="NuxtLogo is a Vue instance" duration="4"/>
   </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/_id.spec.js">
-    <testCase name="AdminCategoryId &gt;&gt; Vue component" duration="47"/>
-    <testCase name="AdminCategoryId &gt;&gt; asyncData - categories.find" duration="62"/>
-    <testCase name="AdminCategoryId &gt;&gt; initialize" duration="42"/>
-    <testCase name="AdminCategoryId &gt;&gt; submitForm" duration="62"/>
-    <testCase name="AdminCategoryId &gt;&gt; router.back" duration="19"/>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/Login.spec.js">
+    <testCase name="Login &gt;&gt; Vue component" duration="50"/>
+    <testCase name="Login &gt;&gt; userLogin" duration="41"/>
+    <testCase name="Login &gt;&gt; logout" duration="111"/>
+    <testCase name="Login &gt;&gt; setUserToken" duration="51"/>
+    <testCase name="Login &gt;&gt; Emit - onLoginDone" duration="27"/>
   </file>
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Base/BaseAvatar.spec.js">
-    <testCase name="BaseAvatar &gt;&gt; Vue component" duration="14"/>
-    <testCase name="BaseAvatar &gt;&gt; classes getter" duration="31"/>
-    <testCase name="BaseAvatar &gt;&gt; outlineSize getter" duration="21"/>
-    <testCase name="BaseAvatar &gt;&gt; styles getter" duration="11"/>
+    <testCase name="BaseAvatar &gt;&gt; Vue component" duration="20"/>
+    <testCase name="BaseAvatar &gt;&gt; classes getter" duration="10"/>
+    <testCase name="BaseAvatar &gt;&gt; outlineSize getter" duration="28"/>
+    <testCase name="BaseAvatar &gt;&gt; styles getter" duration="18"/>
   </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeList.spec.js">
-    <testCase name="HomeList &gt;&gt; Vue component" duration="15"/>
-    <testCase name="HomeList &gt;&gt; itemComponentInstance getter" duration="15"/>
-    <testCase name="HomeList &gt;&gt; pathNew getter" duration="19"/>
-    <testCase name="HomeList &gt;&gt; router.back" duration="32"/>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeAppBar.spec.js">
+    <testCase name="HomeAppBar &gt;&gt; Vue component" duration="41"/>
+    <testCase name="HomeAppBar &gt;&gt; items getter" duration="56"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/tutorials/index.spec.js">
+    <testCase name="IndexTutorials &gt;&gt; Vue component" duration="21"/>
+    <testCase name="IndexTutorials &gt;&gt; asyncData - articles.categories" duration="30"/>
+    <testCase name="IndexTutorials &gt;&gt; goToCategory" duration="11"/>
   </file>
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeFooter.spec.js">
-    <testCase name="HomeFooter &gt;&gt; Vue component" duration="11"/>
-    <testCase name="HomeFooter &gt;&gt; social getter" duration="17"/>
+    <testCase name="HomeFooter &gt;&gt; Vue component" duration="29"/>
+    <testCase name="HomeFooter &gt;&gt; social getter" duration="16"/>
   </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Base/BaseImage.spec.js">
-    <testCase name="BaseImage &gt;&gt; Vue component" duration="7"/>
-  </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/category/new.spec.js">
-    <testCase name="AdminCategoryNew &gt;&gt; Vue component" duration="66"/>
-    <testCase name="AdminCategoryNew &gt;&gt; submitForm" duration="52"/>
-    <testCase name="AdminCategoryNew &gt;&gt; router.back" duration="22"/>
-  </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/error.spec.js">
-    <testCase name="ErrorPage &gt;&gt; Vue component" duration="8"/>
-    <testCase name="ErrorPage &gt;&gt; data" duration="7"/>
-  </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeDrawer.spec.js">
-    <testCase name="HomeDrawer &gt;&gt; Vue component" duration="8"/>
-  </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Base/BaseBtn.spec.js">
-    <testCase name="BaseBtn &gt;&gt; Vue component" duration="14"/>
-  </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/Register.spec.js">
-    <testCase name="Register &gt;&gt; Vue component" duration="67"/>
-    <testCase name="Register &gt;&gt; passwordMatch" duration="27"/>
-    <testCase name="Register &gt;&gt; register" duration="19"/>
-  </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/NuxtLogo.spec.js">
-    <testCase name="NuxtLogo is a Vue instance" duration="6"/>
-  </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/cards.spec.js">
-    <testCase name="CardsAdmin &gt;&gt; Vue component" duration="23"/>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeNew.spec.js">
+    <testCase name="HomeNew &gt;&gt; Vue component" duration="51"/>
+    <testCase name="HomeNew &gt;&gt; pathNew getter" duration="31"/>
+    <testCase name="HomeNew &gt;&gt; pathEdit getter" duration="13"/>
   </file>
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/authenticate.spec.js">
     <testCase name="Authenticate &gt;&gt; Vue component" duration="1"/>
   </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Base/BaseBtn.spec.js">
+    <testCase name="BaseBtn &gt;&gt; Vue component" duration="8"/>
+  </file>
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeCard.spec.js">
-    <testCase name="HomeCard &gt;&gt; Vue component" duration="12"/>
+    <testCase name="HomeCard &gt;&gt; Vue component" duration="14"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/View.spec.js">
+    <testCase name="FadeView &gt;&gt; Vue component" duration="23"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Base/BaseIcon.spec.js">
+    <testCase name="BaseIcon &gt;&gt; Vue component" duration="9"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeDrawer.spec.js">
+    <testCase name="HomeDrawer &gt;&gt; Vue component" duration="9"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Base/BaseImage.spec.js">
+    <testCase name="BaseImage &gt;&gt; Vue component" duration="7"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/error.spec.js">
+    <testCase name="ErrorPage &gt;&gt; Vue component" duration="9"/>
+    <testCase name="ErrorPage &gt;&gt; data" duration="9"/>
   </file>
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/store/mainModule.spec.js">
-    <testCase name="PostStore &gt;&gt; isSnackbarVisible" duration="2"/>
+    <testCase name="PostStore &gt;&gt; isSnackbarVisible" duration="3"/>
     <testCase name="PostStore &gt;&gt; getSnackbarText" duration="1"/>
     <testCase name="PostStore &gt;&gt; showSnackbar" duration="3"/>
     <testCase name="PostStore &gt;&gt; closeSnackbar" duration="1"/>
   </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Base/BaseIcon.spec.js">
-    <testCase name="BaseIcon &gt;&gt; Vue component" duration="6"/>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/index.spec.js">
+    <testCase name="HomePage &gt;&gt; Vue component" duration="3"/>
   </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/article/_id.spec.js">
-    <testCase name="AdminArticleId &gt;&gt; Vue component" duration="87"/>
-    <testCase name="AdminArticleId &gt;&gt; asyncData - categories.findAll - posts.find" duration="44"/>
-    <testCase name="AdminArticleId &gt;&gt; initialize" duration="33"/>
-    <testCase name="AdminArticleId &gt;&gt; submitForm" duration="40"/>
-    <testCase name="AdminArticleId &gt;&gt; router.back" duration="26"/>
-  </file>
-  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/tutorials/category/_id.spec.js">
-    <testCase name="TutorialsCategory &gt;&gt; Vue component" duration="7"/>
-    <testCase name="TutorialsCategory &gt;&gt; asyncData - articles.category" duration="7"/>
-    <testCase name="TutorialsCategory &gt;&gt; goToArticle" duration="6"/>
-    <testCase name="TutorialsCategory &gt;&gt; router.back" duration="7"/>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Blog/Skills.spec.js">
+    <testCase name="Skills &gt;&gt; Vue component" duration="66"/>
+    <testCase name="Skills &gt;&gt; itemTypeOf" duration="54"/>
   </file>
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/article/new.spec.js">
-    <testCase name="AdminArticleNew &gt;&gt; Vue component" duration="27"/>
-    <testCase name="AdminArticleNew &gt;&gt; asyncData - categories.findAll - posts.find" duration="23"/>
-    <testCase name="AdminArticleNew &gt;&gt; submitForm" duration="29"/>
-    <testCase name="AdminArticleNew &gt;&gt; router.back" duration="19"/>
+    <testCase name="AdminArticleNew &gt;&gt; Vue component" duration="35"/>
+    <testCase name="AdminArticleNew &gt;&gt; asyncData - categories.findAll - posts.find" duration="28"/>
+    <testCase name="AdminArticleNew &gt;&gt; submitForm" duration="28"/>
+    <testCase name="AdminArticleNew &gt;&gt; router.back" duration="13"/>
+  </file>
+  <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/article/_id.spec.js">
+    <testCase name="AdminArticleId &gt;&gt; Vue component" duration="39"/>
+    <testCase name="AdminArticleId &gt;&gt; asyncData - categories.findAll - posts.find" duration="44"/>
+    <testCase name="AdminArticleId &gt;&gt; initialize" duration="28"/>
+    <testCase name="AdminArticleId &gt;&gt; submitForm" duration="32"/>
+    <testCase name="AdminArticleId &gt;&gt; router.back" duration="19"/>
   </file>
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/tutorials/article/_id.spec.js">
-    <testCase name="TutorialsArticle &gt;&gt; Vue component" duration="234"/>
-    <testCase name="TutorialsArticle &gt;&gt; asyncData - articles.find" duration="83"/>
-    <testCase name="TutorialsArticle &gt;&gt; router.back" duration="67"/>
+    <testCase name="TutorialsArticle &gt;&gt; Vue component" duration="237"/>
+    <testCase name="TutorialsArticle &gt;&gt; asyncData - articles.find" duration="99"/>
+    <testCase name="TutorialsArticle &gt;&gt; router.back" duration="75"/>
   </file>
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Home/HomeArticleList.spec.js">
-    <testCase name="HomeArticleList &gt;&gt; Vue component" duration="378"/>
-    <testCase name="HomeArticleList &gt;&gt; pathNew getter" duration="85"/>
-    <testCase name="HomeArticleList &gt;&gt; pathEdit getter" duration="72"/>
-    <testCase name="HomeArticleList &gt;&gt; formatedCategories" duration="67"/>
-    <testCase name="HomeArticleList &gt;&gt; confirmDestroy" duration="72"/>
-    <testCase name="HomeArticleList &gt;&gt; edit" duration="66"/>
-    <testCase name="HomeArticleList &gt;&gt; destroy" duration="86"/>
-    <testCase name="HomeArticleList &gt;&gt; getCategories" duration="61"/>
-    <testCase name="HomeArticleList &gt;&gt; show" duration="108"/>
+    <testCase name="HomeArticleList &gt;&gt; Vue component" duration="395"/>
+    <testCase name="HomeArticleList &gt;&gt; pathNew getter" duration="99"/>
+    <testCase name="HomeArticleList &gt;&gt; pathEdit getter" duration="64"/>
+    <testCase name="HomeArticleList &gt;&gt; formatedCategories" duration="64"/>
+    <testCase name="HomeArticleList &gt;&gt; confirmDestroy" duration="77"/>
+    <testCase name="HomeArticleList &gt;&gt; edit" duration="65"/>
+    <testCase name="HomeArticleList &gt;&gt; destroy" duration="75"/>
+    <testCase name="HomeArticleList &gt;&gt; getCategories" duration="71"/>
+    <testCase name="HomeArticleList &gt;&gt; show" duration="74"/>
   </file>
 </testExecutions>
