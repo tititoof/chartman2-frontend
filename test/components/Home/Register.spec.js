@@ -33,4 +33,21 @@ describe('Register', () => {
 
     expect(register).toBeTruthy()
   })
+
+  it('>> rules', () => {
+    expect(wrapper.vm.rules.required('')).toStrictEqual('Requis.')
+    expect(wrapper.vm.rules.validEmail('notValidEmail')).toStrictEqual('doit être valide')
+    expect(wrapper.vm.rules.min('test')).toStrictEqual('8 charactères minimum')
+  })
+
+  it('>> passwordMatch', () => {
+    wrapper.vm.password = 'test'
+    wrapper.vm.verify = 'test'
+
+    expect(wrapper.vm.passwordMatch()).toBeTruthy()
+
+    wrapper.vm.verify = 'test 2'
+
+    expect(wrapper.vm.passwordMatch()).toStrictEqual('Les mots de passes doivent correspondre')
+  })
 })
