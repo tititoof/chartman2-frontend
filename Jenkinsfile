@@ -90,9 +90,11 @@ pipeline {
                                     git remote add github https://$GITHUB_CREDENTIALS@github.com/tititoof/chartman2-frontend.git
                                 '''
                                 sh """
+                                    git config --global user.email "chartmann.35@gmail.com"
+                                    git config --global user.name "Christophe Hartmann"
                                     touch github-update.txt
                                     git add .
-                                    git commit -m "Github update"
+                                    git commit -m "feat(github): update repository"
                                     git push -f github HEAD:main
                                 """
                             }
