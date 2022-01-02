@@ -18,7 +18,7 @@ module.exports = {
       ref: 'origin/main',
       repo: 'https://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@github.com/tititoof/chartman2-frontend.git',
       path: '/var/www/websites/chartman2.fr/frontend',
-      'post-deploy': 'yarn install && yarn build && pm2 startOrRestart ecosystem.config.js --env production'
+      'post-deploy': 'yarn install && yarn build && API_URL=http://localhost:8000 pm2 startOrRestart ecosystem.config.js --env production'
     }
   }
 }
