@@ -2,7 +2,7 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   server: {
-    host: '0.0.0.0', // default: localhost
+    host: '127.0.0.1', // default: localhost
     port: 3000 // default: 3000
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -59,7 +59,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.API_URL,
+    baseURL: 'http://api.chartman2.fr',
     debug: false,
     proxyHeaders: true,
     headers: {
