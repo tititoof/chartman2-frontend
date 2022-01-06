@@ -55,7 +55,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'https://api.chartman2.fr',
+    baseURL: process.env.API_URL,
     debug: false,
     proxyHeaders: true,
     headers: {
