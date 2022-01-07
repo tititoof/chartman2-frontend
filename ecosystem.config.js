@@ -8,8 +8,7 @@ module.exports = {
       args: 'start',
       env_production: {
         PORT: 80,
-        NODE_ENV: 'production',
-        API_URL: 'http://localhost:8000'
+        NODE_ENV: 'production'
       }
     }
   ],
@@ -23,7 +22,7 @@ module.exports = {
       ref: 'origin/main',
       repo: 'https://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@github.com/tititoof/chartman2-frontend.git',
       path: '/var/www/websites/chartman2.fr/frontend',
-      'post-deploy': 'yarn install && yarn build && echo "API_URL=http://localhost:8000" > /var/www/websites/chartman2.fr/frontend/current/.env && pm2 startOrRestart ecosystem.config.js --update-env'
+      'post-deploy': 'yarn install && yarn build && echo "API_URL=https://api.chartman2.fr" > /var/www/websites/chartman2.fr/frontend/current/.env && pm2 startOrRestart ecosystem.config.js --update-env'
     }
   }
 }
