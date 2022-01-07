@@ -1,189 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/pages/admin/article/_id.spec.js">
-    <testCase name="AdminArticleId &gt;&gt; Vue component" duration="60"/>
-    <testCase name="AdminArticleId &gt;&gt; asyncData - categories.findAll - posts.find" duration="46"/>
-    <testCase name="AdminArticleId &gt;&gt; initialize" duration="40"/>
-    <testCase name="AdminArticleId &gt;&gt; submitForm" duration="38"/>
-    <testCase name="AdminArticleId &gt;&gt; router.back" duration="31"/>
-    <testCase name="AdminArticleId &gt;&gt; rules" duration="44"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/pages/admin/article/index.spec.js">
+    <testCase name="AdminArticle &gt;&gt; Vue component" duration="25"/>
+    <testCase name="AdminArticle &gt;&gt; asyncData - posts.findAll" duration="41"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Home/HomeArticleList.spec.js">
-    <testCase name="HomeArticleList &gt;&gt; Vue component" duration="349"/>
-    <testCase name="HomeArticleList &gt;&gt; pathNew getter" duration="129"/>
-    <testCase name="HomeArticleList &gt;&gt; pathEdit getter" duration="118"/>
-    <testCase name="HomeArticleList &gt;&gt; formatedCategories" duration="133"/>
-    <testCase name="HomeArticleList &gt;&gt; confirmDestroy" duration="133"/>
-    <testCase name="HomeArticleList &gt;&gt; edit" duration="123"/>
-    <testCase name="HomeArticleList &gt;&gt; destroy" duration="135"/>
-    <testCase name="HomeArticleList &gt;&gt; getCategories" duration="124"/>
-    <testCase name="HomeArticleList &gt;&gt; show" duration="138"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/pages/admin/category/_id.spec.js">
+    <testCase name="AdminCategoryId &gt;&gt; Vue component" duration="68"/>
+    <testCase name="AdminCategoryId &gt;&gt; asyncData - categories.find" duration="20"/>
+    <testCase name="AdminCategoryId &gt;&gt; initialize" duration="18"/>
+    <testCase name="AdminCategoryId &gt;&gt; submitForm" duration="39"/>
+    <testCase name="AdminCategoryId &gt;&gt; router.back" duration="18"/>
+    <testCase name="AdminCategoryId &gt;&gt; rule" duration="15"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/pages/tutorials/article/_id.spec.js">
-    <testCase name="TutorialsArticle &gt;&gt; Vue component" duration="253"/>
-    <testCase name="TutorialsArticle &gt;&gt; asyncData - articles.find" duration="134"/>
-    <testCase name="TutorialsArticle &gt;&gt; router.back" duration="113"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Blog/BlogInformation.spec.js">
+    <testCase name="BlogInformation &gt;&gt; Vue component" duration="176"/>
+    <testCase name="BlogInformation &gt;&gt; itemTypeOf" duration="121"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/pages/admin/article/new.spec.js">
-    <testCase name="AdminArticleNew &gt;&gt; Vue component" duration="24"/>
-    <testCase name="AdminArticleNew &gt;&gt; asyncData - categories.findAll - posts.find" duration="24"/>
-    <testCase name="AdminArticleNew &gt;&gt; submitForm" duration="39"/>
-    <testCase name="AdminArticleNew &gt;&gt; router.back" duration="20"/>
-    <testCase name="AdminArticleNew &gt;&gt; rules" duration="18"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Blog/BlogInformation.spec.js">
-    <testCase name="BlogInformation &gt;&gt; Vue component" duration="84"/>
-    <testCase name="BlogInformation &gt;&gt; itemTypeOf" duration="84"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/pages/admin/category/_id.spec.js">
-    <testCase name="AdminCategoryId &gt;&gt; Vue component" duration="19"/>
-    <testCase name="AdminCategoryId &gt;&gt; asyncData - categories.find" duration="17"/>
-    <testCase name="AdminCategoryId &gt;&gt; initialize" duration="25"/>
-    <testCase name="AdminCategoryId &gt;&gt; submitForm" duration="20"/>
-    <testCase name="AdminCategoryId &gt;&gt; router.back" duration="14"/>
-    <testCase name="AdminCategoryId &gt;&gt; rule" duration="22"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/pages/index.spec.js">
-    <testCase name="HomePage &gt;&gt; Vue component" duration="2"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Base/BaseInformation.spec.js">
-    <testCase name="BaseInformation &gt;&gt; Vue component" duration="12"/>
-    <testCase name="BaseInformation &gt;&gt; avatarColor getter" duration="10"/>
-    <testCase name="BaseInformation &gt;&gt; typeIconImage getter" duration="17"/>
-    <testCase name="BaseInformation &gt;&gt; icon getter" duration="13"/>
-    <testCase name="BaseInformation &gt;&gt; iconColor getter" duration="10"/>
-    <testCase name="BaseInformation &gt;&gt; iconHeight getter" duration="10"/>
-    <testCase name="BaseInformation &gt;&gt; image getter" duration="11"/>
-    <testCase name="BaseInformation &gt;&gt; text getter" duration="17"/>
-    <testCase name="BaseInformation &gt;&gt; textContentClass getter" duration="13"/>
-    <testCase name="BaseInformation &gt;&gt; content getter" duration="10"/>
-    <testCase name="BaseInformation &gt;&gt; textClass getter" duration="16"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Home/Login.spec.js">
-    <testCase name="Login &gt;&gt; Vue component" duration="26"/>
-    <testCase name="Login &gt;&gt; userLogin" duration="19"/>
-    <testCase name="Login &gt;&gt; logout" duration="14"/>
-    <testCase name="Login &gt;&gt; setUserToken" duration="15"/>
-    <testCase name="Login &gt;&gt; Emit - onLoginDone" duration="21"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Home/Login.spec.js">
+    <testCase name="Login &gt;&gt; Vue component" duration="91"/>
+    <testCase name="Login &gt;&gt; userLogin" duration="50"/>
+    <testCase name="Login &gt;&gt; logout" duration="40"/>
+    <testCase name="Login &gt;&gt; setUserToken" duration="26"/>
+    <testCase name="Login &gt;&gt; Emit - onLoginDone" duration="34"/>
     <testCase name="Login &gt;&gt; rules" duration="15"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Home/HomeCategoryList.spec.js">
-    <testCase name="HomeCategoryList &gt;&gt; Vue component" duration="16"/>
-    <testCase name="HomeCategoryList &gt;&gt; pathNew getter" duration="13"/>
-    <testCase name="HomeCategoryList &gt;&gt; pathEdit getter" duration="13"/>
-    <testCase name="HomeCategoryList &gt;&gt; confirmDestroy" duration="24"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/pages/admin/category/new.spec.js">
+    <testCase name="AdminCategoryNew &gt;&gt; Vue component" duration="76"/>
+    <testCase name="AdminCategoryNew &gt;&gt; submitForm" duration="24"/>
+    <testCase name="AdminCategoryNew &gt;&gt; router.back" duration="14"/>
+    <testCase name="AdminCategoryNew &gt;&gt; rule" duration="27"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/pages/admin/index.spec.js">
+    <testCase name="IndexAdmin &gt;&gt; Vue component" duration="78"/>
+    <testCase name="IndexAdmin &gt;&gt; onLoginDone" duration="53"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Blog/Presentation.spec.js">
+    <testCase name="Presentation &gt;&gt; Vue component" duration="52"/>
+    <testCase name="Presentation &gt;&gt; getCategories" duration="24"/>
+    <testCase name="Presentation &gt;&gt; getCategoryId" duration="50"/>
+    <testCase name="Presentation &gt;&gt; goTo" duration="42"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Home/HomeCategoryList.spec.js">
+    <testCase name="HomeCategoryList &gt;&gt; Vue component" duration="75"/>
+    <testCase name="HomeCategoryList &gt;&gt; pathNew getter" duration="19"/>
+    <testCase name="HomeCategoryList &gt;&gt; pathEdit getter" duration="21"/>
+    <testCase name="HomeCategoryList &gt;&gt; confirmDestroy" duration="19"/>
     <testCase name="HomeCategoryList &gt;&gt; edit" duration="14"/>
-    <testCase name="HomeCategoryList &gt;&gt; destroy" duration="15"/>
+    <testCase name="HomeCategoryList &gt;&gt; destroy" duration="23"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Home/Register.spec.js">
-    <testCase name="Register &gt;&gt; Vue component" duration="20"/>
-    <testCase name="Register &gt;&gt; passwordMatch" duration="18"/>
-    <testCase name="Register &gt;&gt; register" duration="22"/>
-    <testCase name="Register &gt;&gt; rules" duration="16"/>
-    <testCase name="Register &gt;&gt; passwordMatch" duration="18"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Home/HomeDrawer.spec.js">
-    <testCase name="HomeDrawer &gt;&gt; Vue component" duration="10"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Base/BaseBtn.spec.js">
-    <testCase name="BaseBtn &gt;&gt; Vue component" duration="15"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Blog/Presentation.spec.js">
-    <testCase name="Presentation &gt;&gt; Vue component" duration="18"/>
-    <testCase name="Presentation &gt;&gt; getCategories" duration="29"/>
-    <testCase name="Presentation &gt;&gt; getCategoryId" duration="26"/>
-    <testCase name="Presentation &gt;&gt; goTo" duration="16"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Blog/Skills.spec.js">
-    <testCase name="Skills &gt;&gt; Vue component" duration="42"/>
-    <testCase name="Skills &gt;&gt; itemTypeOf" duration="44"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/pages/admin/category/new.spec.js">
-    <testCase name="AdminCategoryNew &gt;&gt; Vue component" duration="16"/>
-    <testCase name="AdminCategoryNew &gt;&gt; submitForm" duration="14"/>
-    <testCase name="AdminCategoryNew &gt;&gt; router.back" duration="21"/>
-    <testCase name="AdminCategoryNew &gt;&gt; rule" duration="14"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/pages/tutorials/category/_id.spec.js">
-    <testCase name="TutorialsCategory &gt;&gt; Vue component" duration="19"/>
-    <testCase name="TutorialsCategory &gt;&gt; asyncData - articles.category" duration="15"/>
-    <testCase name="TutorialsCategory &gt;&gt; goToArticle" duration="12"/>
-    <testCase name="TutorialsCategory &gt;&gt; router.back" duration="11"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/pages/admin/index.spec.js">
-    <testCase name="IndexAdmin &gt;&gt; Vue component" duration="29"/>
-    <testCase name="IndexAdmin &gt;&gt; onLoginDone" duration="32"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Home/HomeList.spec.js">
-    <testCase name="HomeList &gt;&gt; Vue component" duration="14"/>
-    <testCase name="HomeList &gt;&gt; itemComponentInstance getter" duration="18"/>
-    <testCase name="HomeList &gt;&gt; pathNew getter" duration="11"/>
-    <testCase name="HomeList &gt;&gt; router.back" duration="11"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/pages/default.spec.js">
-    <testCase name="DefaultPage &gt;&gt; Vue component" duration="1"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/pages/admin/category/index.spec.js">
-    <testCase name="AdminCategory &gt;&gt; Vue component" duration="15"/>
-    <testCase name="AdminCategory &gt;&gt; asyncData - categories.findAll" duration="24"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Home/HomeAppBar.spec.js">
-    <testCase name="HomeAppBar &gt;&gt; Vue component" duration="24"/>
-    <testCase name="HomeAppBar &gt;&gt; items getter" duration="32"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Base/BaseAvatar.spec.js">
-    <testCase name="BaseAvatar &gt;&gt; Vue component" duration="14"/>
-    <testCase name="BaseAvatar &gt;&gt; classes getter" duration="18"/>
-    <testCase name="BaseAvatar &gt;&gt; outlineSize getter" duration="12"/>
-    <testCase name="BaseAvatar &gt;&gt; styles getter" duration="9"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/pages/tutorials/index.spec.js">
-    <testCase name="IndexTutorials &gt;&gt; Vue component" duration="12"/>
-    <testCase name="IndexTutorials &gt;&gt; asyncData - articles.categories" duration="11"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/pages/tutorials/index.spec.js">
+    <testCase name="IndexTutorials &gt;&gt; Vue component" duration="14"/>
+    <testCase name="IndexTutorials &gt;&gt; asyncData - articles.categories" duration="13"/>
     <testCase name="IndexTutorials &gt;&gt; goToCategory" duration="10"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Home/HomeNew.spec.js">
-    <testCase name="HomeNew &gt;&gt; Vue component" duration="15"/>
-    <testCase name="HomeNew &gt;&gt; pathNew getter" duration="12"/>
-    <testCase name="HomeNew &gt;&gt; pathEdit getter" duration="12"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Base/BaseInformation.spec.js">
+    <testCase name="BaseInformation &gt;&gt; Vue component" duration="42"/>
+    <testCase name="BaseInformation &gt;&gt; avatarColor getter" duration="11"/>
+    <testCase name="BaseInformation &gt;&gt; typeIconImage getter" duration="15"/>
+    <testCase name="BaseInformation &gt;&gt; icon getter" duration="9"/>
+    <testCase name="BaseInformation &gt;&gt; iconColor getter" duration="8"/>
+    <testCase name="BaseInformation &gt;&gt; iconHeight getter" duration="10"/>
+    <testCase name="BaseInformation &gt;&gt; image getter" duration="12"/>
+    <testCase name="BaseInformation &gt;&gt; text getter" duration="15"/>
+    <testCase name="BaseInformation &gt;&gt; textContentClass getter" duration="25"/>
+    <testCase name="BaseInformation &gt;&gt; content getter" duration="9"/>
+    <testCase name="BaseInformation &gt;&gt; textClass getter" duration="27"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/pages/admin/article/index.spec.js">
-    <testCase name="AdminArticle &gt;&gt; Vue component" duration="11"/>
-    <testCase name="AdminArticle &gt;&gt; asyncData - posts.findAll" duration="12"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/pages/index.spec.js">
+    <testCase name="HomePage &gt;&gt; Vue component" duration="2"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Home/HomeFooter.spec.js">
-    <testCase name="HomeFooter &gt;&gt; Vue component" duration="25"/>
-    <testCase name="HomeFooter &gt;&gt; social getter" duration="12"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Home/HomeList.spec.js">
+    <testCase name="HomeList &gt;&gt; Vue component" duration="27"/>
+    <testCase name="HomeList &gt;&gt; itemComponentInstance getter" duration="31"/>
+    <testCase name="HomeList &gt;&gt; pathNew getter" duration="13"/>
+    <testCase name="HomeList &gt;&gt; router.back" duration="16"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Base/BaseIcon.spec.js">
-    <testCase name="BaseIcon &gt;&gt; Vue component" duration="8"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Home/Register.spec.js">
+    <testCase name="Register &gt;&gt; Vue component" duration="53"/>
+    <testCase name="Register &gt;&gt; passwordMatch" duration="59"/>
+    <testCase name="Register &gt;&gt; register" duration="35"/>
+    <testCase name="Register &gt;&gt; rules" duration="31"/>
+    <testCase name="Register &gt;&gt; passwordMatch" duration="24"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/pages/error.spec.js">
-    <testCase name="ErrorPage &gt;&gt; Vue component" duration="10"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Blog/Skills.spec.js">
+    <testCase name="Skills &gt;&gt; Vue component" duration="177"/>
+    <testCase name="Skills &gt;&gt; itemTypeOf" duration="56"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/pages/admin/category/index.spec.js">
+    <testCase name="AdminCategory &gt;&gt; Vue component" duration="31"/>
+    <testCase name="AdminCategory &gt;&gt; asyncData - categories.findAll" duration="30"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Base/BaseAvatar.spec.js">
+    <testCase name="BaseAvatar &gt;&gt; Vue component" duration="14"/>
+    <testCase name="BaseAvatar &gt;&gt; classes getter" duration="9"/>
+    <testCase name="BaseAvatar &gt;&gt; outlineSize getter" duration="10"/>
+    <testCase name="BaseAvatar &gt;&gt; styles getter" duration="9"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/pages/tutorials/category/_id.spec.js">
+    <testCase name="TutorialsCategory &gt;&gt; Vue component" duration="12"/>
+    <testCase name="TutorialsCategory &gt;&gt; asyncData - articles.category" duration="37"/>
+    <testCase name="TutorialsCategory &gt;&gt; goToArticle" duration="17"/>
+    <testCase name="TutorialsCategory &gt;&gt; router.back" duration="10"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Home/HomeAppBar.spec.js">
+    <testCase name="HomeAppBar &gt;&gt; Vue component" duration="27"/>
+    <testCase name="HomeAppBar &gt;&gt; items getter" duration="21"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/pages/default.spec.js">
+    <testCase name="DefaultPage &gt;&gt; Vue component" duration="1"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Base/BaseBtn.spec.js">
+    <testCase name="BaseBtn &gt;&gt; Vue component" duration="9"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Home/HomeNew.spec.js">
+    <testCase name="HomeNew &gt;&gt; Vue component" duration="17"/>
+    <testCase name="HomeNew &gt;&gt; pathNew getter" duration="48"/>
+    <testCase name="HomeNew &gt;&gt; pathEdit getter" duration="14"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Home/HomeFooter.spec.js">
+    <testCase name="HomeFooter &gt;&gt; Vue component" duration="13"/>
+    <testCase name="HomeFooter &gt;&gt; social getter" duration="10"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/pages/error.spec.js">
+    <testCase name="ErrorPage &gt;&gt; Vue component" duration="9"/>
     <testCase name="ErrorPage &gt;&gt; data" duration="7"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/pages/authenticate.spec.js">
-    <testCase name="Authenticate &gt;&gt; Vue component" duration="2"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/pages/authenticate.spec.js">
+    <testCase name="Authenticate &gt;&gt; Vue component" duration="1"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Home/HomeCard.spec.js">
-    <testCase name="HomeCard &gt;&gt; Vue component" duration="14"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/pages/admin/cards.spec.js">
+    <testCase name="CardsAdmin &gt;&gt; Vue component" duration="26"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/pages/admin/cards.spec.js">
-    <testCase name="CardsAdmin &gt;&gt; Vue component" duration="32"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Home/HomeDrawer.spec.js">
+    <testCase name="HomeDrawer &gt;&gt; Vue component" duration="30"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/store/mainModule.spec.js">
-    <testCase name="PostStore &gt;&gt; isSnackbarVisible" duration="24"/>
-    <testCase name="PostStore &gt;&gt; getSnackbarText" duration="5"/>
-    <testCase name="PostStore &gt;&gt; showSnackbar" duration="14"/>
-    <testCase name="PostStore &gt;&gt; closeSnackbar" duration="2"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Base/BaseImage.spec.js">
+    <testCase name="BaseImage &gt;&gt; Vue component" duration="13"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Base/BaseImage.spec.js">
-    <testCase name="BaseImage &gt;&gt; Vue component" duration="9"/>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Home/View.spec.js">
+    <testCase name="FadeView &gt;&gt; Vue component" duration="9"/>
   </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/components/Home/View.spec.js">
-    <testCase name="FadeView &gt;&gt; Vue component" duration="10"/>
-  </file>
-  <file path="/home/jenkins/workspace/man2-dev_chartman2-frontend_main/test/NuxtLogo.spec.js">
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/NuxtLogo.spec.js">
     <testCase name="NuxtLogo is a Vue instance" duration="5"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Home/HomeCard.spec.js">
+    <testCase name="HomeCard &gt;&gt; Vue component" duration="25"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Base/BaseIcon.spec.js">
+    <testCase name="BaseIcon &gt;&gt; Vue component" duration="12"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/store/mainModule.spec.js">
+    <testCase name="PostStore &gt;&gt; isSnackbarVisible" duration="1"/>
+    <testCase name="PostStore &gt;&gt; getSnackbarText" duration="1"/>
+    <testCase name="PostStore &gt;&gt; showSnackbar" duration="1"/>
+    <testCase name="PostStore &gt;&gt; closeSnackbar" duration="1"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/pages/admin/article/new.spec.js">
+    <testCase name="AdminArticleNew &gt;&gt; Vue component" duration="34"/>
+    <testCase name="AdminArticleNew &gt;&gt; asyncData - categories.findAll - posts.find" duration="30"/>
+    <testCase name="AdminArticleNew &gt;&gt; submitForm" duration="31"/>
+    <testCase name="AdminArticleNew &gt;&gt; router.back" duration="15"/>
+    <testCase name="AdminArticleNew &gt;&gt; rules" duration="12"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/pages/admin/article/_id.spec.js">
+    <testCase name="AdminArticleId &gt;&gt; Vue component" duration="42"/>
+    <testCase name="AdminArticleId &gt;&gt; asyncData - categories.findAll - posts.find" duration="39"/>
+    <testCase name="AdminArticleId &gt;&gt; initialize" duration="19"/>
+    <testCase name="AdminArticleId &gt;&gt; submitForm" duration="26"/>
+    <testCase name="AdminArticleId &gt;&gt; router.back" duration="16"/>
+    <testCase name="AdminArticleId &gt;&gt; rules" duration="28"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/pages/tutorials/article/_id.spec.js">
+    <testCase name="TutorialsArticle &gt;&gt; Vue component" duration="186"/>
+    <testCase name="TutorialsArticle &gt;&gt; asyncData - articles.find" duration="68"/>
+    <testCase name="TutorialsArticle &gt;&gt; router.back" duration="65"/>
+  </file>
+  <file path="/home/tititoof/Projects/chartman2.fr/chartman2-frontend/test/components/Home/HomeArticleList.spec.js">
+    <testCase name="HomeArticleList &gt;&gt; Vue component" duration="238"/>
+    <testCase name="HomeArticleList &gt;&gt; pathNew getter" duration="82"/>
+    <testCase name="HomeArticleList &gt;&gt; pathEdit getter" duration="61"/>
+    <testCase name="HomeArticleList &gt;&gt; formatedCategories" duration="68"/>
+    <testCase name="HomeArticleList &gt;&gt; confirmDestroy" duration="55"/>
+    <testCase name="HomeArticleList &gt;&gt; edit" duration="89"/>
+    <testCase name="HomeArticleList &gt;&gt; destroy" duration="64"/>
+    <testCase name="HomeArticleList &gt;&gt; getCategories" duration="57"/>
+    <testCase name="HomeArticleList &gt;&gt; show" duration="116"/>
   </file>
 </testExecutions>

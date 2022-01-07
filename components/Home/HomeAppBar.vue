@@ -9,7 +9,7 @@
     >
       <v-img
         src="/android-chrome-512x512.png"
-        class="mr-3 hidden-xs-only"
+        class="mr-3"
         contain
         max-width="52"
         width="100%"

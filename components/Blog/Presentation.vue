@@ -7,11 +7,10 @@
       class="white--text"
       gradient="to right, rgba(5, 11, 31, .4), rgba(5, 11, 31, .4)"
     >
-      <v-container class="fill-height px-4 py-12 justify-space-around">
+      <v-container class="fill-height py-12 justify-space-between">
         <v-responsive
-          class="d-flex px-4 py-12"
-          height="100%"
-          max-width="700"
+          class="d-flex"
+          max-width="550"
           width="100%"
         >
           <div class="text-h4">
@@ -26,8 +25,7 @@
             Source Wikipedia
           </p>
           <div
-            :class="$vuetify.breakpoint.smAndDown ? 'flex-column align-start' : 'align-center'"
-            class="d-flex flex-wrap"
+            class="d-flex flex-wrap align-center"
           >
             <v-btn
               router
@@ -46,14 +44,13 @@
               color="indigo"
               @click="goTo('DevOps')"
             >
-              Tutoriels sur RoR / VueJS
+              Tutoriels RoR / VueJS
             </v-btn>
           </div>
         </v-responsive>
         <v-responsive
-          class="d-flex px-4 py-12"
-          height="100%"
-          max-width="700"
+          class="d-flex"
+          max-width="550"
           width="100%"
         >
           <div class="text-h4">
@@ -69,8 +66,7 @@
             Source Wikipedia
           </p>
           <div
-            :class="$vuetify.breakpoint.smAndDown ? 'flex-column align-start' : 'align-center'"
-            class="d-flex flex-wrap"
+            class="d-flex flex-wrap align-center"
           >
             <v-btn
               router
@@ -84,12 +80,13 @@
             </span>
 
             <v-btn
+              
               :ripple="false"
               outlined
               color="indigo"
               @click="goTo('CI / CD')"
             >
-              Tutoriels sur CI / CD
+              Tutoriels CI / CD
             </v-btn>
           </div>
         </v-responsive>
@@ -109,7 +106,9 @@ export default class Presentation extends Vue {
   @mainModule.Action('showSnackbar') showSnackbar: any
 
   minHeight: number = 100
-  maxHeight: number = 700
+  get maxHeight (): number {
+    return (this.$vuetify.breakpoint.mdAndDown) ? 1800 : 700
+  }
 
   async goTo (category: string) {
     const response = await this.getCategories()
