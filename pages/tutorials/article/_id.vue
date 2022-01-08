@@ -58,11 +58,15 @@ import { PostDefault, PostType } from '~/types'
 const mainModule = namespace('MainStore')
 
 @Component({
-  async asyncData ({ $api, params }) {
-    const response = await $api.articles.find(params.id)
-    const article = response.data
+  async asyncData ({ $api, params, redirect }) {
+    try {
+      const response = await $api.articles.find(params.id)
+      const article = response.data
 
-    return { article }
+      return { article }
+    } catch (e) {
+      redirect('/')
+    }
   },
   components: { Editor }
 })

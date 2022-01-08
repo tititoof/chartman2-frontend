@@ -112,11 +112,15 @@ import { CategoryType, PostFormDefault, PostFormErrorDefault, PostFormErrorType,
 const mainModule = namespace('MainStore')
 
 @Component({
-  async asyncData ({ $api }) {
-    const responseCategories = await $api.categories.findAll()
-    const categories = responseCategories.data
+  async asyncData ({ $api, redirect }) {
+    try {
+      const responseCategories = await $api.categories.findAll()
+      const categories = responseCategories.data
 
-    return { categories }
+      return { categories }
+    } catch (e) {
+      redirect('/')
+    }
   },
   middleware: ['auth'],
   components: { Editor }

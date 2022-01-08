@@ -69,14 +69,18 @@ import { Vue, Component } from 'nuxt-property-decorator'
 import { PostType } from '~/types/index'
 
 @Component({
-  async asyncData ({ $api, params }) {
-    const responseCategory = await $api.articles.category(params.id)
-    const category = responseCategory.data.attributes.name
+  async asyncData ({ $api, params, redirect }) {
+    try {
+      const responseCategory = await $api.articles.category(params.id)
+      const category = responseCategory.data.attributes.name
 
-    const response = await $api.articles.fromCategory(params.id)
-    const articles = response.data
+      const response = await $api.articles.fromCategory(params.id)
+      const articles = response.data
 
-    return { articles, category }
+      return { articles, category }
+    } catch (e) {
+      redirect('/')
+    }
   }
 })
 export default class Id extends Vue {

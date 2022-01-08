@@ -113,14 +113,18 @@ import { CategoryType, PostDefault, PostFormDefault, PostFormType, PostType } fr
 const mainModule = namespace('MainStore')
 
 @Component({
-  async asyncData ({ $api, params }) {
-    const responseCategories = await $api.categories.findAll()
-    const categories = responseCategories.data
+  async asyncData ({ $api, params, redirect }) {
+    try {
+      const responseCategories = await $api.categories.findAll()
+      const categories = responseCategories.data
 
-    const responseArticle = await $api.posts.find(params.id)
-    const article = responseArticle.data
+      const responseArticle = await $api.posts.find(params.id)
+      const article = responseArticle.data
 
-    return { article, categories }
+      return { article, categories }
+    } catch (e) {
+      redirect('/')
+    }
   },
   middleware: ['auth'],
   components: { Editor }

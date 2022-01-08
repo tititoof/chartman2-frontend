@@ -17,11 +17,15 @@ import HomeList from '~/components/Home/HomeList.vue'
 import { PostDefault, PostType } from '~/types'
 
 @Component({
-  async asyncData ({ $api }) {
-    const responseArticle = await $api.posts.findAll()
-    const articles = responseArticle.data
+  async asyncData ({ $api, redirect }) {
+    try {
+      const responseArticle = await $api.posts.findAll()
+      const articles = responseArticle.data
 
-    return { articles }
+      return { articles }
+    } catch (e) {
+      redirect('/')
+    }
   },
   middleware: ['auth'],
   components: { HomeList }

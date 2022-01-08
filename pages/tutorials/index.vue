@@ -59,11 +59,15 @@ import { Vue, Component } from 'nuxt-property-decorator'
 import { CategoryType } from '~/types'
 
 @Component({
-  async asyncData ({ $api }) {
-    const response = await $api.articles.categories()
-    const categories = response.data
+  async asyncData ({ $api, redirect }) {
+    try {
+      const response = await $api.articles.categories()
+      const categories = response.data
 
-    return { categories }
+      return { categories }
+    } catch (e) {
+      redirect('/')
+    }
   }
 })
 export default class Tutorials extends Vue {

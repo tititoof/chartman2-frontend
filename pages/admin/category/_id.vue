@@ -71,11 +71,15 @@ import { CategoryDefault, CategoryFormDefault, CategoryFormErrorDefault, Categor
 const mainModule = namespace('MainStore')
 
 @Component({
-  async asyncData ({ $api, params }) {
-    const responseCategory = await $api.categories.find(params.id)
-    const category = responseCategory.data
+  async asyncData ({ $api, params, redirect }) {
+    try {
+      const responseCategory = await $api.categories.find(params.id)
+      const category = responseCategory.data
 
-    return { category }
+      return { category }
+    } catch (e) {
+      redirect('/')
+    }
   },
   middleware: ['auth'],
   components: { HomeList }

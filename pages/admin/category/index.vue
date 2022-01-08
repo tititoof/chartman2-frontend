@@ -16,11 +16,15 @@ import { Vue, Component } from 'nuxt-property-decorator'
 import HomeList from '~/components/Home/HomeList.vue'
 
 @Component({
-  async asyncData ({ $api }) {
-    const response = await $api.categories.findAll()
-    const categories = response.data
+  async asyncData ({ $api, redirect }) {
+    try {
+      const response = await $api.categories.findAll()
+      const categories = response.data
 
-    return { categories }
+      return { categories }
+    } catch (e) {
+      redirect('/')
+    }
   },
   middleware: ['auth'],
   components: { HomeList }
