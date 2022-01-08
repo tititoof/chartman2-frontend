@@ -10,7 +10,7 @@ export default class MainStore extends VuexModule {
   snackbarText: string = ''
   snackbarVisible: boolean = false
   user: UserType = {
-    id: 0,
+    id: '',
     name: '',
     email: '',
     roles: [],
