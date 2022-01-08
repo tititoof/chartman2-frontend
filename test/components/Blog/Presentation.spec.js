@@ -62,4 +62,8 @@ describe('Presentation', () => {
     expect(routerMock.push).toHaveBeenCalledTimes(1)
     expect(routerMock.push).toHaveBeenCalledWith('/tutorials/category/1')
   })
+
+  it('>> maxHeight', async () => {
+    expect(wrapper.vm.maxHeight).toStrictEqual(700)
+  })
 })
