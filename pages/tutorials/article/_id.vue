@@ -10,8 +10,6 @@
           <v-responsive
             class="d-flex px-4 py-12"
             height="100%"
-            max-width="1400"
-            width="100%"
           >
             <div class="text-h4 py-3">
               <v-btn

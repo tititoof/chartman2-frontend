@@ -86,7 +86,25 @@ import { PostType } from '~/types/index'
 
       return { articles, category }
     } catch (e) {
-      redirect('/')
+      redirect('/redirect', { previous_url: `/tutorials/category/${params.id}` })
+    }
+  },
+  head (this: Id) {
+    console.log(this)
+    return {
+      title: this.category,
+      meta: [
+        {
+          property: 'og:title',
+          content: this.category,
+          hid: 'og:title'
+        },
+        {
+          property: 'og:description',
+          content: this.category,
+          hid: 'og:description'
+        }
+      ]
     }
   },
   head (this: Id) {
