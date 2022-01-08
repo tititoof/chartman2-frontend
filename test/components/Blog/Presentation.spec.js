@@ -24,7 +24,7 @@ describe('Presentation', () => {
       mocks: {
         $vuetify: {
           breakpoint: {
-            smAndDown: () => true
+            mdAndDown: () => true
           }
         },
         $router: routerMock,
@@ -77,6 +77,6 @@ describe('Presentation', () => {
     
     wrapper.vm.$vuetify.breakpoint.mdAndDown = true
 
-    expect(wrapper.vm.maxHeight).toStrictEqual(700)
+    expect(wrapper.vm.maxHeight).toStrictEqual(1800)
   })
 })

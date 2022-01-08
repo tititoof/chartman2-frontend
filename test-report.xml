@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/components/Blog/Presentation.spec.js">
-    <testCase name="Presentation &gt;&gt; Vue component" duration="22"/>
+    <testCase name="Presentation &gt;&gt; Vue component" duration="21"/>
     <testCase name="Presentation &gt;&gt; getCategories" duration="12"/>
     <testCase name="Presentation &gt;&gt; getCategoryId" duration="23"/>
     <testCase name="Presentation &gt;&gt; goTo" duration="18"/>
-    <testCase name="Presentation &gt;&gt; maxHeight" duration="9"/>
+    <testCase name="Presentation &gt;&gt; maxHeight" duration="14"/>
   </file>
 </testExecutions>
