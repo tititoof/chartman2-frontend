@@ -123,7 +123,7 @@ const mainModule = namespace('MainStore')
 
       return { article, categories }
     } catch (e) {
-      redirect('/')
+      redirect('/redirect', { previous_url: `/admin/article/${params.id}` })
     }
   },
   middleware: ['auth'],

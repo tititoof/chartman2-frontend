@@ -31,25 +31,30 @@
           @click:append="show1 = !show1"
         />
       </v-col>
+    </v-row>
+    <v-row class="justify-space-around">
       <v-col
-        class="d-flex"
         cols="12"
         sm="6"
         xsm="12"
+        min-width="344"
       >
         <v-btn
           x-large
           block
           color="primary"
           router
-          align-start
           to="/"
         >
           Retour à l'accueil
         </v-btn>
       </v-col>
-      <v-spacer />
-      <v-col class="d-flex mx-9" cols="12" sm="3" xsm="12" align-end>
+      <v-col
+        cols="12"
+        sm="6"
+        xsm="12"
+        min-width="344"
+      >
         <v-btn
           x-large
           block

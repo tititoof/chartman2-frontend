@@ -23,7 +23,7 @@ import HomeList from '~/components/Home/HomeList.vue'
 
       return { categories }
     } catch (e) {
-      redirect('/')
+      redirect('/admin/redirect', { previous_url: '/admin/category' })
     }
   },
   middleware: ['auth'],

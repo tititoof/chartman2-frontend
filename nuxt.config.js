@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import { getRoutes } from './utils/sitemap'
 
 export default {
   server: {
@@ -7,16 +8,22 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - chartman2',
-    title: 'chartman2',
+    titleTemplate: '%s',
+    title: 'chartman2.fr',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'fr'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
+      { hid: 'description', name: 'description', content: 'Website chartman2.fr' },
+      { hid: 'og:type', name: 'og:type', content: 'website' },
+      { hid: 'og:url', name: 'og:url', content: process.env.WEBSITE_URL },
+      { hid: 'og:title', name: 'og:title', content: 'chartman2.fr' },
+      { hid: 'og:site_name', name: 'og:site_name', content: 'chartman2.fr' },
+      { hid: 'og:locale', name: 'og:locale', content: 'fr' },
+      { hid: 'og:image', name: 'og:image', content: `${process.env.WEBSITE_URL}/android-chrome-512x512.png` }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -48,23 +55,23 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
     // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt#readme
-    'cookie-universal-nuxt'
+    'cookie-universal-nuxt',
     // https://www.npmjs.com/package/nuxt-vuex-localstorage
     // 'nuxt-vuex-localstorage'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: process.env.API_URL,
     debug: false,
-    proxyHeaders: true,
+    proxyHeaders: false,
     headers: {
-      common: {
-        client: '',
-        'access-token': '',
-        uid: '',
-        'token-type': ''
-      }
+      client: '',
+      'access-token': '',
+      uid: '',
+      'token-type': ''
     }
   },
 
@@ -144,5 +151,31 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  sitemap: {
+    path: '/sitemap.xml', // L'emplacement de votre fichier sitemap.
+    hostname: process.env.WEBSITE_URL, // L'adresse de votre site, que vous pouvez placer comme ici dans une variable d'environnement.
+    cacheTime: 1000 * 60 * 15, // La durée avant que le sitemap soit regénéré. Ici 15mn.
+    gzip: true,
+    generate: false, // Génère une version statique du sitemap quand activé. À utiliser avec nuxt generate.
+    exclude: [ // Les pages qu'on a pas trop envie de voir atterrir sur Google.
+      '/admin/**',
+      '/admin',
+      '/authenticate',
+      '/redirect'
+    ],
+    routes () {
+      // Nous allons utiliser une fonction personnalisée pour charger nos routes dynamiques dans le sitemap.
+      return getRoutes()
+    }
+  },
+
+  robots: {
+    Disallow: [
+      '/authenticate',
+      '/admin'
+    ],
+    Sitemap: `${process.env.WEBSITE_URL}/sitemap.xml`
   }
 }

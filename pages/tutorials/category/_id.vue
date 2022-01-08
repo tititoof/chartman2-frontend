@@ -1,67 +1,74 @@
 <template>
   <section>
-    <v-img
-      :min-height="minHeight"
-      :max-height="maxHeight"
-      :src="background"
-      contain
-    >
-      <v-container class="fill-height px-4 py-3 justify-center overflow-y-auto">
-        <v-responsive
-          class="d-flex px-4 py-12 overflow-y-auto"
-          height="100%"
-          max-width="1400"
-          width="100%"
-        >
-          <div class="text-h4 py-3">
-            <v-btn
-              class="mx-2 float-left"
-              small
-              fab
-              dark
-              color="indigo"
-              @click.prevent="goBack"
-            >
-              <v-icon
+    <client-only>
+      <v-img
+        :min-height="minHeight"
+        :max-height="maxHeight"
+        :src="background"
+        contain
+      >
+        <v-container class="fill-height px-4 py-3 justify-center">
+          <v-responsive
+            class="d-flex px-4 py-12 overflow-y-auto"
+            height="100%"
+            max-width="1400"
+            width="100%"
+          >
+            <div class="text-h4 py-3">
+              <v-btn
+                class="mx-2 float-left"
+                small
+                fab
                 dark
+                color="indigo"
+                @click.prevent="goBack"
               >
-                mdi-chevron-left
-              </v-icon>
-            </v-btn>
-            {{ category }}
-          </div>
-          <v-row class="py-12">
-            <v-col
-              v-for="article in articles"
-              :key="article.id"
-              cols="4"
-            >
-              <v-card
-                max-width="344"
-                max-height="200"
-                class="mx-auto"
-                color="info"
-                dark
-                @click="goToArticle(article.id)"
-              >
-                <v-card-title>
-                  <v-icon
-                    medium
-                    left
-                  >
-                    mdi-book-open
-                  </v-icon>
-                  {{ article.attributes.title }}
-                </v-card-title>
-                <v-subheader>
-                  {{ article.attributes.description | truncate(150, '...') }}
-                </v-subheader>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-responsive>
-      </v-container>
-    </v-img>
+                <v-icon
+                  dark
+                >
+                  mdi-chevron-left
+                </v-icon>
+              </v-btn>
+              {{ category }}
+            </div>
+            <v-row>
+              <template v-for="(article, index) in articles">
+                <v-col
+                  :key="index"
+                  class="mx-1"
+                >
+                  <v-hover v-slot="{ hover }">
+                    <v-card
+                      max-width="344"
+                      max-height="200"
+                      :elevation="hover ? 12 : 2"
+                      :class="{ 'on-hover': hover }"
+                      class="mx-auto"
+                      color="primary"
+                      dark
+                      @click="goToArticle(article.id)"
+                    >
+                      <v-card-title>
+                        <v-icon
+                          medium
+                          left
+                        >
+                          mdi-book-open
+                        </v-icon>
+                        {{ article.attributes.title }}
+                      </v-card-title>
+                      <v-subheader>
+                        {{ article.attributes.description | truncate(150, '...') }}
+                      </v-subheader>
+                    </v-card>
+                  </v-hover>
+                </v-col>
+              </template>
+            </v-row>
+          </v-responsive>
+        </v-container>
+      </v-img>
+    </client-only>
   </section>
 </template>
 <script lang="ts">
@@ -79,7 +86,25 @@ import { PostType } from '~/types/index'
 
       return { articles, category }
     } catch (e) {
-      redirect('/')
+      redirect('/redirect', { previous_url: `/tutorials/category/${params.id}` })
+    }
+  },
+  head (this: Id) {
+    console.log(this)
+    return {
+      title: this.category,
+      meta: [
+        {
+          property: 'og:title',
+          content: this.category,
+          hid: 'og:title'
+        },
+        {
+          property: 'og:description',
+          content: this.category,
+          hid: 'og:description'
+        }
+      ]
     }
   }
 })
@@ -95,7 +120,7 @@ export default class Id extends Vue {
   }
 
   goBack () {
-    this.$router.back()
+    this.$router.push('/tutorials')
   }
 }
 </script>

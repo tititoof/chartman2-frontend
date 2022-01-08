@@ -78,7 +78,7 @@ const mainModule = namespace('MainStore')
 
       return { category }
     } catch (e) {
-      redirect('/')
+      redirect('/redirect', { previous_url: `/admin/category/${params.id}` })
     }
   },
   middleware: ['auth'],

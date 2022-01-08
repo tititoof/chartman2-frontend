@@ -66,7 +66,7 @@ import { CategoryType } from '~/types'
 
       return { categories }
     } catch (e) {
-      redirect('/')
+      redirect('/redirect', { previous_url: '/tutorials/' })
     }
   }
 })

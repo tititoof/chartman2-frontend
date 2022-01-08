@@ -1,52 +1,54 @@
 <template>
   <section>
-    <v-img
-      :min-height="minHeight"
-      :max-height="maxHeight"
-      :src="background"
-      contain
-    >
-      <v-container class="fill-height px-4 py-3 justify-center overflow-y-auto">
-        <v-responsive
-          class="d-flex px-4 py-12 overflow-y-auto"
-          height="100%"
-          max-width="1400"
-          width="100%"
-        >
-          <div class="text-h4 py-3">
-            <v-btn
-              class="mx-2 float-left"
-              small
-              fab
-              dark
-              color="indigo"
-              @click.prevent="goBack"
-            >
-              <v-icon
-                dark
-              >
-                mdi-chevron-left
-              </v-icon>
-            </v-btn>
-            {{ article.attributes.title }}
-          </div>
-          <v-divider />
+    <client-only>
+      <v-img
+        :min-height="minHeight"
+        :max-height="maxHeight"
+        :src="background"
+        contain
+      >
+        <v-container class="fill-height px-4 py-3 justify-center overflow-y-auto">
           <v-responsive
-            class="overflow-y-auto"
+            class="d-flex px-4 py-12 overflow-y-auto"
             height="100%"
+            max-width="1400"
+            width="100%"
           >
-            <Editor
-              ref="editor"
-              v-model="article.attributes.content"
-              mode="viewer"
-              hint="Hint"
-              :outline="false"
-              :render-config="renderConfig"
-            />
+            <div class="text-h4 py-3">
+              <v-btn
+                class="mx-2 float-left"
+                small
+                fab
+                dark
+                color="indigo"
+                @click.prevent="goBack"
+              >
+                <v-icon
+                  dark
+                >
+                  mdi-chevron-left
+                </v-icon>
+              </v-btn>
+              {{ article.attributes.title }}
+            </div>
+            <v-divider />
+            <v-responsive
+              class="overflow-y-auto"
+              height="100%"
+            >
+              <Editor
+                ref="editor"
+                v-model="article.attributes.content"
+                mode="viewer"
+                hint="Hint"
+                :outline="false"
+                :render-config="renderConfig"
+              />
+            </v-responsive>
           </v-responsive>
-        </v-responsive>
-      </v-container>
-    </v-img>
+        </v-container>
+      </v-img>
+    </client-only>
   </section>
 </template>
 <script lang="ts">
@@ -65,7 +67,7 @@ const mainModule = namespace('MainStore')
 
       return { article }
     } catch (e) {
-      redirect('/')
+      redirect('/redirect', { previous_url: `/tutorials/article/${params.id}` })
     }
   },
   components: { Editor }

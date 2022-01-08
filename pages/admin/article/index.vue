@@ -24,7 +24,7 @@ import { PostDefault, PostType } from '~/types'
 
       return { articles }
     } catch (e) {
-      redirect('/')
+      redirect('/redirect', { previous_url: '/admin/article/' })
     }
   },
   middleware: ['auth'],
