@@ -48,5 +48,12 @@ describe('AdminArticle', () => {
       { id: '3', type: 'post', attributes: { title: 'tt', description: 'ee', content: 'fezf' }, relationships: { user: { data: { id: '1', type: 'user' } }, categories: { data: [{ id: '1', type: 'category' }] } } },
       { id: '4', type: 'post', attributes: { title: 'dzad', description: 'dzad', content: 'dzadzad' }, relationships: { user: { data: { id: '1', type: 'user' } }, categories: { data: [{ id: '1', type: 'category' }] } } }
     ])
+
+    const redirect = jest.fn()
+    await wrapper.vm.$options.asyncData({ redirect })
+
+    await flushPromises()
+
+    expect(redirect).toHaveBeenCalledTimes(1)
   })
 })

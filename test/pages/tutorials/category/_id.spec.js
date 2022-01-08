@@ -57,6 +57,13 @@ describe('TutorialsCategory', () => {
       ]
     )
     expect(response.category).toStrictEqual('NuxtJS')
+
+    const redirect = jest.fn()
+    await wrapper.vm.$options.asyncData({ redirect })
+
+    await flushPromises()
+
+    expect(redirect).toHaveBeenCalledTimes(1)
   })
 
   it('>> goToArticle', () => {

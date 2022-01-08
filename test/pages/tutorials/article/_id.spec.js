@@ -48,6 +48,13 @@ describe('TutorialsArticle', () => {
     expect(response.article.attributes.description).toStrictEqual('C\'est ma little description')
     expect(response.article.attributes.content).toStrictEqual('# Yey !!!!\n\nHello comment ça va ? ')
     expect(response.article.relationships.categories).toStrictEqual({ data: [{ id: '1', type: 'category' }] })
+
+    const redirect = jest.fn()
+    await wrapper.vm.$options.asyncData({ redirect })
+
+    await flushPromises()
+
+    expect(redirect).toHaveBeenCalledTimes(1)
   })
 
   it('>> router.back', () => {
