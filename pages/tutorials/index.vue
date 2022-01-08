@@ -60,7 +60,7 @@ import { CategoryType } from '~/types'
 
 @Component({
   async asyncData ({ $api }) {
-    const response =  await $api.articles.categories()
+    const response = await $api.articles.categories()
     const categories = response.data
 
     return { categories }

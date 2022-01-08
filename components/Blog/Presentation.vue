@@ -7,9 +7,10 @@
       class="white--text"
       gradient="to right, rgba(5, 11, 31, .4), rgba(5, 11, 31, .4)"
     >
-      <v-container 
+      <v-container
         :class="$vuetify.breakpoint.mdAndDown ? `justify-center` : `justify-space-between`"
-        class="fill-height py-12">
+        class="fill-height py-12"
+      >
         <v-responsive
           class="d-flex"
           max-width="550"
