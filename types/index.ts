@@ -32,7 +32,7 @@ export const CategoryDefault: CategoryType = {
 }
 
 export interface CategoryFormType {
-  id?: number,
+  id?: string,
   name: string
 }
 
@@ -49,7 +49,7 @@ export const CategoryFormErrorDefault: CategoryFormErrorType = {
 }
 
 export interface PostType {
-  id: number,
+  id: string,
   type: string,
   attributes: {
     title: string,
@@ -77,7 +77,7 @@ export interface PostType {
 }
 
 export const PostDefault: PostType = {
-  id: 0,
+  id: '',
   attributes: {
     title: '',
     description: '',
@@ -95,7 +95,7 @@ export const PostDefault: PostType = {
 }
 
 export interface PostFormType {
-  id?: number,
+  id?: string,
   title: string,
   description: string,
   content: string
@@ -124,7 +124,7 @@ export const PostFormErrorDefault: PostFormErrorType = {
 }
 
 export interface UserType {
-  id?: number,
+  id?: string,
   name: string,
   email: string,
   roles: Array<string>,

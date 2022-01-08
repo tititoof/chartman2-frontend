@@ -72,7 +72,7 @@ export default class Tutorials extends Vue {
   background: string = '/backgrounds/tutorial.svg'
   categories: Array<CategoryType> = []
 
-  goToCategory (id: number) {
+  goToCategory (id: string) {
     this.$router.push('/tutorials/category/' + id)
   }
 }

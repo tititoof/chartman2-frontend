@@ -86,7 +86,7 @@ export default class Id extends Vue {
   maxHeight: string = '700'
   category: string = ''
 
-  goToArticle (id: number) {
+  goToArticle (id: string) {
     this.$router.push('/tutorials/article/' + id)
   }
 
