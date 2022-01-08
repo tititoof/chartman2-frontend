@@ -82,7 +82,6 @@
             </span>
 
             <v-btn
-              
               :ripple="false"
               outlined
               color="indigo"
