@@ -12,7 +12,7 @@ export default function (context) {
   })
 
   context.$axios.onResponse((response) => {
-    if (response.headers.client) {
+    if (response.headers && response.headers.hasOwnProperty('client')) {
       try {
         context.$cookies.set('access-token', response.headers['access-token'])
         context.$cookies.set('client', response.headers.client)
