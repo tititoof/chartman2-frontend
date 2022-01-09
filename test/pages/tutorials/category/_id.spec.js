@@ -22,6 +22,8 @@ describe('TutorialsCategory', () => {
   }
 
   beforeEach(() => {
+    jest.clearAllMocks()
+    
     store = new Vuex.Store(storeMock)
 
     wrapper = mount(TutorialsCategory, {
@@ -41,7 +43,7 @@ describe('TutorialsCategory', () => {
   it('>> asyncData - articles.category', async () => {
     const apiCategorySpy = jest.spyOn(apiMock.articles, 'category')
     const apiArticleSpy = jest.spyOn(apiMock.articles, 'fromCategory')
-
+    
     const response = await wrapper.vm.$options.asyncData({ $api: apiMock, params: mockRoute.params })
 
     await flushPromises()
@@ -59,7 +61,7 @@ describe('TutorialsCategory', () => {
     expect(response.category).toStrictEqual('NuxtJS')
 
     const redirect = jest.fn()
-    await wrapper.vm.$options.asyncData({ redirect })
+    await wrapper.vm.$options.asyncData({ params: mockRoute.params, redirect })
 
     await flushPromises()
 
@@ -76,6 +78,6 @@ describe('TutorialsCategory', () => {
   it('>> router.back', () => {
     wrapper.vm.goBack()
 
-    expect(routerMock.back).toHaveBeenCalledTimes(1)
+    expect(routerMock.push).toHaveBeenCalledTimes(1)
   })
 })

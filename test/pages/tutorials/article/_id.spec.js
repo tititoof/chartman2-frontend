@@ -27,7 +27,12 @@ describe('TutorialsArticle', () => {
       localVue,
       store,
       mocks: {
-        $router: routerMock
+        $router: routerMock,
+        $dayjs: () => {
+          return {
+            format: jest.fn()
+          }
+        }
       },
       stubs: vuetifyStub
     })
@@ -50,7 +55,7 @@ describe('TutorialsArticle', () => {
     expect(response.article.relationships.categories).toStrictEqual({ data: [{ id: '1', type: 'category' }] })
 
     const redirect = jest.fn()
-    await wrapper.vm.$options.asyncData({ redirect })
+    await wrapper.vm.$options.asyncData({ params: mockRoute.params, redirect })
 
     await flushPromises()
 

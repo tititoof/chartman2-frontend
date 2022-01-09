@@ -60,7 +60,7 @@ describe('AdminArticleId', () => {
     expect(response.categories).toStrictEqual([{ id: '1', type: 'category', attributes: { name: 'NuxtJS' }, relationships: { posts: { data: [{ id: '1', type: 'post' }, { id: '2', type: 'post' }, { id: '3', type: 'post' }, { id: '4', type: 'post' }] } } }])
 
     const redirect = jest.fn()
-    await wrapper.vm.$options.asyncData({ redirect })
+    await wrapper.vm.$options.asyncData({ params: mockRoute.params, redirect })
 
     await flushPromises()
 

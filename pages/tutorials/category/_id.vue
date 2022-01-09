@@ -86,7 +86,7 @@ import { PostType } from '~/types/index'
 
       return { articles, category }
     } catch (e) {
-      redirect('/redirect', { previous_url: `/tutorials/category/${params.id}` })
+      redirect('/')
     }
   },
   head (this: Id) {
