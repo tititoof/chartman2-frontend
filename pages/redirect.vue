@@ -555,8 +555,8 @@ export default class Redirect extends Vue {
 <style lang="scss" scoped>
   body
 {
-  background-color:#141019;
   background: radial-gradient(at 50% -20%, #908392, #0d060e) fixed;
+  background-color:#141019;
 }
 
 #handboy
