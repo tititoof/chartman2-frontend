@@ -31,6 +31,9 @@
               </v-btn>
               {{ article.attributes.title }}
             </div>
+            <div class="subtitle-1">
+              publié le {{ $dayjs(article.attributes.published_at).format('D MMMM YYYY') }}
+            </div>
             <v-divider />
             <v-responsive
               class="overflow-y-auto"
@@ -70,6 +73,23 @@ const mainModule = namespace('MainStore')
       redirect('/redirect', { previous_url: `/tutorials/article/${params.id}` })
     }
   },
+  head (this: Id) {
+    return {
+      title: this.article.attributes.title,
+      meta: [
+        {
+          property: 'og:title',
+          content: this.article.attributes.title,
+          hid: 'og:title'
+        },
+        {
+          property: 'og:description',
+          content: this.article.attributes.description,
+          hid: 'og:description'
+        }
+      ]
+    }
+  },
   components: { Editor }
 })
 export default class Id extends Vue {
@@ -85,6 +105,10 @@ export default class Id extends Vue {
     mermaid: {
       theme: 'dark'
     }
+  }
+
+  get publishedAt () {
+    return new Date(this.article.attributes.published_at)
   }
 
   goBack () {

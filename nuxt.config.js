@@ -54,6 +54,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
+    // https://github.com/nuxt-community/dayjs-module
+    '@nuxtjs/dayjs',
     // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt#readme
     'cookie-universal-nuxt',
     // https://www.npmjs.com/package/nuxt-vuex-localstorage
@@ -177,5 +179,17 @@ export default {
       '/admin'
     ],
     Sitemap: `${process.env.WEBSITE_URL}/sitemap.xml`
+  },
+
+  // dayjs
+  dayjs: {
+    locales: ['en', 'fr'],
+    defaultLocale: 'fr',
+    defaultTimeZone: 'Paris/Europe',
+    plugins: [
+      'utc',
+      'timezone',
+      'relativeTime'
+    ] // Your Day.js plugin
   }
 }

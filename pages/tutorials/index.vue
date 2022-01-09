@@ -42,7 +42,7 @@
                       </span>
                     </v-card-title>
                     <v-subheader>
-                      {{ category.relationships.posts.data | length }} article(s)
+                      {{ category.attributes.published_count }} article(s)
                     </v-subheader>
                   </v-card>
                 </v-hover>

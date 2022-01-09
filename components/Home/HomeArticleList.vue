@@ -56,6 +56,36 @@
                   </v-icon>
                 </v-btn>
                 <v-btn
+                  v-show="!item.attributes.published"
+                  class="mx-2"
+                  x-small
+                  fab
+                  dark
+                  color="primary darken-4"
+                  @click="publish(item.id, index, true)"
+                >
+                  <v-icon
+                    medium
+                  >
+                    mdi-printer
+                  </v-icon>
+                </v-btn>
+                <v-btn
+                  v-show="item.attributes.published"
+                  class="mx-2"
+                  x-small
+                  fab
+                  dark
+                  color="orange darken-5"
+                  @click="publish(item.id, index, false)"
+                >
+                  <v-icon
+                    medium
+                  >
+                    mdi-printer-off
+                  </v-icon>
+                </v-btn>
+                <v-btn
                   class="mx-2"
                   x-small
                   fab
@@ -142,7 +172,7 @@
 import { Vue, Component, Prop, PropSync, namespace, getModule } from 'nuxt-property-decorator'
 import { Editor } from 'vuetify-markdown-editor'
 import MainStore from '~/store/MainStore'
-import { CategoryType } from '~/types/index'
+import { CategoryType, PostType } from '~/types/index'
 
 const mainModule = namespace('MainStore')
 
@@ -156,7 +186,7 @@ export default class HomeArticleList extends Vue {
   @Prop({ default: '/backgrounds/office.svg' }) readonly background!: string
   @Prop({ default: '200' }) readonly minHeight!: string
   @Prop({ default: '300' }) readonly maxHeight!: string
-  @PropSync('items', { default: () => [] }) readonly syncedItems!: Array<object>
+  @PropSync('items', { default: () => [] }) syncedItems!: Array<PostType>
   @Prop({ default: '' }) readonly basePathItem!: string
 
   selectedItem: object = {}
@@ -164,6 +194,7 @@ export default class HomeArticleList extends Vue {
   dialogName: string = ''
   dialogItemId: number = 0
   dialogItemIndex: number = 0
+  disabled: boolean = false
   showDialogTitle: string = ''
   showDialogContent: string = ''
   showDialogVisible: boolean = false
@@ -209,7 +240,7 @@ export default class HomeArticleList extends Vue {
     this.showDialogVisible = true
   }
 
-  edit (id: number) {
+  edit (id: string) {
     this.$router.push(this.basePathItem + '/' + id)
   }
 
@@ -217,9 +248,22 @@ export default class HomeArticleList extends Vue {
     try {
       this.dialogShow = false
       this.$api.posts.destroy(this.dialogItemId)
+      this.$delete(this.syncedItems, this.dialogItemIndex)
+
       this.showSnackbar('Article supprimé.')
     } catch (reason) {
       this.showSnackbar('Impossible de supprimer l\'article.')
+    }
+  }
+
+  async publish (id: string, index: number, publish: boolean) {
+    try {
+      const response = await this.$api.posts.publish(id, { publish })
+      Vue.set(this.syncedItems, index, response.data)
+
+      this.showSnackbar((publish) ? 'Article publié.' : 'Article supprimé')
+    } catch (reason) {
+      this.showSnackbar('Impossible de publier ou supprimer l\'article.')
     }
   }
 

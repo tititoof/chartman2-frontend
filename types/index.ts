@@ -4,6 +4,8 @@ export interface CategoryType {
   name: string,
   attributes: {
     name: string
+    created_at: Date,
+    published_count: number
   },
   relationships: {
     posts: {
@@ -19,7 +21,9 @@ export const CategoryDefault: CategoryType = {
   type: 'category',
   name: '',
   attributes: {
-    name: ''
+    name: '',
+    created_at: new Date(),
+    published_count: 0
   },
   relationships: {
     posts: {
@@ -54,7 +58,9 @@ export interface PostType {
   attributes: {
     title: string,
     description: string,
-    content: string
+    content: string,
+    published: boolean,
+    published_at: Date
   },
   relationships: {
     categories: {
@@ -81,7 +87,9 @@ export const PostDefault: PostType = {
   attributes: {
     title: '',
     description: '',
-    content: ''
+    content: '',
+    published: false,
+    published_at: new Date()
   },
   relationships: {
     categories: {

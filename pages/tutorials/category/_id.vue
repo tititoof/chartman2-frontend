@@ -90,7 +90,6 @@ import { PostType } from '~/types/index'
     }
   },
   head (this: Id) {
-    console.log(this)
     return {
       title: this.category,
       meta: [

@@ -29,7 +29,8 @@
       "@types/node",
       "@nuxtjs/auth-next",
       "@types/jest",
-      "@nuxtjs/vuetify"
+      "@nuxtjs/vuetify",
+      "@nuxtjs/dayjs"
     ]
   },
   "exclude": [

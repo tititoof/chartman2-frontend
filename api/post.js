@@ -11,6 +11,9 @@ export default axios => ({
   find (id) {
     return axios.$get('/posts/' + id)
   },
+  publish (id, payload) {
+    return axios.$post(`/post/publish/${id}`, { post: payload })
+  },
   update (id, payload) {
     return axios.$put('/posts/' + id, { post: payload })
   }

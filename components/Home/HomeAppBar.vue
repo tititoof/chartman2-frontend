@@ -67,7 +67,7 @@ export default class HomeAppBar extends Vue {
     return [
       { name: 'Home', route: '/' },
       { name: 'Tutoriels', route: '/tutorials' },
-      { name: 'Exemples', route: '/authenticate' },
+      // { name: 'Exemples', route: '/authenticate' },
       { name: 'Admin', route: '/admin' }
     ]
   }
