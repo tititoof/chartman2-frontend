@@ -22,7 +22,7 @@ module.exports = {
       ref: 'origin/main',
       repo: 'https://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@github.com/tititoof/chartman2-frontend.git',
       path: '/var/www/websites/chartman2.fr/frontend',
-      'post-deploy': 'deploy.sh'
+      'post-deploy': 'sh deploy.sh'
     }
   }
 }
