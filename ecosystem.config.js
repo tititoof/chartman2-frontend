@@ -22,7 +22,8 @@ module.exports = {
       ref: 'origin/main',
       repo: 'https://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@github.com/tititoof/chartman2-frontend.git',
       path: '/var/www/websites/chartman2.fr/frontend',
-      'post-deploy': 'yarn install && yarn build && echo "API_URL=https://api.chartman2.fr" > /var/www/websites/chartman2.fr/frontend/current/.env && echo "WEBSITE_URL=https://chartman2.fr" >> /var/www/websites/chartman2.fr/frontend/current/.env && pm2 stop ecosystem.config.js && pm2 start ecosystem.config.js --update-env'
+      'pre-deploy': 'echo "API_URL=https://api.chartman2.fr" > /var/www/websites/chartman2.fr/frontend/current/.env && echo "WEBSITE_URL=https://chartman2.fr" >> /var/www/websites/chartman2.fr/frontend/current/.env',
+      'post-deploy': 'yarn install && yarn build && pm2 stop ecosystem.config.js && pm2 start ecosystem.config.js --update-env'
     }
   }
 }
