@@ -79,7 +79,11 @@ const apiMock = {
         data: { id: '1', type: 'post', attributes: { title: 'mon test', description: "C'est ma little description", content: '# Yey !!!!\n\nHello comment ça va ? ' }, relationships: { user: { data: { id: '1', type: 'user' } }, categories: { data: [{ id: '1', type: 'category' }] } } }
       }
     },
-
+    publish (id, payload) {
+      return {
+        data: { id: '1', type: 'post', attributes: { title: 'mon test', description: "C'est ma little description", content: '# Yey !!!!\n\nHello comment ça va ? ' }, relationships: { user: { data: { id: '1', type: 'user' } }, categories: { data: [{ id: '1', type: 'category' }] } } }
+      }
+    },
     update (id, payload) {
       return {
         data: { id: '1', type: 'post', attributes: { title: 'mon test', description: "C'est ma little description", content: '# Yey !!!!\n\nHello comment ça va ? ' }, relationships: { user: { data: { id: '1', type: 'user' } }, categories: { data: [{ id: '1', type: 'category' }] } } }

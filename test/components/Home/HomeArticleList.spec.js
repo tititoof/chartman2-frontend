@@ -77,6 +77,15 @@ describe('HomeArticleList', () => {
     expect(apiPostsSpy).toHaveBeenCalledTimes(1)
   })
 
+  it('>> publish', async () => {
+    const apiPostsSpy = jest.spyOn(apiMock.posts, 'publish')
+    wrapper.vm.publish(1, true)
+
+    await flushPromises()
+
+    expect(apiPostsSpy).toHaveBeenCalledTimes(1)
+  })
+
   it('>> getCategories', async () => {
     const apiCategoriesSpy = jest.spyOn(apiMock.categories, 'findAll')
     wrapper.vm.getCategories()
