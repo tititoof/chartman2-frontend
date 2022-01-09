@@ -62,6 +62,14 @@ describe('TutorialsArticle', () => {
     expect(redirect).toHaveBeenCalledTimes(1)
   })
 
+  it('>> head', async () => {
+    const response = await wrapper.vm.$options.asyncData({ $api: apiMock, params: mockRoute.params })
+
+    await flushPromises()
+
+    expect(wrapper.vm.head).toBeUndefined()
+  })
+
   it('>> router.back', () => {
     wrapper.vm.goBack()
 

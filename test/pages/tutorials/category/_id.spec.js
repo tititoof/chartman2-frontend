@@ -68,6 +68,14 @@ describe('TutorialsCategory', () => {
     expect(redirect).toHaveBeenCalledTimes(1)
   })
 
+  it('>> head', async () => {
+    const response = await wrapper.vm.$options.asyncData({ $api: apiMock, params: mockRoute.params })
+
+    await flushPromises()
+
+    expect(wrapper.vm.head).toBeUndefined()
+  })
+
   it('>> goToArticle', () => {
     const route = 1
     wrapper.vm.goToArticle(route)
