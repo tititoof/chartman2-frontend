@@ -3,34 +3,37 @@
     <client-only>
       <v-img
         :min-height="minHeight"
-        :max-height="maxHeight"
         :src="background"
         contain
       >
-        <v-container class="fill-height px-4 py-3 justify-center">
+        <v-container class="fill-height px-4 py-3 justify-center overflow-y-auto">
           <v-responsive
-            class="d-flex px-4 py-12 overflow-y-auto"
+            class="d-flex px-4 py-6"
             height="100%"
             max-width="1400"
             width="100%"
           >
-            <div class="text-h4 py-3">
-              <v-btn
-                class="mx-2 float-left"
-                small
-                fab
-                dark
-                color="indigo"
-                @click.prevent="goBack"
-              >
-                <v-icon
+            <v-row>
+              <v-col cols="2">
+                <v-btn
+                  class="mx-2 float-left"
+                  small
+                  fab
                   dark
+                  color="indigo"
+                  @click.prevent="goBack"
                 >
-                  mdi-chevron-left
-                </v-icon>
-              </v-btn>
-              {{ category }}
-            </div>
+                  <v-icon
+                    dark
+                  >
+                    mdi-chevron-left
+                  </v-icon>
+                </v-btn>
+              </v-col>
+              <v-col cols="10" class="text-h4">
+                {{ category }}
+              </v-col>
+            </v-row>
             <v-row>
               <template v-for="(article, index) in articles">
                 <v-col
@@ -111,7 +114,6 @@ export default class Id extends Vue {
   articles: Array<PostType> = []
   background: string = '/backgrounds/library.svg'
   minHeight: string = '200'
-  maxHeight: string = '700'
   category: string = ''
 
   goToArticle (id: string) {

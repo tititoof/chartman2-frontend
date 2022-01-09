@@ -8,7 +8,7 @@
       gradient="to right, rgba(5, 11, 31, .4), rgba(5, 11, 31, .4)"
     >
       <v-container
-        :class="$vuetify.breakpoint.mdAndDown ? `justify-center` : `justify-space-between`"
+        :class="$vuetify.breakpoint.mdAndDown ? `justify-center` : `justify-space-around`"
         class="fill-height py-12"
       >
         <v-responsive

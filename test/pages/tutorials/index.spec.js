@@ -60,4 +60,10 @@ describe('IndexTutorials', () => {
 
     expect(routerMock.push).toHaveBeenCalledWith('/tutorials/category/' + route)
   })
+
+  it('>> router.back', () => {
+    wrapper.vm.goBack()
+
+    expect(routerMock.push).toHaveBeenCalledTimes(1)
+  })
 })

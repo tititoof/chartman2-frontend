@@ -6,16 +6,34 @@
       :src="background"
       contain
     >
-      <v-container class="fill-height px-4 py-3 justify-center">
+      <v-container class="fill-height px-4 py-3 justify-center overflow-y-auto">
         <v-responsive
-          class="d-flex px-4 py-12 overflow-y-auto"
+          class="d-flex px-4 py-6"
           height="100%"
           max-width="1400"
           width="100%"
         >
-          <div class="text-h4 py-3">
-            Catégories
-          </div>
+          <v-row>
+            <v-col cols="2">
+              <v-btn
+                class="mx-2 float-left"
+                small
+                fab
+                dark
+                color="indigo"
+                @click.prevent="goBack"
+              >
+                <v-icon
+                  dark
+                >
+                  mdi-chevron-left
+                </v-icon>
+              </v-btn>
+            </v-col>
+            <v-col cols="10" class="text-h4">
+              Catégories
+            </v-col>
+          </v-row>
           <v-row>
             <template v-for="(category, index) in categories">
               <v-col
@@ -78,6 +96,10 @@ export default class Tutorials extends Vue {
 
   goToCategory (id: string) {
     this.$router.push('/tutorials/category/' + id)
+  }
+
+  goBack () {
+    this.$router.push('/')
   }
 }
 </script>

@@ -8,32 +8,46 @@
       >
         <v-container class="fill-height px-4 py-3 justify-center overflow-y-auto">
           <v-responsive
-            class="d-flex px-4 py-12"
+            class="d-flex px-4 py-6"
             height="100%"
+            max-width="1400"
+            width="100%"
           >
-            <div class="text-h4 py-3">
-              <v-btn
-                class="mx-2 float-left"
-                small
-                fab
-                dark
-                color="indigo"
-                @click.prevent="goBack"
-              >
-                <v-icon
+            <v-row>
+              <v-col cols="2">
+                <v-btn
+                  class="mx-2 float-left"
+                  small
+                  fab
                   dark
+                  color="indigo"
+                  @click.prevent="goBack"
                 >
-                  mdi-chevron-left
-                </v-icon>
-              </v-btn>
-              {{ article.attributes.title }}
-            </div>
-            <div class="subtitle-1">
-              publié le {{ $dayjs(article.attributes.published_at).format('D MMMM YYYY') }}
-            </div>
-            <v-divider />
+                  <v-icon
+                    dark
+                  >
+                    mdi-chevron-left
+                  </v-icon>
+                </v-btn>
+              </v-col>
+              <v-col cols="10" class="text-h4">
+                {{ article.attributes.title }}
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" class="align-self-end caption">
+                {{ article.attributes.description }}
+              </v-col>
+            </v-row>
+            <v-row class="py-1">
+              <v-col cols="4" class="d-flex ml-auto subtitle-2">
+                publié le {{ $dayjs(article.attributes.published_at).format('D MMMM YYYY') }}
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-divider />
+            </v-row>
             <v-responsive
-              class="overflow-y-auto"
               height="100%"
             >
               <Editor
