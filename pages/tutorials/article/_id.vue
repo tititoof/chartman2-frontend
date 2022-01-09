@@ -3,13 +3,12 @@
     <client-only>
       <v-img
         :min-height="minHeight"
-        :max-height="maxHeight"
         :src="background"
         contain
       >
         <v-container class="fill-height px-4 py-3 justify-center overflow-y-auto">
           <v-responsive
-            class="d-flex px-4 py-12 overflow-y-auto"
+            class="d-flex px-4 py-12"
             height="100%"
             max-width="1400"
             width="100%"
@@ -99,7 +98,7 @@ export default class Id extends Vue {
   background: string = '/backgrounds/background.svg'
   article: PostType = PostDefault
   minHeight: string = '200'
-  maxHeight: string = '700'
+
   renderConfig: object = {
     // Mermaid config
     mermaid: {
