@@ -23,6 +23,8 @@ describe('IndexTutorials', () => {
   }
 
   beforeEach(() => {
+    jest.clearAllMocks()
+
     wrapper = mount(Index, {
       localVue,
       store,
