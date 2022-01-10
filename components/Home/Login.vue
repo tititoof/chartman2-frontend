@@ -105,6 +105,7 @@ export default class Login extends Vue {
 
   async setUserToken (token: any) {
     await this.$auth.setUserToken(token)
+
     this.showSnackbar(this.snackbarText)
     this.onLoginDone()
   }

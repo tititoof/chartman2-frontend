@@ -49,6 +49,7 @@ export default class AdminIndex extends Vue {
 
   mounted () {
     const user: any = this.$auth.user
+
     if ((user !== null) && (user.admin === true)) {
       this.onLoginDone()
     }
@@ -56,8 +57,7 @@ export default class AdminIndex extends Vue {
 
   onLoginDone () {
     const user: any = this.$auth.user
-    // await this.$api.users.get(user.id)
-    // this.$router.push({ path: '/admin/cards' })
+
     this.$axios
       .$get('/users/' + user.id)
       .then(() => {
