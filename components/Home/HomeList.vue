@@ -8,7 +8,7 @@
     >
       <v-container class="fill-height px-4 py-12 justify-center">
         <v-responsive
-          class="d-flex px-4 py-12"
+          class="d-flex px-4 py-6"
           height="100%"
           max-width="1400"
           width="100%"
