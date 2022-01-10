@@ -40,7 +40,7 @@
               </v-col>
             </v-row>
             <v-row class="py-1">
-              <v-col cols="4" class="d-flex ml-auto subtitle-2">
+              <v-col cols="8" class="d-flex ml-auto subtitle-2">
                 publié le {{ $dayjs(article.attributes.published_at).format('D MMMM YYYY') }}
               </v-col>
             </v-row>
