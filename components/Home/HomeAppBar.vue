@@ -66,7 +66,7 @@ export default class HomeAppBar extends Vue {
   get items (): Array<Object> {
     return [
       { name: 'Home', route: '/' },
-      { name: 'Tutoriels', route: '/tutorials' },
+      { name: 'Articles', route: '/tutorials' },
       // { name: 'Exemples', route: '/authenticate' },
       { name: 'Admin', route: '/admin' }
     ]

@@ -34,7 +34,7 @@
               router
               to="/tutorials"
             >
-              Tutoriels
+              Articles
             </v-btn>
 
             <span class="font-weight-bold ml-6 mr-4 my-4">
@@ -45,9 +45,9 @@
               :ripple="false"
               outlined
               color="indigo"
-              @click="goTo('DevOps')"
+              @click="goTo('RoR / Nuxt JS')"
             >
-              Tutoriels RoR / VueJS
+              Articles RoR / Nuxt JS
             </v-btn>
           </div>
         </v-responsive>
@@ -75,7 +75,7 @@
               router
               to="/tutorials"
             >
-              Tutoriels
+              Articles
             </v-btn>
 
             <span class="font-weight-bold ml-6 mr-4 my-4">
@@ -88,7 +88,7 @@
               color="indigo"
               @click="goTo('CI / CD')"
             >
-              Tutoriels CI / CD
+              Articles CI / CD
             </v-btn>
           </div>
         </v-responsive>
