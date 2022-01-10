@@ -31,6 +31,7 @@ export default {
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/node_modules/highlight.js/styles/tomorrow-night-eighties.css'
   ],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -58,6 +59,7 @@ export default {
     '@nuxtjs/dayjs',
     // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt#readme
     'cookie-universal-nuxt',
+    '@nuxtjs/markdownit',
     // https://www.npmjs.com/package/nuxt-vuex-localstorage
     // 'nuxt-vuex-localstorage'
     '@nuxtjs/sitemap',
@@ -191,5 +193,17 @@ export default {
       'timezone',
       'relativeTime'
     ] // Your Day.js plugin
+  },
+
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    use: [
+      'markdown-it-div',
+      'markdown-it-attrs',
+      'markdown-it-highlightjs'
+    ],
+    injected: true
   }
 }

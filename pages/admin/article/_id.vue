@@ -158,6 +158,15 @@ export default class Id extends Vue {
     // Mermaid config
     mermaid: {
       theme: 'dark'
+    },
+    markdownIt: {
+      preset: 'default',
+      linkify: true,
+      breaks: true,
+      use: [
+        'markdown-it-div',
+        'markdown-it-attrs'
+      ]
     }
   }
 
