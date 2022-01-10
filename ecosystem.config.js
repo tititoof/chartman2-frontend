@@ -19,7 +19,7 @@ module.exports = {
       key: '/home/toofytroll/Projets/dockers/deploy-key-rsa',
       user: 'deploy',
       host: ['51.75.194.189'],
-      ssh_options: '-p49604',
+      ssh_options: 'Port=49604',
       ref: 'origin/main',
       repo: 'https://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@github.com/tititoof/chartman2-frontend.git',
       path: '/var/www/websites/chartman2.fr/frontend',
