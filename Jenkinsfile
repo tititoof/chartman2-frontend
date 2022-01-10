@@ -96,10 +96,11 @@ pipeline {
                                     git rm ./Jenkinsfile
                                     git rm ./ecosystem.config.js
                                     git rm ./deploy.sh
-                                    touch ./sonar.properties
-                                    echo "sonar.sources='pages, layouts, components, store'" >> ./sonar.properties
-                                    echo "sonar.exclusions='test/**/*'" >> ./sonar.properties
-                                    echo "sonar.javascript.lcov.reportPaths=./coverage/lcov.info" >> ./sonar.properties
+                                    touch ./sonar-project.properties
+                                    echo "sonar.sources=pages,layouts,components,store" >> ./sonar-project.properties
+                                    echo "sonar.exclusions=test/**/*" >> ./sonar-project.properties
+                                    echo "sonar.testExecutionReportPaths=test-report.xml" >> ./sonar-project.properties
+                                    echo "sonar.javascript.lcov.reportPaths=./coverage/lcov.info" >> ./sonar-project.properties
                                     git add .
                                     git commit -m "feat(github): update repository"
                                     git push -f github HEAD:main
