@@ -15,7 +15,7 @@
         {{ snackbarText }}
         <template #action="{ attrs }">
           <v-btn
-            color="blue-grey"
+            color="deep-purple darken-4"
             class="justify-right"
             fab
             dark
@@ -26,6 +26,7 @@
           >
             <v-icon
               small
+              dark
             >
               mdi-close
             </v-icon>

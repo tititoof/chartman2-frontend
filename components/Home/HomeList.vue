@@ -13,37 +13,43 @@
           max-width="1400"
           width="100%"
         >
-          <div class="text-h4">
-            <v-btn
-              class="mx-2 float-left"
-              small
-              fab
-              dark
-              color="indigo"
-              @click.prevent="goBack"
-            >
-              <v-icon
+          <v-row>
+            <v-col cols="2">
+              <v-btn
+                class="mx-2 float-left"
+                small
+                fab
                 dark
+                color="indigo"
+                @click.prevent="goBack"
               >
-                mdi-chevron-left
-              </v-icon>
-            </v-btn>
-            {{ title }}
-            <v-btn
-              class="mx-2 float-right"
-              small
-              fab
-              dark
-              color="indigo"
-              :to="pathNew"
-            >
-              <v-icon
+                <v-icon
+                  dark
+                >
+                  mdi-chevron-left
+                </v-icon>
+              </v-btn>
+            </v-col>
+            <v-col cols="8" class="text-h4">
+              {{ title }}
+            </v-col>
+            <v-col cols="2">
+              <v-btn
+                class="mx-2 float-right"
+                small
+                fab
                 dark
+                color="indigo"
+                :to="pathNew"
               >
-                mdi-table-plus
-              </v-icon>
-            </v-btn>
-          </div>
+                <v-icon
+                  dark
+                >
+                  mdi-table-plus
+                </v-icon>
+              </v-btn>
+            </v-col>
+          </v-row>
           <p class="text-justify">
             <template
               v-if="items.length === 0"
