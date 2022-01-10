@@ -93,6 +93,9 @@ pipeline {
                                     git config --global user.email "chartmann.35@gmail.com"
                                     git config --global user.name "Christophe Hartmann"
                                     touch github-update.txt
+                                    git rm ./Jenkinsfile
+                                    git rm ./ecosystem.config.js
+                                    git rm ./deploy.sh
                                     git add .
                                     git commit -m "feat(github): update repository"
                                     git push -f github HEAD:main
