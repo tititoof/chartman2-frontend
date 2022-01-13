@@ -108,23 +108,22 @@
 import { Vue, Component, namespace, getModule, Watch } from 'nuxt-property-decorator'
 import { Editor } from 'vuetify-markdown-editor'
 import MainStore from '~/store/MainStore'
-import { CategoryType, PostDefault, PostFormDefault, PostFormType, PostType } from '~/types'
+import { CategoryType, PostDefault, PostFormDefault, PostFormErrorDefault, PostFormErrorType, PostFormType, PostType } from '~/types'
+import { insertErrors } from '~/utils/error'
 
 const mainModule = namespace('MainStore')
 
 @Component({
-  async asyncData ({ $api, params, redirect }) {
-    try {
-      const responseCategories = await $api.categories.findAll()
-      const categories = responseCategories.data
+  async asyncData ({ $api, params }) {
+    const responseCategories = await $api.categories.findAll()
+    const categories = responseCategories.data
 
-      const responseArticle = await $api.posts.find(params.id)
-      const article = responseArticle.data
+    const responseArticle = await $api.posts.find(params.id)
+    const article = responseArticle.data
 
-      return { article, categories }
-    } catch (e) {
-      redirect('/redirect', { previous_url: `/admin/article/${params.id}` })
-    }
+    localStorage.setItem('current-route', `/admin/article/${params.id}`)
+
+    return { article, categories }
   },
   middleware: ['auth'],
   components: { Editor }
@@ -141,17 +140,11 @@ export default class Id extends Vue {
   minHeight: string = '200'
   maxHeight: string = '900'
   formValid: boolean = false
+  formError: PostFormErrorType = PostFormErrorDefault
   title: string = ''
   rules: Object = {
     required: (value: any) => !!value || 'Requis.',
     categories: (v: any) => (v.length > 0) || 'Au moins 1 catégorie est requise'
-  }
-
-  formError: any = {
-    title: [],
-    description: [],
-    categories: [],
-    content: []
   }
 
   renderConfig: any = {
@@ -175,7 +168,7 @@ export default class Id extends Vue {
   }
 
   goBack () {
-    this.$router.back()
+    this.$router.push('/admin/article')
   }
 
   initialize () {
@@ -195,9 +188,15 @@ export default class Id extends Vue {
 
   submitForm () {
     try {
-      this.$api.posts.update(this.$route.params.id, this.form)
-      this.showSnackbar('L\'article est sauvegardé')
-      this.goBack()
+      this.$api.posts
+        .update(this.$route.params.id, this.form)
+        .then(() => {
+          this.showSnackbar('L\'article est sauvegardé')
+          this.goBack()
+        })
+        .catch((reason: any) => {
+          this.formError = insertErrors(this.formError, reason)
+        })
     } catch (e) {
       this.showSnackbar('Impossible de mettre à jour l\'article.')
     }

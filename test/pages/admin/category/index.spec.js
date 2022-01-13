@@ -5,6 +5,7 @@ import AdminCategory from '@/pages/admin/category/index.vue'
 // Mocks
 import apiMock from '~/test/mock/apiMock'
 import storeMock from '~/test/mock/storeMock'
+import localStorageMock from '~/test/mock/localStorage'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 
@@ -12,6 +13,8 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 
 const store = new Vuex.Store(storeMock)
+
+global.localStorage = localStorageMock
 
 describe('AdminCategory', () => {
   let wrapper
@@ -44,12 +47,5 @@ describe('AdminCategory', () => {
 
     expect(apiSpy).toHaveBeenCalledTimes(1)
     expect(response.categories).toStrictEqual([{ id: '1', type: 'category', attributes: { name: 'NuxtJS' }, relationships: { posts: { data: [{ id: '1', type: 'post' }, { id: '2', type: 'post' }, { id: '3', type: 'post' }, { id: '4', type: 'post' }] } } }])
-
-    const redirect = jest.fn()
-    await wrapper.vm.$options.asyncData({ redirect })
-
-    await flushPromises()
-
-    expect(redirect).toHaveBeenCalledTimes(1)
   })
 })

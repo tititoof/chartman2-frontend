@@ -97,6 +97,7 @@ export default class Login extends Vue {
       this.error = ''
       const response: any = await this.$auth.loginWith('local', { data: { email: this.loginEmail, password: this.loginPassword } })
 
+      this.$auth.setUser(response.data.data)
       await this.setUserToken(response.headers.client)
     } catch (err) {
       this.error = 'Adresse e-mail ou mot de passe invalide'
@@ -106,8 +107,8 @@ export default class Login extends Vue {
   async setUserToken (token: any) {
     await this.$auth.setUserToken(token)
 
-    this.showSnackbar(this.snackbarText)
     this.onLoginDone()
+    this.showSnackbar(this.snackbarText)
   }
 
   async logout () {

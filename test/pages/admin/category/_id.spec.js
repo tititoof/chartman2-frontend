@@ -6,6 +6,7 @@ import AdminCategoryId from '@/pages/admin/category/_id.vue'
 import apiMock from '~/test/mock/apiMock'
 import routerMock from '~/test/mock/routerMock'
 import storeMock from '~/test/mock/storeMock'
+import localStorageMock from '~/test/mock/localStorage'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 
@@ -19,6 +20,8 @@ const mockRoute = {
     id: 1
   }
 }
+
+global.localStorage = localStorageMock
 
 describe('AdminCategoryId', () => {
   let wrapper
@@ -56,13 +59,6 @@ describe('AdminCategoryId', () => {
 
     expect(apiCategorySpy).toHaveBeenCalledTimes(1)
     expect(response.category).toStrictEqual({ id: '1', type: 'category', attributes: { name: 'NuxtJS' }, relationships: { posts: { data: [{ id: '1', type: 'post' }, { id: '2', type: 'post' }, { id: '3', type: 'post' }, { id: '4', type: 'post' }] } } })
-
-    const redirect = jest.fn()
-    await wrapper.vm.$options.asyncData({ params: mockRoute.params, redirect })
-
-    await flushPromises()
-
-    expect(redirect).toHaveBeenCalledTimes(1)
   })
 
   it('>> initialize', async () => {

@@ -59,6 +59,7 @@ export default {
     '@nuxtjs/dayjs',
     // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt#readme
     'cookie-universal-nuxt',
+    'nuxt-vuex-localstorage',
     '@nuxtjs/markdownit',
     // https://www.npmjs.com/package/nuxt-vuex-localstorage
     // 'nuxt-vuex-localstorage'
@@ -115,10 +116,11 @@ export default {
     cookie: false,
     strategies: {
       local: {
-        // scheme: 'refresh',
+        scheme: 'local',
         token: {
           property: 'client',
-          maxAge: 1800
+          maxAge: 1800,
+          global: true
           // type: 'Bearer'
         },
         refreshToken: {
@@ -127,8 +129,8 @@ export default {
           maxAge: 60 * 60 * 24 * 30
         },
         user: {
-          property: 'data'
-          // autoFetch: true
+          property: 'data',
+          autoFetch: false
         },
         endpoints: {
           // login: { url: '/auth/sign_in', method: 'post', propertyName: false },

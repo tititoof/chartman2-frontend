@@ -16,15 +16,12 @@ import { Vue, Component } from 'nuxt-property-decorator'
 import HomeList from '~/components/Home/HomeList.vue'
 
 @Component({
-  async asyncData ({ $api, redirect }) {
-    try {
-      const response = await $api.categories.findAll()
-      const categories = response.data
+  async asyncData ({ $api }) {
+    localStorage.setItem('current-route', '/admin/category')
+    const response = await $api.categories.findAll()
+    const categories = response.data
 
-      return { categories }
-    } catch (e) {
-      redirect('/admin/redirect', { previous_url: '/admin/category' })
-    }
+    return { categories }
   },
   middleware: ['auth'],
   components: { HomeList }

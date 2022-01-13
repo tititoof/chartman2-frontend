@@ -5,6 +5,7 @@ import AdminArticle from '@/pages/admin/article/index.vue'
 // Mocks
 import apiMock from '~/test/mock/apiMock'
 import storeMock from '~/test/mock/storeMock'
+import localStorageMock from '~/test/mock/localStorage'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 
@@ -12,6 +13,8 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 
 const store = new Vuex.Store(storeMock)
+
+global.localStorage = localStorageMock
 
 describe('AdminArticle', () => {
   let wrapper
@@ -48,12 +51,5 @@ describe('AdminArticle', () => {
       { id: '3', type: 'post', attributes: { title: 'tt', description: 'ee', content: 'fezf' }, relationships: { user: { data: { id: '1', type: 'user' } }, categories: { data: [{ id: '1', type: 'category' }] } } },
       { id: '4', type: 'post', attributes: { title: 'dzad', description: 'dzad', content: 'dzadzad' }, relationships: { user: { data: { id: '1', type: 'user' } }, categories: { data: [{ id: '1', type: 'category' }] } } }
     ])
-
-    const redirect = jest.fn()
-    await wrapper.vm.$options.asyncData({ redirect })
-
-    await flushPromises()
-
-    expect(redirect).toHaveBeenCalledTimes(1)
   })
 })

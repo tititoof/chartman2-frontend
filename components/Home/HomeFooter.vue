@@ -39,6 +39,7 @@
           md="6"
         >
           Created with NuxtJS and Vuetify
+          <a href="https://iradesign.io">Illustrations by IRA Design</a>
         </v-col>
       </v-row>
     </v-container>

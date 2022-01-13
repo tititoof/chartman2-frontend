@@ -1,6 +1,8 @@
 import { Module, VuexModule, VuexMutation, VuexAction } from 'nuxt-property-decorator'
+import { config } from 'vuex-module-decorators'
 import { UserType } from '~/types/index'
 
+config.rawError = true
 @Module({
   name: 'MainStore',
   stateFactory: true,
@@ -43,16 +45,17 @@ export default class MainStore extends VuexModule {
     return this.actionCables
   }
 
-  @VuexAction({ rawError: true })
+  @VuexAction
   showSnackbar (text: string) {
-    this.context.commit('setSnackbarText', text)
-    this.context.commit('setSnackbar', true)
+    this.setSnackbarText(text)
+    this.setSnackbar(true)
+
     setTimeout(() => {
-      this.context.commit('setSnackbar', false)
+      this.setSnackbar(false)
     }, 6000)
   }
 
-  @VuexAction({ commit: 'setSnackbar', rawError: true })
+  @VuexAction({ commit: 'setSnackbar' })
   closeSnackbar () {
     return false
   }

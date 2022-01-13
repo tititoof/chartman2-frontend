@@ -6,6 +6,7 @@ import AdminArticleNew from '@/pages/admin/article/new.vue'
 import apiMock from '~/test/mock/apiMock'
 import routerMock from '~/test/mock/routerMock'
 import storeMock from '~/test/mock/storeMock'
+import localStorageMock from '~/test/mock/localStorage'
 // Stubs
 import vuetifyStub from '~/test/stub/vuetifyStub'
 
@@ -19,6 +20,8 @@ const mockRoute = {
     id: 1
   }
 }
+
+global.localStorage = localStorageMock
 
 describe('AdminArticleNew', () => {
   let wrapper
@@ -55,13 +58,6 @@ describe('AdminArticleNew', () => {
 
     expect(apiCategoriesSpy).toHaveBeenCalledTimes(1)
     expect(response.categories).toStrictEqual([{ id: '1', type: 'category', attributes: { name: 'NuxtJS' }, relationships: { posts: { data: [{ id: '1', type: 'post' }, { id: '2', type: 'post' }, { id: '3', type: 'post' }, { id: '4', type: 'post' }] } } }])
-
-    const redirect = jest.fn()
-    await wrapper.vm.$options.asyncData({ redirect })
-
-    await flushPromises()
-
-    expect(redirect).toHaveBeenCalledTimes(1)
   })
 
   it('>> submitForm', async () => {
@@ -80,7 +76,7 @@ describe('AdminArticleNew', () => {
   it('>> router.back', () => {
     wrapper.vm.goBack()
 
-    expect(routerMock.back).toHaveBeenCalledTimes(1)
+    expect(routerMock.push).toHaveBeenCalledWith('/admin/article')
   })
 
   it('>> rules', () => {

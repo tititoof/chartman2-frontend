@@ -7,6 +7,7 @@ export default function (context) {
         config.headers['access-token'] = (typeof context.$cookies.get('access-token') == 'undefined') ? '' : context.$cookies.get('access-token')
         config.headers.uid = (typeof context.$cookies.get('uid') == 'undefined') ? '' : context.$cookies.get('uid')
         config.headers['token-type'] = (typeof context.$cookies.get('token-type') == 'undefined') ? '' : context.$cookies.get('token-type')
+        config.headers['previous-url'] = context.from
       } catch (e) {
         console.log(e)
         console.log(context)
@@ -29,4 +30,10 @@ export default function (context) {
 
     return response
   })
+
+  context.$axios.onError((error) => {
+    const { response: { data: { message } } } = error;
+
+    return Promise.reject(error.response);
+});
 }

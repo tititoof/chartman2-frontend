@@ -67,19 +67,17 @@ import { Vue, Component, namespace, getModule } from 'nuxt-property-decorator'
 import HomeList from '~/components/Home/HomeList.vue'
 import MainStore from '~/store/MainStore'
 import { CategoryDefault, CategoryFormDefault, CategoryFormErrorDefault, CategoryFormErrorType, CategoryFormType, CategoryType } from '~/types/index'
+import { insertErrors } from '~/utils/error'
 
 const mainModule = namespace('MainStore')
 
 @Component({
-  async asyncData ({ $api, params, redirect }) {
-    try {
-      const responseCategory = await $api.categories.find(params.id)
-      const category = responseCategory.data
+  async asyncData ({ $api, params }) {
+    localStorage.setItem('current-route', `/admin/category/${params.id}`)
+    const responseCategory = await $api.categories.find(params.id)
+    const category = responseCategory.data
 
-      return { category }
-    } catch (e) {
-      redirect('/redirect', { previous_url: `/admin/category/${params.id}` })
-    }
+    return { category }
   },
   middleware: ['auth'],
   components: { HomeList }
@@ -117,7 +115,7 @@ export default class Id extends Vue {
       this.showSnackbar('Catégorie modifiée.')
       this.$router.push('/admin/category')
     } catch (reason: any) {
-      this.formError = reason
+      this.formError = insertErrors(this.formError, reason)
     }
   }
 

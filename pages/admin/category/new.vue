@@ -68,10 +68,14 @@ import { Vue, Component, namespace, getModule } from 'nuxt-property-decorator'
 import HomeList from '~/components/Home/HomeList.vue'
 import MainStore from '~/store/MainStore'
 import { CategoryFormDefault, CategoryFormErrorDefault, CategoryFormErrorType, CategoryFormType } from '~/types'
+import { insertErrors } from '~/utils/error'
 
 const mainModule = namespace('MainStore')
 
 @Component({
+  asyncData () {
+    localStorage.setItem('current-route', '/admin/category/new')
+  },
   middleware: ['auth'],
   components: { HomeList }
 })
@@ -98,7 +102,7 @@ export default class New extends Vue {
       this.showSnackbar('Catégorie créée.')
       this.$router.push('/admin/category')
     } catch (reason: any) {
-      this.formError = reason
+      this.formError = insertErrors(this.formError, reason)
     }
   }
 

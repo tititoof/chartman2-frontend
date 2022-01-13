@@ -108,19 +108,18 @@ import { Vue, Component, namespace, getModule, Watch } from 'nuxt-property-decor
 import { Editor } from 'vuetify-markdown-editor'
 import MainStore from '~/store/MainStore'
 import { CategoryType, PostFormDefault, PostFormErrorDefault, PostFormErrorType, PostFormType } from '~/types'
+import { insertErrors } from '~/utils/error'
 
 const mainModule = namespace('MainStore')
 
 @Component({
-  async asyncData ({ $api, redirect }) {
-    try {
-      const responseCategories = await $api.categories.findAll()
-      const categories = responseCategories.data
+  async asyncData ({ $api }) {
+    localStorage.setItem('current-route', '/admin/article/new')
 
-      return { categories }
-    } catch (e) {
-      redirect('/')
-    }
+    const responseCategories = await $api.categories.findAll()
+    const categories = responseCategories.data
+
+    return { categories }
   },
   middleware: ['auth'],
   components: { Editor }
@@ -151,15 +150,18 @@ export default class New extends Vue {
   }
 
   goBack () {
-    this.$router.back()
+    this.$router.push('/admin/article')
   }
 
   async submitForm () {
     try {
       await this.$api.posts.create(this.form)
+
       this.showSnackbar('Article créé.')
       this.goBack()
-    } catch (e) {
+    } catch (reason: any) {
+      this.formError = insertErrors(this.formError, reason)
+
       this.showSnackbar('Impossible de créer l\'article.')
     }
   }
