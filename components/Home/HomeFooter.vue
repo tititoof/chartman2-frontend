@@ -38,8 +38,11 @@
           cols="12"
           md="6"
         >
-          Created with NuxtJS and Vuetify
-          <a href="https://iradesign.io">Illustrations by IRA Design</a>
+          Created with
+          <a href="https://nuxtjs.org/">NuxtJS</a>,
+          <a href="https://vuetifyjs.com/en/">Vuetify</a> and
+          <a href="https://rubyonrails.org/">RoR</a>
+          - <a href="https://iradesign.io">Illustrations by IRA Design</a>
         </v-col>
       </v-row>
     </v-container>
