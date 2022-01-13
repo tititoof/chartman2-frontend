@@ -6,9 +6,9 @@
       :src="background"
       contain
     >
-      <v-container class="fill-height px-4 py-12 justify-center">
+      <v-container class="fill-height px-4 py-3 justify-center">
         <v-responsive
-          class="d-flex px-4 py-12"
+          class="d-flex px-4 py-6"
           height="100%"
           max-width="1400"
           width="100%"
@@ -46,7 +46,7 @@
             </v-btn>
           </div>
           <p class="text-justify py-12">
-            <v-form v-model="formValid">
+            <v-form ref="newCategoryForm" v-model="formValid">
               <v-text-field
                 v-model="form.name"
                 label="Nom"
@@ -64,10 +64,10 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, namespace, getModule } from 'nuxt-property-decorator'
+import { Vue, Component, namespace, getModule, Ref } from 'nuxt-property-decorator'
 import HomeList from '~/components/Home/HomeList.vue'
 import MainStore from '~/store/MainStore'
-import { CategoryFormDefault, CategoryFormErrorDefault, CategoryFormErrorType, CategoryFormType } from '~/types'
+import { CategoryFormDefault, CategoryFormErrorDefault, CategoryFormErrorType, CategoryFormType, VForm } from '~/types'
 import { insertErrors } from '~/utils/error'
 
 const mainModule = namespace('MainStore')
@@ -83,7 +83,8 @@ export default class New extends Vue {
   // Store
   mainModule = getModule(MainStore, this.$store)
   @mainModule.Action('showSnackbar') showSnackbar: any
-
+  // Ref
+  @Ref('newCategoryForm') readonly newCategoryForm!: VForm
   // Data
   title: string = 'Nouvelle catégorie'
   background: string = '/backgrounds/business.svg'
@@ -96,13 +97,20 @@ export default class New extends Vue {
     required: (value: any) => !!value || 'Requis.'
   }
 
-  submitForm () {
+  mounted () {
+    this.newCategoryForm.reset()
+  }
+
+  async submitForm () {
     try {
-      this.$api.categories.create(this.form)
+      await this.$api.categories.create(this.form)
+
       this.showSnackbar('Catégorie créée.')
       this.$router.push('/admin/category')
     } catch (reason: any) {
       this.formError = insertErrors(this.formError, reason)
+
+      this.showSnackbar('Impossible de créer la catégorie.')
     }
   }
 

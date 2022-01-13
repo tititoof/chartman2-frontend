@@ -1,5 +1,5 @@
 <template>
-  <v-form ref="loginForm" v-model="valid" lazy-validation>
+  <v-form ref="loginForm" v-model="valid" lazy-validation submit.prevent="userLogin()">
     <v-row v-show="error !== ''">
       <v-col cols="12">
         <v-alert
@@ -91,6 +91,10 @@ export default class Login extends Vue {
   }
 
   snackbarText: string = 'Vous êtes connecté.'
+
+  mounted () {
+    this.valid = false
+  }
 
   async userLogin () {
     try {

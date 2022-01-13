@@ -138,3 +138,9 @@ export interface UserType {
   roles: Array<string>,
   groups: Array<string>
 }
+
+export type VForm = Vue & {
+  validate: () => boolean;
+  resetValidation: () => boolean;
+  reset: () => void;
+}

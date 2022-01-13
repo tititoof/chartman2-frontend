@@ -6,9 +6,9 @@
       :src="background"
       contain
     >
-      <v-container class="fill-height px-4 py-12 justify-center">
+      <v-container class="fill-height px-4 py-3 justify-center">
         <v-responsive
-          class="d-flex px-4 py-12"
+          class="d-flex px-4 py-6"
           height="100%"
           max-width="1400"
           width="100%"
@@ -45,7 +45,7 @@
             </v-btn>
           </div>
           <p class="text-justify py-12">
-            <v-form v-model="formValid">
+            <v-form ref="newArticleForm" v-model="formValid">
               <v-text-field
                 v-model="form.title"
                 label="Nom"
@@ -104,10 +104,10 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, namespace, getModule, Watch } from 'nuxt-property-decorator'
+import { Vue, Component, namespace, getModule, Watch, Ref } from 'nuxt-property-decorator'
 import { Editor } from 'vuetify-markdown-editor'
 import MainStore from '~/store/MainStore'
-import { CategoryType, PostFormDefault, PostFormErrorDefault, PostFormErrorType, PostFormType } from '~/types'
+import { CategoryType, PostFormDefault, PostFormErrorDefault, PostFormErrorType, PostFormType, VForm } from '~/types'
 import { insertErrors } from '~/utils/error'
 
 const mainModule = namespace('MainStore')
@@ -128,6 +128,8 @@ export default class New extends Vue {
   // Stores
   mainModule = getModule(MainStore, this.$store)
   @mainModule.Action('showSnackbar') showSnackbar: any
+  // Ref
+  @Ref('newArticleForm') readonly newArticleForm!: VForm
   // Data
   background: string = '/backgrounds/business.svg'
   categories: Array<CategoryType> = []
@@ -147,6 +149,10 @@ export default class New extends Vue {
     mermaid: {
       theme: 'dark'
     }
+  }
+
+  mounted () {
+    this.newArticleForm.reset()
   }
 
   goBack () {
