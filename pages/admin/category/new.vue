@@ -98,7 +98,11 @@ export default class New extends Vue {
   }
 
   mounted () {
-    this.newCategoryForm.reset()
+    try {
+      this.newCategoryForm.reset()
+    } catch (reason: any) {
+      this.showSnackbar('Impossible de réinitialiser le formulaire.')
+    }
   }
 
   async submitForm () {

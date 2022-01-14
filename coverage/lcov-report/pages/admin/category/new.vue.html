@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.3% </span>
+                <span class="strong">90.32% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>24/26</span>
+                <span class='fraction'>28/31</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92% </span>
+                <span class="strong">90% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>23/25</span>
+                <span class='fraction'>27/30</span>
             </div>
         
             
@@ -170,7 +170,19 @@
 <a name='L111'></a><a href='#L111'>111</a>
 <a name='L112'></a><a href='#L112'>112</a>
 <a name='L113'></a><a href='#L113'>113</a>
-<a name='L114'></a><a href='#L114'>114</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -256,23 +268,35 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -291,9 +315,9 @@
       :src="background"
       contain
     &gt;
-      &lt;v-container class="fill-height px-4 py-12 justify-center"&gt;
+      &lt;v-container class="fill-height px-4 py-3 justify-center"&gt;
         &lt;v-responsive
-          class="d-flex px-4 py-12"
+          class="d-flex px-4 py-6"
           height="100%"
           max-width="1400"
           width="100%"
@@ -331,7 +355,7 @@
             &lt;/v-btn&gt;
           &lt;/div&gt;
           &lt;p class="text-justify py-12"&gt;
-            &lt;v-form v-model="formValid"&gt;
+            &lt;v-form ref="newCategoryForm" v-model="formValid"&gt;
               &lt;v-text-field
                 v-model="form.name"
                 label="Nom"
@@ -349,10 +373,10 @@
 &lt;/template&gt;
 &nbsp;
 &lt;script lang="ts"&gt;
-import { Vue, Component, namespace, getModule } from 'nuxt-property-decorator'
+import { Vue, Component, namespace, getModule, Ref } from 'nuxt-property-decorator'
 import HomeList from '~/components/Home/HomeList.vue'
 import MainStore from '~/store/MainStore'
-import { CategoryFormDefault, CategoryFormErrorDefault, CategoryFormErrorType, CategoryFormType } from '~/types'
+import { CategoryFormDefault, CategoryFormErrorDefault, CategoryFormErrorType, CategoryFormType, VForm } from '~/types'
 import { insertErrors } from '~/utils/error'
 &nbsp;
 const mainModule = namespace('MainStore')
@@ -368,7 +392,8 @@ export default class New extends Vue {
   // Store
   mainModule = getModule(MainStore, this.$store)
   @mainModule.Action('showSnackbar') showSnackbar: any
-&nbsp;
+  // Ref
+  @Ref('newCategoryForm') readonly newCategoryForm!: VForm
   // Data
   title: string = 'Nouvelle catégorie'
   background: string = '/backgrounds/business.svg'
@@ -381,13 +406,24 @@ export default class New extends Vue {
     required: (value: any) =&gt; !!value || 'Requis.'
   }
 &nbsp;
-  submitForm () {
+  mounted () {
     try {
-      this.$api.categories.create(this.form)
+      this.newCategoryForm.reset()
+    } catch (reason: any) {
+      this.showSnackbar('Impossible de réinitialiser le formulaire.')
+    }
+  }
+&nbsp;
+  async submitForm () {
+    try {
+      await this.$api.categories.create(this.form)
+&nbsp;
       this.showSnackbar('Catégorie créée.')
       this.$router.push('/admin/category')
     } catch (reason: any) {
 <span class="cstat-no" title="statement not covered" >      this.formError = insertErrors(this.formError, reason)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.showSnackbar('Impossible de créer la catégorie.')</span>
     }
   }
 &nbsp;
@@ -403,7 +439,7 @@ export default class New extends Vue {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Jan 13 2022 12:24:53 GMT+0100 (heure normale d’Europe centrale)
+                at Fri Jan 14 2022 07:28:37 GMT+0100 (heure normale d’Europe centrale)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

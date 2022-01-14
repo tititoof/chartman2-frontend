@@ -36,7 +36,10 @@ describe('AdminArticleNew', () => {
       mocks: {
         $router: routerMock,
         $route: mockRoute,
-        $api: apiMock
+        $api: apiMock,
+        newArticleForm: {
+          reset: () => { return true }
+        }
       },
       propsData: {
         id: 1
