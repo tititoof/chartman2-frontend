@@ -35,6 +35,7 @@ import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
 @Component
 export default class HomeDrawer extends Vue {
+  // Props
   @Prop() readonly items!: Array<Object>
 }
 </script>

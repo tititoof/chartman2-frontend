@@ -56,6 +56,7 @@ import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
 @Component
 export default class HomeNew extends Vue {
+  // Props
   @Prop({ default: 'Title' }) readonly title!: string
   @Prop({ default: '/backgrounds/office.svg' }) readonly background!: string
   @Prop({ default: '200' }) readonly minHeight!: string

@@ -79,14 +79,14 @@ import { Vue, Component, Prop, PropSync } from 'nuxt-property-decorator'
 
 @Component
 export default class HomeList extends Vue {
-  @Prop({ default: 'Title' }) readonly title!: string
   @Prop({ default: '/backgrounds/office.svg' }) readonly background!: string
-  @Prop({ default: '200' }) readonly minHeight!: string
-  @Prop({ default: '700' }) readonly maxHeight!: string
-  @PropSync('items', { default: () => [] }) readonly synceditems!: Array<Object>
-  @Prop({ default: 'Aucun item trouvé' }) readonly noItemFound!: string
   @Prop({ default: '' }) readonly basePathItem!: string
   @Prop({ default: 'HomeCategoryList' }) readonly itemComponent!: string
+  @Prop({ default: '200' }) readonly minHeight!: string
+  @Prop({ default: '700' }) readonly maxHeight!: string
+  @Prop({ default: 'Aucun item trouvé' }) readonly noItemFound!: string
+  @PropSync('items', { default: () => [] }) readonly synceditems!: Array<Object>
+  @Prop({ default: 'Title' }) readonly title!: string
 
   get itemComponentInstance () {
     return () => import(`~/components/Home/${this.itemComponent}`)

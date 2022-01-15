@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>0/11</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>0/11</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -132,7 +132,8 @@
 <a name='L73'></a><a href='#L73'>73</a>
 <a name='L74'></a><a href='#L74'>74</a>
 <a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -186,24 +187,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -261,24 +263,25 @@
 &lt;/template&gt;
 &nbsp;
 &lt;script lang="ts"&gt;
-import { Vue, Component, Prop } from 'nuxt-property-decorator'
+<span class="cstat-no" title="statement not covered" >import { Vue, Component, Prop } from 'nuxt-property-decorator'</span>
 &nbsp;
 @Component
-export default class HomeNew extends Vue {
-  @Prop({ default: 'Title' }) readonly title!: string
-  @Prop({ default: '/backgrounds/office.svg' }) readonly background!: string
-  @Prop({ default: '200' }) readonly minHeight!: string
-  @Prop({ default: '200' }) readonly maxHeight!: string
-  @Prop({ default: () =&gt; [] }) readonly items!: Array&lt;Object&gt;
-  @Prop({ default: 'Aucun item trouvé' }) readonly noItemFound!: string
-  @Prop({ default: '' }) readonly basePathItem!: string
+<span class="cstat-no" title="statement not covered" >export default class HomeNew extends Vue {</span>
+  // Props
+<span class="cstat-no" title="statement not covered" >  @Prop({ default: 'Title' }) readonly title!: string</span>
+<span class="cstat-no" title="statement not covered" >  @Prop({ default: '/backgrounds/office.svg' }) readonly background!: string</span>
+<span class="cstat-no" title="statement not covered" >  @Prop({ default: '200' }) readonly minHeight!: string</span>
+<span class="cstat-no" title="statement not covered" >  @Prop({ default: '200' }) readonly maxHeight!: string</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  @Prop({ default: () =&gt; [] }) readonly items!: Array&lt;Object&gt;</span></span>
+<span class="cstat-no" title="statement not covered" >  @Prop({ default: 'Aucun item trouvé' }) readonly noItemFound!: string</span>
+<span class="cstat-no" title="statement not covered" >  @Prop({ default: '' }) readonly basePathItem!: string</span>
 &nbsp;
-  get pathNew () {
-    return this.basePathItem + '/new'
+<span class="fstat-no" title="function not covered" >  get pathNew () {</span>
+<span class="cstat-no" title="statement not covered" >    return this.basePathItem + '/new'</span>
   }
 &nbsp;
-  get pathEdit () {
-    return this.basePathItem + '/_id'
+<span class="fstat-no" title="function not covered" >  get pathEdit () {</span>
+<span class="cstat-no" title="statement not covered" >    return this.basePathItem + '/_id'</span>
   }
 }
 &lt;/script&gt;
@@ -289,7 +292,7 @@ export default class HomeNew extends Vue {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jan 14 2022 07:28:37 GMT+0100 (heure normale d’Europe centrale)
+                at Sat Jan 15 2022 09:56:38 GMT+0100 (heure normale d’Europe centrale)
             </div>
         </div>
         <script src="../../prettify.js"></script>

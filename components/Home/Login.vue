@@ -76,24 +76,33 @@ const mainModule = namespace('MainStore')
 
 @Component
 export default class Login extends Vue {
+  // Store
   mainModule = getModule(MainStore, this.$store)
   @mainModule.Action('showSnackbar') showSnackbar: any
 
+  // Data
   error: string = ''
-  valid: boolean = false
   loginEmail: string = ''
   loginPassword: string = ''
-  show1: boolean = false
   rules: Object = {
     required: (value: any) => !!value || 'Requis.',
     min: (v: any) => (v && v.length >= 8) || '8 charactères minimum',
     email: (v: any) => /.+@.+\..+/.test(v) || 'E-mail doit être valide'
   }
 
+  show1: boolean = false
   snackbarText: string = 'Vous êtes connecté.'
+  valid: boolean = false
 
-  mounted () {
-    this.valid = false
+  async logout () {
+    await this.$auth.logout()
+  }
+
+  async setUserToken (token: any) {
+    await this.$auth.setUserToken(token)
+
+    this.onLoginDone()
+    this.showSnackbar(this.snackbarText)
   }
 
   async userLogin () {
@@ -108,15 +117,8 @@ export default class Login extends Vue {
     }
   }
 
-  async setUserToken (token: any) {
-    await this.$auth.setUserToken(token)
-
-    this.onLoginDone()
-    this.showSnackbar(this.snackbarText)
-  }
-
-  async logout () {
-    await this.$auth.logout()
+  mounted () {
+    this.valid = false
   }
 
   @Emit('login-done')

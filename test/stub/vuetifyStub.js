@@ -76,7 +76,8 @@ const vuetifyStub = [
   'cookie-law',
   'v-row',
   'v-skeleton-loader',
-  'v-chip'
+  'v-chip',
+  'newArticleForm.reset'
 ]
 
 export default vuetifyStub

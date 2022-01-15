@@ -96,19 +96,18 @@ export default class HomeCategoryList extends Vue {
   // Store
   mainModule = getModule(MainStore, this.$store)
   @mainModule.Action('showSnackbar') showSnackbar: any
-
   // Props
   @Prop({ default: '/backgrounds/office.svg' }) readonly background!: string
+  @Prop({ default: '' }) readonly basePathItem!: string
   @Prop({ default: '200' }) readonly minHeight!: string
   @Prop({ default: '300' }) readonly maxHeight!: string
   @PropSync('items', { default: () => [] }) readonly syncedItems!: Array<object>
-  @Prop({ default: '' }) readonly basePathItem!: string
 
-  selectedItem: object = {}
-  dialogShow: boolean = false
-  dialogName: string = ''
   dialogItemId: number = 0
   dialogItemIndex: number = 0
+  dialogName: string = ''
+  dialogShow: boolean = false
+  selectedItem: object = {}
 
   get pathNew () {
     return this.basePathItem + '/new'

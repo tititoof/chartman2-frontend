@@ -180,30 +180,32 @@ const mainModule = namespace('MainStore')
   components: { Editor }
 })
 export default class HomeArticleList extends Vue {
+  // Store
   mainModule = getModule(MainStore, this.$store)
   @mainModule.Action('showSnackbar') showSnackbar: any
-
+  // Props
   @Prop({ default: '/backgrounds/office.svg' }) readonly background!: string
   @Prop({ default: '200' }) readonly minHeight!: string
   @Prop({ default: '300' }) readonly maxHeight!: string
   @PropSync('items', { default: () => [] }) syncedItems!: Array<PostType>
   @Prop({ default: '' }) readonly basePathItem!: string
-
-  selectedItem: object = {}
+  // Data
+  categories: Array<CategoryType> = []
   dialogShow: boolean = false
   dialogName: string = ''
   dialogItemId: number = 0
   dialogItemIndex: number = 0
   disabled: boolean = false
-  showDialogTitle: string = ''
-  showDialogContent: string = ''
-  showDialogVisible: boolean = false
-  categories: Array<CategoryType> = []
   renderConfig: object = {
     mermaid: {
       theme: 'dark'
     }
   }
+
+  selectedItem: object = {}
+  showDialogTitle: string = ''
+  showDialogContent: string = ''
+  showDialogVisible: boolean = false
 
   get pathNew () {
     return this.basePathItem + '/new'

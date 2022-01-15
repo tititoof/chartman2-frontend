@@ -21,6 +21,10 @@ const mockRoute = {
   }
 }
 
+const newArticleForm = {
+  reset: () => { return true }
+}
+
 global.localStorage = localStorageMock
 
 describe('AdminArticleNew', () => {
@@ -46,6 +50,10 @@ describe('AdminArticleNew', () => {
       },
       stubs: vuetifyStub
     })
+
+    wrapper.vm.newArticleForm = {
+      reset: () =>  jest.fn()
+    }
   })
 
   it('>> Vue component', () => {

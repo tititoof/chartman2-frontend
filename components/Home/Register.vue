@@ -67,18 +67,20 @@ import { Vue, Component } from 'nuxt-property-decorator'
 
 @Component
 export default class Register extends Vue {
-  valid: boolean = false
-  show1: boolean = false
+  // Data
+  email: string = ''
   firstName: string = ''
   lastName: string = ''
-  email: string = ''
   password: string = ''
-  verify: string = ''
   rules: object = {
     required: (value: any) => !!value || 'Requis.',
     validEmail: (v: any) => /.+@.+\..+/.test(v) || 'doit être valide',
     min: (v: any) => (v && v.length >= 8) || '8 charactères minimum'
   }
+
+  show1: boolean = false
+  valid: boolean = false
+  verify: string = ''
 
   get passwordMatch () {
     return () => this.password === this.verify || 'Les mots de passes doivent correspondre'

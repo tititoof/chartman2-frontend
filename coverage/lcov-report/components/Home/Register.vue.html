@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/15</span>
+                <span class='fraction'>0/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>0/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>15/15</span>
+                <span class='fraction'>0/15</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -148,7 +148,9 @@
 <a name='L89'></a><a href='#L89'>89</a>
 <a name='L90'></a><a href='#L90'>90</a>
 <a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -213,29 +215,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -304,29 +308,31 @@
   &lt;/v-form&gt;
 &lt;/template&gt;
 &lt;script lang="ts"&gt;
-import { Vue, Component } from 'nuxt-property-decorator'
+<span class="cstat-no" title="statement not covered" >import { Vue, Component } from 'nuxt-property-decorator'</span>
 &nbsp;
 @Component
-export default class Register extends Vue {
-  valid: boolean = false
-  show1: boolean = false
-  firstName: string = ''
-  lastName: string = ''
-  email: string = ''
-  password: string = ''
-  verify: string = ''
-  rules: object = {
-    required: (value: any) =&gt; !!value || 'Requis.',
-    validEmail: (v: any) =&gt; /.+@.+\..+/.test(v) || 'doit être valide',
-    min: (v: any) =&gt; (v &amp;&amp; v.length &gt;= 8) || '8 charactères minimum'
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export default class Register extends Vue {</span></span>
+  // Data
+<span class="cstat-no" title="statement not covered" >  email: string = ''</span>
+<span class="cstat-no" title="statement not covered" >  firstName: string = ''</span>
+<span class="cstat-no" title="statement not covered" >  lastName: string = ''</span>
+<span class="cstat-no" title="statement not covered" >  password: string = ''</span>
+<span class="cstat-no" title="statement not covered" >  rules: object = {</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    required: (value: any) =&gt; !!value || 'Requis.',</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    validEmail: (v: any) =&gt; /.+@.+\..+/.test(v) || 'doit être valide',</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    min: (v: any) =&gt; (v &amp;&amp; v.length &gt;= 8) || '8 charactères minimum'</span></span>
   }
 &nbsp;
-  get passwordMatch () {
-    return () =&gt; this.password === this.verify || 'Les mots de passes doivent correspondre'
+<span class="cstat-no" title="statement not covered" >  show1: boolean = false</span>
+<span class="cstat-no" title="statement not covered" >  valid: boolean = false</span>
+<span class="cstat-no" title="statement not covered" >  verify: string = ''</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >  get passwordMatch () {</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    return () =&gt; this.password === this.verify || 'Les mots de passes doivent correspondre'</span></span>
   }
 &nbsp;
-  register () {
-    return true
+<span class="fstat-no" title="function not covered" >  register () {</span>
+<span class="cstat-no" title="statement not covered" >    return true</span>
   }
 }
 &lt;/script&gt;
@@ -337,7 +343,7 @@ export default class Register extends Vue {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jan 14 2022 07:28:37 GMT+0100 (heure normale d’Europe centrale)
+                at Sat Jan 15 2022 09:56:38 GMT+0100 (heure normale d’Europe centrale)
             </div>
         </div>
         <script src="../../prettify.js"></script>
