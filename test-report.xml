@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="/home/toofytroll/Projets/chartman2/frontend-next/test/pages/admin/article/new.spec.js">
-    <testCase name="AdminArticleNew &gt;&gt; Vue component" duration="46">
+    <testCase name="AdminArticleNew &gt;&gt; Vue component" duration="37">
       <failure message="TypeError: this.newArticleForm.reset is not a function"><![CDATA[TypeError: this.newArticleForm.reset is not a function
     at VueComponent.mounted (/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/article/new.vue:156:1)
     at invokeWithErrorHandling (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:1868:57)
@@ -39,7 +39,7 @@
     at runCLI (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/@jest/core/build/cli/index.js:173:3)
     at Object.run (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-cli/build/cli/index.js:155:37)]]></failure>
     </testCase>
-    <testCase name="AdminArticleNew &gt;&gt; asyncData - categories.findAll - posts.find" duration="12">
+    <testCase name="AdminArticleNew &gt;&gt; asyncData - categories.findAll - posts.find" duration="14">
       <failure message="TypeError: this.newArticleForm.reset is not a function"><![CDATA[TypeError: this.newArticleForm.reset is not a function
     at VueComponent.mounted (/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/article/new.vue:156:1)
     at invokeWithErrorHandling (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:1868:57)
@@ -77,7 +77,7 @@
     at runCLI (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/@jest/core/build/cli/index.js:173:3)
     at Object.run (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-cli/build/cli/index.js:155:37)]]></failure>
     </testCase>
-    <testCase name="AdminArticleNew &gt;&gt; submitForm" duration="17">
+    <testCase name="AdminArticleNew &gt;&gt; submitForm" duration="13">
       <failure message="TypeError: this.newArticleForm.reset is not a function"><![CDATA[TypeError: this.newArticleForm.reset is not a function
     at VueComponent.mounted (/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/article/new.vue:156:1)
     at invokeWithErrorHandling (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:1868:57)
@@ -115,7 +115,7 @@
     at runCLI (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/@jest/core/build/cli/index.js:173:3)
     at Object.run (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-cli/build/cli/index.js:155:37)]]></failure>
     </testCase>
-    <testCase name="AdminArticleNew &gt;&gt; router.back" duration="13">
+    <testCase name="AdminArticleNew &gt;&gt; router.back" duration="20">
       <failure message="TypeError: this.newArticleForm.reset is not a function"><![CDATA[TypeError: this.newArticleForm.reset is not a function
     at VueComponent.mounted (/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/article/new.vue:156:1)
     at invokeWithErrorHandling (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:1868:57)
@@ -153,7 +153,7 @@
     at runCLI (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/@jest/core/build/cli/index.js:173:3)
     at Object.run (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/jest-cli/build/cli/index.js:155:37)]]></failure>
     </testCase>
-    <testCase name="AdminArticleNew &gt;&gt; rules" duration="11">
+    <testCase name="AdminArticleNew &gt;&gt; rules" duration="10">
       <failure message="TypeError: this.newArticleForm.reset is not a function"><![CDATA[TypeError: this.newArticleForm.reset is not a function
     at VueComponent.mounted (/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/article/new.vue:156:1)
     at invokeWithErrorHandling (/home/toofytroll/Projets/chartman2/frontend-next/node_modules/vue/dist/vue.common.dev.js:1868:57)

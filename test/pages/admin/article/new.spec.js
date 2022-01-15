@@ -54,6 +54,8 @@ describe('AdminArticleNew', () => {
     wrapper.vm.newArticleForm = {
       reset: () =>  jest.fn()
     }
+    console.log('----', wrapper.vm.newArticleForm, '----')
+    
   })
 
   it('>> Vue component', () => {
