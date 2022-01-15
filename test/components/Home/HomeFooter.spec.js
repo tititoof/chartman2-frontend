@@ -24,7 +24,7 @@ describe('HomeFooter', () => {
   it('>> social getter', () => {
     expect(wrapper.vm.social).toStrictEqual([
       { name: 'Facebook', route: 'https://www.facebook.com/christophe.hartmann1/' },
-      { name: 'Linkedin', route: 'https://www.linkedin.com/in/christophe-hartmann-3a297a42/' }
+      { name: 'LinkedIn', route: 'https://www.linkedin.com/in/christophe-hartmann-3a297a42/' }
     ])
   })
 })
