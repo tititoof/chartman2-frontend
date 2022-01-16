@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -237,29 +237,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -340,29 +340,29 @@
 &lt;/template&gt;
 &nbsp;
 &lt;script lang="ts"&gt;
-<span class="cstat-no" title="statement not covered" >import { Vue, Component, Prop, PropSync } from 'nuxt-property-decorator'</span>
+import { Vue, Component, Prop, PropSync } from 'nuxt-property-decorator'
 &nbsp;
 @Component
-<span class="cstat-no" title="statement not covered" >export default class HomeList extends Vue {</span>
-<span class="cstat-no" title="statement not covered" >  @Prop({ default: '/backgrounds/office.svg' }) readonly background!: string</span>
-<span class="cstat-no" title="statement not covered" >  @Prop({ default: '' }) readonly basePathItem!: string</span>
-<span class="cstat-no" title="statement not covered" >  @Prop({ default: 'HomeCategoryList' }) readonly itemComponent!: string</span>
-<span class="cstat-no" title="statement not covered" >  @Prop({ default: '200' }) readonly minHeight!: string</span>
-<span class="cstat-no" title="statement not covered" >  @Prop({ default: '700' }) readonly maxHeight!: string</span>
-<span class="cstat-no" title="statement not covered" >  @Prop({ default: 'Aucun item trouvé' }) readonly noItemFound!: string</span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  @PropSync('items', { default: () =&gt; [] }) readonly synceditems!: Array&lt;Object&gt;</span></span>
-<span class="cstat-no" title="statement not covered" >  @Prop({ default: 'Title' }) readonly title!: string</span>
+export default class HomeList extends Vue {
+  @Prop({ default: '/backgrounds/office.svg' }) readonly background!: string
+  @Prop({ default: '' }) readonly basePathItem!: string
+  @Prop({ default: 'HomeCategoryList' }) readonly itemComponent!: string
+  @Prop({ default: '200' }) readonly minHeight!: string
+  @Prop({ default: '700' }) readonly maxHeight!: string
+  @Prop({ default: 'Aucun item trouvé' }) readonly noItemFound!: string
+  @PropSync('items', { default: () =&gt; [] }) readonly synceditems!: Array&lt;Object&gt;
+  @Prop({ default: 'Title' }) readonly title!: string
 &nbsp;
-<span class="fstat-no" title="function not covered" >  get itemComponentInstance () {</span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    return () =&gt; import(`~/components/Home/${this.itemComponent}`)</span></span>
+  get itemComponentInstance () {
+<span class="fstat-no" title="function not covered" >    return () =&gt; import(`~/components/Home/${this.itemComponent}`)</span>
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  get pathNew () {</span>
-<span class="cstat-no" title="statement not covered" >    return this.basePathItem + '/new'</span>
+  get pathNew () {
+    return this.basePathItem + '/new'
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  goBack () {</span>
-<span class="cstat-no" title="statement not covered" >    this.$router.push('/admin/cards')</span>
+  goBack () {
+    this.$router.push('/admin/cards')
   }
 }
 &lt;/script&gt;
@@ -373,7 +373,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Jan 15 2022 10:21:54 GMT+0100 (heure normale d’Europe centrale)
+                at Sun Jan 16 2022 09:26:40 GMT+0100 (heure normale d’Europe centrale)
             </div>
         </div>
         <script src="../../prettify.js"></script>

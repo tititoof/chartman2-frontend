@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -237,33 +237,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -342,33 +342,33 @@
   &lt;/section&gt;
 &lt;/template&gt;
 &lt;script lang="ts"&gt;
-<span class="cstat-no" title="statement not covered" >import { Vue, Component } from 'nuxt-property-decorator'</span>
+import { Vue, Component } from 'nuxt-property-decorator'
 import { CategoryType } from '~/types'
 &nbsp;
 @Component({
-<span class="fstat-no" title="function not covered" >  async asyncData ({ $api, redirect }) {</span>
-<span class="cstat-no" title="statement not covered" >    try {</span>
-<span class="cstat-no" title="statement not covered" >      const response = await $api.articles.categories()</span>
-<span class="cstat-no" title="statement not covered" >      const categories = response.data</span>
+  async asyncData ({ $api, redirect }) {
+    try {
+      const response = await $api.articles.categories()
+      const categories = response.data
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      return { categories }</span>
+      return { categories }
     } catch (e) {
-<span class="cstat-no" title="statement not covered" >      redirect('/redirect', { previous_url: '/tutorials/' })</span>
+      redirect('/redirect', { previous_url: '/tutorials/' })
     }
   }
 })
-<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export default class Tutorials extends Vue {</span></span></span>
-<span class="cstat-no" title="statement not covered" >  minHeight: string = '200'</span>
-<span class="cstat-no" title="statement not covered" >  maxHeight: string = '700'</span>
-<span class="cstat-no" title="statement not covered" >  background: string = '/backgrounds/tutorial.svg'</span>
-<span class="cstat-no" title="statement not covered" >  categories: Array&lt;CategoryType&gt; = []</span>
+export default class Tutorials extends Vue {
+  minHeight: string = '200'
+  maxHeight: string = '700'
+  background: string = '/backgrounds/tutorial.svg'
+  categories: Array&lt;CategoryType&gt; = []
 &nbsp;
-<span class="fstat-no" title="function not covered" >  goToCategory (id: string) {</span>
-<span class="cstat-no" title="statement not covered" >    this.$router.push('/tutorials/category/' + id)</span>
+  goToCategory (id: string) {
+    this.$router.push('/tutorials/category/' + id)
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  goBack () {</span>
-<span class="cstat-no" title="statement not covered" >    this.$router.push('/')</span>
+  goBack () {
+    this.$router.push('/')
   }
 }
 &lt;/script&gt;
@@ -379,7 +379,7 @@ import { CategoryType } from '~/types'
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Jan 15 2022 10:21:54 GMT+0100 (heure normale d’Europe centrale)
+                at Sun Jan 16 2022 09:26:40 GMT+0100 (heure normale d’Europe centrale)
             </div>
         </div>
         <script src="../../prettify.js"></script>

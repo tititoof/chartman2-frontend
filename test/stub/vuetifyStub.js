@@ -77,7 +77,8 @@ const vuetifyStub = [
   'v-row',
   'v-skeleton-loader',
   'v-chip',
-  'newArticleForm.reset'
+  'Editor',
+  'new-article-form'
 ]
 
 export default vuetifyStub

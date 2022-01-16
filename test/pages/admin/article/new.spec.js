@@ -40,22 +40,14 @@ describe('AdminArticleNew', () => {
       mocks: {
         $router: routerMock,
         $route: mockRoute,
-        $api: apiMock,
-        newArticleForm: {
-          reset: () => { return true }
-        }
+        $api: apiMock
       },
       propsData: {
         id: 1
       },
-      stubs: vuetifyStub
+      stubs: 
+        vuetifyStub
     })
-
-    wrapper.vm.newArticleForm = {
-      reset: () =>  jest.fn()
-    }
-    console.log('----', wrapper.vm.newArticleForm, '----')
-    
   })
 
   it('>> Vue component', () => {
