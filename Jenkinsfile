@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'agent_vuejs_2'
+            label 'agent_vuejs_1'
         }
     }
 
