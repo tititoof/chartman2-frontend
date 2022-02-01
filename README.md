@@ -1,3 +1,5 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tititoof_chartman2-frontend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=tititoof_chartman2-frontend)
+
 # chartman2
 
 ## Build Setup
