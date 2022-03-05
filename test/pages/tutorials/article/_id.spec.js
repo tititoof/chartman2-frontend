@@ -73,6 +73,6 @@ describe('TutorialsArticle', () => {
   it('>> router.back', () => {
     wrapper.vm.goBack()
 
-    expect(routerMock.back).toHaveBeenCalledTimes(1)
+    expect(routerMock.push).toHaveBeenCalledWith('/tutorials')
   })
 })

@@ -123,7 +123,7 @@ export default class Id extends Vue {
   }
 
   goBack () {
-    this.$router.back()
+    this.$router.push('/tutorials')
   }
 }
 </script>
