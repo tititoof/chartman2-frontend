@@ -114,7 +114,6 @@ pipeline {
         }
         stage('Deploy') {
             environment {
-                SERVER_SSH = credentials('tititoof_ssh_user_pswd')
                 SERVER_IP = credentials('ovh-server-ip')
             }
             steps {

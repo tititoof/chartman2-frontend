@@ -31,6 +31,7 @@
             active-class="text--primary"
             class="font-weight-bold"
             min-width="96"
+            :e2e="item.name"
             text
           >
             {{ item.name }}
