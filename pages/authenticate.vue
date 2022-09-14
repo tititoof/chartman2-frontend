@@ -41,6 +41,7 @@
 import { Vue, Component } from 'nuxt-property-decorator'
 import Login from '~/components/Home/Login.vue'
 import Register from '~/components/Home/Register.vue'
+import { AccountInterface } from '~/types'
 
 @Component({
   components: {
@@ -50,7 +51,7 @@ import Register from '~/components/Home/Register.vue'
 export default class Authenticate extends Vue {
   dialog: boolean = true
   tab: number = 0
-  tabs: Array<Object> = [
+  tabs: Array<AccountInterface> = [
     { name: 'Connexion', icon: 'mdi-account' },
     { name: 'Enregistrement', icon: 'mdi-account-outline' }
   ]

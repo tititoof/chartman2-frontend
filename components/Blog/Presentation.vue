@@ -16,81 +16,10 @@
           max-width="550"
           width="100%"
         >
-          <div class="text-h4">
-            Developpement agile avec Ruby on Rails & VueJS
-          </div>
-          <p class="text-justify">
-            - Ruby on Rails, également appelé RoR ou Rails, est un framework web libre écrit en Ruby. Il suit le motif de conception modèle-vue-contrôleur (MVC). Il propose une structure qui permet de développer rapidement et intuitivement. Cependant, il impose un grand niveau d'abstraction dans la programmation qui apporte en contrepartie l'économie d'écrire soi-même la plupart des routines obligatoires d'une application web.
-            <br>
-            - Vue.js (aussi appelé plus simplement Vue), est un framework JavaScript open-source utilisé pour construire des interfaces utilisateur et des applications web monopages. Vue a été créé par Evan You et est maintenu par lui et le reste des membres actifs de l'équipe principale travaillant sur le projet et son écosystème.
-          </p>
-          <p class="caption">
-            Source Wikipedia
-          </p>
-          <div
-            class="d-flex flex-wrap align-center"
-          >
-            <v-btn
-              router
-              to="/tutorials"
-            >
-              Articles
-            </v-btn>
-
-            <span class="font-weight-bold ml-6 mr-4 my-4">
-              ou
-            </span>
-
-            <v-btn
-              :ripple="false"
-              outlined
-              color="indigo"
-              @click="goTo('RoR / Nuxt JS')"
-            >
-              Articles RoR / Nuxt JS
-            </v-btn>
-          </div>
-        </v-responsive>
-        <v-responsive
-          class="d-flex"
-          max-width="550"
-          width="100%"
-        >
-          <div class="text-h4">
-            Intégration continue & déploiement continu CI / CD
-          </div>
-          <p class="text-justify">
-            <br>
-            - L'intégration continue (CI) est un ensemble de pratiques utilisées en génie logiciel consistant à vérifier à chaque modification de code source que le résultat des modifications ne produit pas de régression dans l'application développée. Le concept a pour la première fois été mentionné par Grady Booch et se réfère généralement à la pratique de l'extreme programming. Le principal but de cette pratique est de détecter les problèmes d'intégration au plus tôt lors du développement. De plus, elle permet d'automatiser l'exécution des suites de tests et de voir l'évolution du développement du logiciel.
-            <br>
-            - Le déploiement continu ou Continuous deployment (CD) en anglais, est une approche d'ingénierie logicielle dans laquelle les fonctionnalités logicielles sont livrées fréquemment par le biais de déploiements automatisés. 1,2,3 Le déploiement continu diffère de la livraison continue, une approche similaire dans laquelle des fonctionnalités logicielles sont également livrées fréquemment et considérées comme pouvant potentiellement être déployées, mais qui ne le sont pas pour autant (le déploiement restant dans ce cas un processus manuel)
-          </p>
-          <p class="caption">
-            Source Wikipedia
-          </p>
-          <div
-            class="d-flex flex-wrap align-center"
-          >
-            <v-btn
-              router
-              to="/tutorials"
-            >
-              Articles
-            </v-btn>
-
-            <span class="font-weight-bold ml-6 mr-4 my-4">
-              ou
-            </span>
-
-            <v-btn
-              :ripple="false"
-              outlined
-              color="indigo"
-              @click="goTo('CI / CD')"
-            >
-              Articles CI / CD
-            </v-btn>
-          </div>
+          <v-img
+            src="/images/devops.svg"
+            contain
+          />
         </v-responsive>
       </v-container>
     </v-img>

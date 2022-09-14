@@ -1,16 +1,16 @@
 export interface CategoryType {
-  id?: string,
-  type: 'category',
-  name: string,
+  id?: string
+  type: 'category'
+  name: string
   attributes: {
     name: string
-    created_at: Date,
+    created_at: Date
     published_count: number
-  },
+  }
   relationships: {
     posts: {
       data: {
-        id: string,
+        id: string
         type: 'post'
       }
     }
@@ -36,7 +36,7 @@ export const CategoryDefault: CategoryType = {
 }
 
 export interface CategoryFormType {
-  id?: string,
+  id?: string
   name: string
 }
 
@@ -53,28 +53,28 @@ export const CategoryFormErrorDefault: CategoryFormErrorType = {
 }
 
 export interface PostType {
-  id: string,
-  type: string,
+  id: string
+  type: string
   attributes: {
-    title: string,
-    description: string,
-    content: string,
-    published: boolean,
+    title: string
+    description: string
+    content: string
+    published: boolean
     published_at: Date
-  },
+  }
   relationships: {
     categories: {
       data: {
         [index: number]: {
-          id: number,
+          id: number
           type: 'category'
         }
       }
-    },
+    }
     users: {
       data: {
         [index: number]: {
-          id: number,
+          id: number
           type: 'user'
         }
       }
@@ -103,9 +103,9 @@ export const PostDefault: PostType = {
 }
 
 export interface PostFormType {
-  id?: string,
-  title: string,
-  description: string,
+  id?: string
+  title: string
+  description: string
   content: string
   categories: Array<number>
 }
@@ -118,9 +118,9 @@ export const PostFormDefault: PostFormType = {
 }
 
 export interface PostFormErrorType {
-  title: Array<Object>,
-  description: Array<Object>,
-  content: Array<Object>,
+  title: Array<Object>
+  description: Array<Object>
+  content: Array<Object>
   categories: Array<Object>
 }
 
@@ -132,15 +132,44 @@ export const PostFormErrorDefault: PostFormErrorType = {
 }
 
 export interface UserType {
-  id?: string,
-  name: string,
-  email: string,
-  roles: Array<string>,
+  id?: string
+  name: string
+  email: string
+  roles: Array<string>
   groups: Array<string>
 }
 
 export type VForm = Vue & {
-  validate: () => boolean;
-  resetValidation: () => boolean;
-  reset: () => void;
+  validate: () => boolean
+  resetValidation: () => boolean
+  reset: () => void
+}
+
+export interface AccountInterface {
+  name: string
+  icon: string
+}
+
+export interface SkillInterface {
+  type: string
+  src: string
+  title: string
+  text: string
+}
+
+export interface DomainInterface {
+  title: string
+  text: string
+  skill: Array<SkillInterface>
+}
+
+export interface StatInterface {
+  value: string
+  title: string
+  url: string
+}
+
+export interface MenuLinkInterface {
+  name: string
+  route: string
 }

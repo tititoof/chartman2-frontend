@@ -31,7 +31,8 @@
       "@types/jest",
       "@nuxtjs/vuetify",
       "@nuxtjs/dayjs"
-    ]
+    ],
+    "jsx": "preserve"
   },
   "exclude": [
     "node_modules",

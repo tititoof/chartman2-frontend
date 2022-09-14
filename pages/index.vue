@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <Presentation />
-    <Skills />
-    <BlogInformation />
-  </div>
+  <section>
+    <blog-hero />
+    <blog-about-me />
+    <blog-skill />
+    <blog-infos />
+    <blog-contact-me />
+  </section>
 </template>
 
 <script lang="ts">
@@ -11,17 +13,22 @@ import { Vue, Component } from 'nuxt-property-decorator'
 import Presentation from '~/components/Blog/Presentation.vue'
 import Skills from '~/components/Blog/Skills.vue'
 import BlogInformation from '~/components/Blog/BlogInformation.vue'
+import BlogHero from '~/components/Blog/Hero.vue'
+import BlogAboutMe from '~/components/Blog/AboutMe.vue'
+import BlogSkill from '~/components/Blog/Skill.vue'
+import BlogInfos from '~/components/Blog/Infos.vue'
+import BlogContactMe from '~/components/Blog/ContactMe.vue'
 
 @Component({
   components: {
-    Presentation, Skills, BlogInformation
+    Presentation, Skills, BlogInformation, BlogHero, BlogAboutMe, BlogSkill, BlogInfos, BlogContactMe
   }
 })
 export default class Index extends Vue {
 }
 </script>
 
-<style lang="sass">
+<!-- <style lang="sass">
   .extra-padding
     padding-bottom: 96px !important
     padding-top: 96px !important
@@ -35,4 +42,4 @@ export default class Index extends Vue {
 
   .base-divider.base-divider--dense .v-divider
     border-width: 2px 0 0 0 !important
-</style>
+</style> -->

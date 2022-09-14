@@ -55,6 +55,7 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
 import HomeDrawer from '@/components/Home/HomeDrawer.vue'
+import { MenuLinkInterface } from '~/types'
 
 @Component({
   components: {
@@ -65,12 +66,12 @@ export default class HomeAppBar extends Vue {
   // Data
   drawer: boolean = false
 
-  get items (): Array<Object> {
+  get items (): Array<MenuLinkInterface> {
     return [
-      { name: 'Home', route: '/' },
-      { name: 'Articles', route: '/tutorials' },
+      { name: 'Accueil', route: '/' }
+      // { name: 'Articles', route: '/tutorials' },
       // { name: 'Exemples', route: '/authenticate' },
-      { name: 'Admin', route: '/admin' }
+      // { name: 'Admin', route: '/admin' }
     ]
   }
 }
