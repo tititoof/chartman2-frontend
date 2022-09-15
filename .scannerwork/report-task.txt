@@ -1,11 +1,6 @@
 projectKey=chartman2-frontend
-serverUrl=http://192.168.1.201:9000
-serverVersion=8.9.3.48735
-dashboardUrl=http://192.168.1.201:9000/dashboard?id=chartman2-frontend
-<<<<<<< HEAD
-ceTaskId=AX4a0MNQ3zQTXy9KxjgI
-ceTaskUrl=http://192.168.1.201:9000/api/ce/task?id=AX4a0MNQ3zQTXy9KxjgI
-=======
-ceTaskId=AX4wgZd66IQmcL9j5s_n
-ceTaskUrl=http://192.168.1.201:9000/api/ce/task?id=AX4wgZd66IQmcL9j5s_n
->>>>>>> 6ce28404ffd440db106a4627667dbee2175d0d47
+serverUrl=http://192.168.1.223:9000
+serverVersion=9.6.0.59041
+dashboardUrl=http://192.168.1.223:9000/dashboard?id=chartman2-frontend
+ceTaskId=AYNASw-tKUcw3vh9uM35
+ceTaskUrl=http://192.168.1.223:9000/api/ce/task?id=AYNASw-tKUcw3vh9uM35
