@@ -94,7 +94,6 @@ pipeline {
                                     git config --global user.name "Christophe Hartmann"
                                     touch github-update.txt
                                     git rm ./Jenkinsfile
-                                    git rm ./ecosystem.config.js
                                     git rm ./deploy.sh
                                     touch ./.sonarcloud.properties
                                     echo "sonar.sources=pages,layouts,components,store" >> ./.sonarcloud.properties
