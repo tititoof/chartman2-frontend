@@ -78,7 +78,10 @@ const vuetifyStub = [
   'v-skeleton-loader',
   'v-chip',
   'Editor',
-  'new-article-form'
+  'new-article-form',
+  'v-theme-provider',
+  'v-sheet',
+  'v-parallax'
 ]
 
 export default vuetifyStub

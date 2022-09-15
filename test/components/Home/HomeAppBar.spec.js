@@ -23,10 +23,10 @@ describe('HomeAppBar', () => {
 
   it('>> items getter', () => {
     expect(wrapper.vm.items).toStrictEqual([
-      { name: 'Home', route: '/' },
-      { name: 'Articles', route: '/tutorials' },
+      { name: 'Accueil', route: '/' },
+      // { name: 'Articles', route: '/tutorials' },
       // { name: 'Exemples', route: '/authenticate' },
-      { name: 'Admin', route: '/admin' }
+      // { name: 'Admin', route: '/admin' }
     ])
   })
 })
