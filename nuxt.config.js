@@ -64,7 +64,20 @@ export default {
     // https://www.npmjs.com/package/nuxt-vuex-localstorage
     // 'nuxt-vuex-localstorage'
     '@nuxtjs/sitemap',
-    '@nuxtjs/robots'
+    '@nuxtjs/robots',
+    ['nuxt-mail', {
+      message: {
+        to: 'chartmann.35@gmail.com'
+      },
+      smtp: {
+        host: 'in-v3.mailjet.com',
+        port: 587,
+        auth: {
+          api_key: '4f8792429085ede7640ae6c98cc166fe',
+          secret_key: 'fc53faae15c8220746cbd0ae54728928'
+        }
+      }
+    }]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
