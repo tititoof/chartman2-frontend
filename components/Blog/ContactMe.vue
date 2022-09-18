@@ -76,10 +76,16 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
+import { Vue, Component, namespace, getModule } from 'nuxt-property-decorator'
+import MainStore from '~/store/MainStore'
+const mainModule = namespace('MainStore')
 
 @Component
 export default class ContactMe extends Vue {
+  // Store
+  mainModule = getModule(MainStore, this.$store)
+  @mainModule.Action('showSnackbar') showSnackbar: any
+
   valid: boolean = false
   name: string = ''
   email: string = ''
@@ -105,16 +111,26 @@ export default class ContactMe extends Vue {
     (v: string) => v.length >= 15 || 'Le message doit faire au moins de 15 caractères'
   ]
 
-  sendEmail () {
-    if (this.valid) {
-      this.$axios.$post('/contacts/send', {
-        contact: {
-          name: this.name,
-          email: this.email,
-          subject: this.subject,
-          message: this.message
-        }
-      })
+  async sendEmail () {
+    try {
+      if (this.valid) {
+        await this.$axios.$post('/contacts/send', {
+          contact: {
+            name: this.name,
+            email: this.email,
+            subject: this.subject,
+            message: this.message
+          }
+        })
+
+        this.showSnackbar('Catégorie créée.')
+        this.name = ''
+        this.email = ''
+        this.subject = ''
+        this.message = ''
+      }
+    } catch (reason: any) {
+      this.showSnackbar('Impossible de créer la catégorie.')
     }
   }
 }
