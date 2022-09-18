@@ -123,14 +123,14 @@ export default class ContactMe extends Vue {
           }
         })
 
-        this.showSnackbar('Catégorie créée.')
+        this.showSnackbar('Courriel (email) envoyé.')
         this.name = ''
         this.email = ''
         this.subject = ''
         this.message = ''
       }
     } catch (reason: any) {
-      this.showSnackbar('Impossible de créer la catégorie.')
+      this.showSnackbar('Impossible d\'envoyer le courriel (email).')
     }
   }
 }
