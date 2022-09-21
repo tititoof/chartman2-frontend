@@ -34,7 +34,7 @@
         NuxtJS
       </a> (simple rapide et efficace) m'a redonné le goût du
       JavaScript.<br>
-      Pour être autonome ainsi que de comprendre le
+      Afin de comprendre le
       <a
         href="#"
         class="text-decoration-none blue--text text--darken-1"
