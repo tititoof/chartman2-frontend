@@ -17,6 +17,7 @@
               class="display-3 font-weight-black mb-4"
             >
               {{ value }}
+              <v-icon color="yellow">mdi-star</v-icon>
             </div>
 
             <v-btn color="white" :href="url" outlined large target="_blank">

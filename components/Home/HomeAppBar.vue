@@ -68,7 +68,8 @@ export default class HomeAppBar extends Vue {
 
   get items (): Array<MenuLinkInterface> {
     return [
-      { name: 'Accueil', route: '/' }
+      { name: 'Accueil', route: '/' },
+      { name: 'Mentions légales', route: '/legal_notices' }
       // { name: 'Articles', route: '/tutorials' },
       // { name: 'Exemples', route: '/authenticate' },
       // { name: 'Admin', route: '/admin' }
