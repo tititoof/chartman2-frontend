@@ -28,7 +28,7 @@
     "markdown-it-highlightjs": "^3.6.0",
     "markdown-it-texmath": "^0.9.7",
     "nuxt": "^2.15.7",
-    "nuxt-mail": "^3.0.23",
+    "nuxt-highlightjs": "^1.0.3",
     "nuxt-property-decorator": "^2.9.1",
     "nuxt-vuex-localstorage": "^1.3.0",
     "vue-api-query": "^1.9.1",

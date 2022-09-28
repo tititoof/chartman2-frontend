@@ -1,0 +1,126 @@
+[
+  {
+    "name": "admin",
+    "path": "/admin",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/index.vue",
+    "chunkName": "pages/admin/index",
+    "url": "/admin",
+    "_name": "_6f8a95ef"
+  },
+  {
+    "name": "authenticate",
+    "path": "/authenticate",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/authenticate.vue",
+    "chunkName": "pages/authenticate",
+    "url": "/authenticate",
+    "_name": "_715b6d48"
+  },
+  {
+    "name": "legal_notices",
+    "path": "/legal_notices",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/legal_notices.vue",
+    "chunkName": "pages/legal_notices",
+    "url": "/legal_notices",
+    "_name": "_418b6a32"
+  },
+  {
+    "name": "redirect",
+    "path": "/redirect",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/redirect.vue",
+    "chunkName": "pages/redirect",
+    "url": "/redirect",
+    "_name": "_4eb3c84f"
+  },
+  {
+    "name": "tutorials",
+    "path": "/tutorials",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/tutorials/index.vue",
+    "chunkName": "pages/tutorials/index",
+    "url": "/tutorials",
+    "_name": "_62cd7975"
+  },
+  {
+    "name": "admin-article",
+    "path": "/admin/article",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/article/index.vue",
+    "chunkName": "pages/admin/article/index",
+    "url": "/admin/article",
+    "_name": "_cc02d1d4"
+  },
+  {
+    "name": "admin-cards",
+    "path": "/admin/cards",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/cards.vue",
+    "chunkName": "pages/admin/cards",
+    "url": "/admin/cards",
+    "_name": "_dbc6b800"
+  },
+  {
+    "name": "admin-category",
+    "path": "/admin/category",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/category/index.vue",
+    "chunkName": "pages/admin/category/index",
+    "url": "/admin/category",
+    "_name": "_a6549e98"
+  },
+  {
+    "name": "blog-my_ror_design",
+    "path": "/blog/my_ror_design",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/blog/my_ror_design.vue",
+    "chunkName": "pages/blog/my_ror_design",
+    "url": "/blog/my_ror_design",
+    "_name": "_a94b9c3e"
+  },
+  {
+    "name": "admin-article-new",
+    "path": "/admin/article/new",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/article/new.vue",
+    "chunkName": "pages/admin/article/new",
+    "url": "/admin/article/new",
+    "_name": "_f5ed8838"
+  },
+  {
+    "name": "admin-category-new",
+    "path": "/admin/category/new",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/category/new.vue",
+    "chunkName": "pages/admin/category/new",
+    "url": "/admin/category/new",
+    "_name": "_7f762502"
+  },
+  {
+    "name": "admin-article-id",
+    "path": "/admin/article/:id",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/article/_id.vue",
+    "chunkName": "pages/admin/article/_id",
+    "_name": "_715366fe"
+  },
+  {
+    "name": "admin-category-id",
+    "path": "/admin/category/:id",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/admin/category/_id.vue",
+    "chunkName": "pages/admin/category/_id",
+    "_name": "_6bc0501c"
+  },
+  {
+    "name": "tutorials-article-id",
+    "path": "/tutorials/article/:id?",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/tutorials/article/_id.vue",
+    "chunkName": "pages/tutorials/article/_id",
+    "_name": "_42230e04"
+  },
+  {
+    "name": "tutorials-category-id",
+    "path": "/tutorials/category/:id?",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/tutorials/category/_id.vue",
+    "chunkName": "pages/tutorials/category/_id",
+    "_name": "_9634ec54"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/toofytroll/Projets/chartman2/frontend-next/pages/index.vue",
+    "chunkName": "pages/index",
+    "url": "/",
+    "_name": "_1839bc6f"
+  }
+]
