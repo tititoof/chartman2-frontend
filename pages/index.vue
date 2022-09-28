@@ -4,6 +4,7 @@
     <blog-about-me />
     <blog-skill />
     <blog-infos />
+    <blog-articles />
     <blog-contact-me />
   </section>
 </template>
@@ -18,10 +19,11 @@ import BlogAboutMe from '~/components/Blog/AboutMe.vue'
 import BlogSkill from '~/components/Blog/Skill.vue'
 import BlogInfos from '~/components/Blog/Infos.vue'
 import BlogContactMe from '~/components/Blog/ContactMe.vue'
+import BlogArticles from '~/components/Blog/Articles.vue'
 
 @Component({
   components: {
-    Presentation, Skills, BlogInformation, BlogHero, BlogAboutMe, BlogSkill, BlogInfos, BlogContactMe
+    Presentation, Skills, BlogInformation, BlogHero, BlogAboutMe, BlogSkill, BlogInfos, BlogContactMe, BlogArticles
   }
 })
 export default class Index extends Vue {

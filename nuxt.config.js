@@ -1,3 +1,4 @@
+/* eslint-disable import/namespace */
 import colors from 'vuetify/es5/util/colors'
 import { getRoutes } from './utils/sitemap'
 
@@ -22,17 +23,18 @@ export default {
       { hid: 'og:url', name: 'og:url', content: process.env.WEBSITE_URL },
       { hid: 'og:title', name: 'og:title', content: 'chartman2.fr' },
       { hid: 'og:site_name', name: 'og:site_name', content: 'chartman2.fr' },
-      { hid: 'og:locale', name: 'og:locale', content: 'fr' },
-      { hid: 'og:image', name: 'og:image', content: `${process.env.WEBSITE_URL}/android-chrome-512x512.png` }
+      { hid: 'og:locale', name: 'og:locale', content: 'fr_FR' },
+      { hid: 'og:image', name: 'og:image', content: `${process.env.WEBSITE_URL}/android-chrome-512x512.png` },
+      { hid: 'og:keywords', name: 'og:keywords', content: 'Ruby, NuxtJS, Jenkins, Gitea, SonarQube, OpenProject, DevOps' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '~/node_modules/highlight.js/styles/tomorrow-night-eighties.css'
-  ],
+  // css: [
+  //   '~/node_modules/highlight.js/styles/tomorrow-night-eighties.css'
+  // ],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/axios.js',
@@ -65,18 +67,9 @@ export default {
     // 'nuxt-vuex-localstorage'
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
-    ['nuxt-mail', {
-      message: {
-        to: 'chartmann.35@gmail.com'
-      },
-      smtp: {
-        host: 'in-v3.mailjet.com',
-        port: 587,
-        auth: {
-          api_key: '4f8792429085ede7640ae6c98cc166fe',
-          secret_key: 'fc53faae15c8220746cbd0ae54728928'
-        }
-      }
+    ['nuxt-highlightjs', {
+      style: 'obsidian',
+      ssr: false
     }]
   ],
 
