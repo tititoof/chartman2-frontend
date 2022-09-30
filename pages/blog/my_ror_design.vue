@@ -1,5 +1,12 @@
 <template>
   <v-main>
+    <div class="d-flex text-h1 justify-center">
+      Design pattern
+    </div>
+    <div class="d-flex text-subtitle-1 justify-center pt-2">
+      Créé le 30 Septembre 2022
+    </div>
+
     <introduction />
 
     <rordesign />
@@ -46,5 +53,9 @@ import Conclusion from '~/components/Blog/RorDesign/conclusion.vue'
     }
   }
 })
-export default class myRorDesign extends Vue {}
+export default class myRorDesign extends Vue {
+  mounted () {
+    window.scrollTo(0, 0)
+  }
+}
 </script>
