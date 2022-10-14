@@ -81,7 +81,7 @@ export default {
         },
         csp: {
           directives: {
-            defaultSrc: ["https://chartman2.fr https://cdn.jsdelivr.net https://fonts.googleapis.com https://images.unsplash.com 'unsafe-inline'"],
+            defaultSrc: ['https://chartman2.fr https://chartman2.fr/_nuxt https://cdn.jsdelivr.net https://fonts.googleapis.com https://images.unsplash.com'],
             scriptSrc: ["'unsafe-inline'"],
             objectSrc: ["'unsafe-inline'"]
           },
