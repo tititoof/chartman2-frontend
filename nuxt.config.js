@@ -79,15 +79,14 @@ export default {
           includeSubDomains: true,
           preload: true
         },
-        csp: {
-          directives: {
-            defaultSrc: ["'unsafe-inline'"],
-            scriptSrc: ["'unsafe-inline'"],
-            objectSrc: ["'unsafe-inline'"],
-            fontSrc: ["'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap'"]
-          },
-          reportOnly: false
-        },
+        // csp: {
+        //   directives: {
+        //     defaultSrc: ["'unsafe-inline'"],
+        //     scriptSrc: ["'unsafe-inline'"],
+        //     objectSrc: ["'unsafe-inline'"]
+        //   },
+        //   reportOnly: false
+        // },
         additionalHeaders: true
       }
     ]
