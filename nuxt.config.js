@@ -81,9 +81,9 @@ export default {
         },
         csp: {
           directives: {
-            defaultSrc: ["'https://chartman2.fr/'"],
-            scriptSrc: ["'https://chartman2.fr/'"],
-            objectSrc: ["'https://chartman2.fr/'"]
+            defaultSrc: ["'unsafe-inlin'"],
+            scriptSrc: ["'unsafe-inlin'"],
+            objectSrc: ["'unsafe-inlin'"]
           },
           reportOnly: false
         },
