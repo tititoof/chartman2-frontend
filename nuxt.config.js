@@ -70,7 +70,26 @@ export default {
     ['nuxt-highlightjs', {
       style: 'obsidian',
       ssr: false
-    }]
+    }],
+    [
+      '@dansmaculotte/nuxt-security',
+      {
+        hsts: {
+          maxAge: 15552000,
+          includeSubDomains: true,
+          preload: true
+        },
+        csp: {
+          directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'"],
+            objectSrc: ["'self'"]
+          },
+          reportOnly: false
+        },
+        additionalHeaders: true
+      }
+    ]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
