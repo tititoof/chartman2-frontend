@@ -81,9 +81,9 @@ export default {
         },
         csp: {
           directives: {
-            defaultSrc: ["'unsafe-inlin'"],
-            scriptSrc: ["'unsafe-inlin'"],
-            objectSrc: ["'unsafe-inlin'"]
+            defaultSrc: ["'unsafe-inline'"],
+            scriptSrc: ["'unsafe-inline'"],
+            objectSrc: ["'unsafe-inline'"]
           },
           reportOnly: false
         },
