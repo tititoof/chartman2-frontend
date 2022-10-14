@@ -81,9 +81,9 @@ export default {
         },
         csp: {
           directives: {
-            defaultSrc: ["'self'"],
-            scriptSrc: ["'self'"],
-            objectSrc: ["'self'"]
+            defaultSrc: ["'https://chartman2.fr/'"],
+            scriptSrc: ["'https://chartman2.fr/'"],
+            objectSrc: ["'https://chartman2.fr/'"]
           },
           reportOnly: false
         },
