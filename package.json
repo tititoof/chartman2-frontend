@@ -47,7 +47,7 @@
     "@vue/test-utils": "^2.0.0-rc.17",
     "babel-core": "^6.26.3",
     "babel-jest": "^27.5.1",
-    "cypress": "^9.5.1",
+    "cypress": "^10.0.0",
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.3.0",
     "flush-promises": "^1.0.2",
