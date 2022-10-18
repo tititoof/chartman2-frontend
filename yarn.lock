@@ -9058,10 +9058,10 @@ markdown-it-texmath@^0.8.0:
   resolved "https://registry.yarnpkg.com/markdown-it-texmath/-/markdown-it-texmath-0.8.0.tgz#2ef92db15227d151f9397ad0f36b4a5b0a6164df"
   integrity sha512-/59D3rW/IG+tBoZv0Fuqg4XKhqGKYG+4us9JJ+9ZrERaN1XBMpU3U0wyOhynsJulKpGrZ0xa3+f9p35leuFc8w==
 
-markdown-it-texmath@^0.9.7:
-  version "0.9.7"
-  resolved "https://registry.yarnpkg.com/markdown-it-texmath/-/markdown-it-texmath-0.9.7.tgz#4d1256def5f49ac09c48e4a79d715a1bba5025c9"
-  integrity sha512-2oZ7WO+xQCvQpfCwxUsCzDpz5jRjiY+FbSJSVz+66+Z9NoPR7ljzUNaOp1CDHYj0JWx+drQLxO0XUjuSsuqc0A==
+markdown-it-texmath@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-texmath/-/markdown-it-texmath-1.0.0.tgz#65703b235d07a8f96bc58cbf9d478af57154e5f0"
+  integrity sha512-4hhkiX8/gus+6e53PLCUmUrsa6ZWGgJW2XCW6O0ASvZUiezIK900ZicinTDtG3kAO2kon7oUA/ReWmpW2FByxg==
 
 markdown-it@^12.0.4:
   version "12.3.2"
