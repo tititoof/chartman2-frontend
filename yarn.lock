@@ -1196,10 +1196,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dansmaculotte/nuxt-security@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@dansmaculotte/nuxt-security/-/nuxt-security-0.0.5.tgz#a4ac4fdf37821382685a6399e17509a00cb0e4aa"
-  integrity sha512-OZqLGjNwQYLPE1PTXBdJGO9mI5nTMNz0SWhwkj+3gurIq+VKtJSm87jrxKgODQHura2UMG/OrvTo57ReVsjxNA==
+"@dansmaculotte/nuxt-security@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@dansmaculotte/nuxt-security/-/nuxt-security-0.0.6.tgz#bc2e740161842393bbb5660c92ea07263103777a"
+  integrity sha512-PPCft0iBOGpd8FGHY5kv/0wwXRLk0iXwpB110rNYGc0TWYbjXMdp4zDY3LTGYkav8Dvy+zOYhjKMqNnlgSzQyQ==
   dependencies:
     consola "^2.15.0"
     feature-policy "0.6.0"
