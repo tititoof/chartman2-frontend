@@ -27,7 +27,7 @@
     "markdown-it-code-copy": "^0.1.1",
     "markdown-it-div": "^1.1.0",
     "markdown-it-highlightjs": "^3.6.0",
-    "markdown-it-texmath": "^0.9.7",
+    "markdown-it-texmath": "^1.0.0",
     "nuxt": "^2.15.8",
     "nuxt-highlightjs": "^1.0.3",
     "nuxt-property-decorator": "^2.9.1",
