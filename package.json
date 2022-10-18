@@ -57,6 +57,6 @@
     "prettier": "^2.5.1",
     "ts-jest": "^29.0.0",
     "vue-jest": "^3.0.7",
-    "yarn-upgrade-all": "^0.6.1"
+    "yarn-upgrade-all": "^0.7.0"
   }
 }
