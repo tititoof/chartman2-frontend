@@ -14,7 +14,7 @@
     "cypress:open": "cypress open"
   },
   "dependencies": {
-    "@dansmaculotte/nuxt-security": "^0.0.5",
+    "@dansmaculotte/nuxt-security": "^0.0.6",
     "@nuxtjs/auth-next": "^5.0.0-1643791578.532b3d6",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/dayjs": "^1.4.1",
@@ -26,8 +26,8 @@
     "markdown-it-attrs": "^4.1.3",
     "markdown-it-code-copy": "^0.1.1",
     "markdown-it-div": "^1.1.0",
-    "markdown-it-highlightjs": "^3.6.0",
-    "markdown-it-texmath": "^0.9.7",
+    "markdown-it-highlightjs": "^4.0.0",
+    "markdown-it-texmath": "^1.0.0",
     "nuxt": "^2.15.8",
     "nuxt-highlightjs": "^1.0.3",
     "nuxt-property-decorator": "^2.9.1",
@@ -37,7 +37,7 @@
     "vuetify-markdown-editor": "^3.3.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.2.1",
+    "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^16.2.1",
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
@@ -55,8 +55,8 @@
     "jest": "^27.5.1",
     "jest-sonar-reporter": "^2.0.0",
     "prettier": "^2.5.1",
-    "ts-jest": "^27.1.3",
+    "ts-jest": "^29.0.0",
     "vue-jest": "^3.0.7",
-    "yarn-upgrade-all": "^0.6.1"
+    "yarn-upgrade-all": "^0.7.0"
   }
 }
